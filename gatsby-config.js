@@ -6,5 +6,15 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-transition-link",
+    "gatsby-plugin-layout",
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./src/images/favicon.png",
+      },
+    },
+  ],
 }

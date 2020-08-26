@@ -1,5 +1,6 @@
 import React from "react"
+import Home from "../modules/home/Home"
 
-export default function Home() {
-  return <div>Hello world!</div>
-}
+export default ({ transitionStatus }) => (
+  <Home transitionStatus={transitionStatus} />
+)
