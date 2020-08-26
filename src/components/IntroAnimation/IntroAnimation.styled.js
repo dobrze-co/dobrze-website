@@ -35,6 +35,12 @@ export const Content = styled.div`
     css`
       opacity: 0;
     `}
+    
+  ${({ isAnimationFinished }) =>
+    isAnimationFinished &&
+    css`
+      z-index: -1;
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 30px;
