@@ -7,7 +7,7 @@ export default ({ transitionStatus }) => {
   return (
     <PageAnimation transitionStatus={transitionStatus}>
       <IntroAnimation content="JAK PROJEKTUJEMY ZMIANĘ?">
-        <S.Container>katalog zmian</S.Container>
+        <S.Container>TBD</S.Container>
       </IntroAnimation>
     </PageAnimation>
   )

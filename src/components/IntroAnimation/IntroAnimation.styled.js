@@ -17,7 +17,7 @@ export const Content = styled.div`
   height: 100%;
   width: 100%;
   background-color: ${Colors.Secondary};
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,4 +67,7 @@ export const Content = styled.div`
   }
 `
 
-export const Children = styled.div``
+export const Children = styled.div`
+  position: relative;
+  z-index: 1;
+`

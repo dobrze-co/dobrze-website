@@ -13,7 +13,21 @@ export default ({ transitionStatus }) => {
   return (
     <PageAnimation transitionStatus={transitionStatus}>
       <IntroAnimation content={renderIntroContent()}>
-        <S.Container>nasz misja</S.Container>
+        <S.Container>
+          <S.Content>
+            <S.ContentText>
+              We transform brands, grow businesses tell stories that deepen
+              engagement
+            </S.ContentText>
+            <S.ContentBackground />
+          </S.Content>
+
+          <S.Footer>PR &#8226; BRANDING &#8226; MARKETING</S.Footer>
+
+          <S.ArrowContainer>
+            <S.Arrow />
+          </S.ArrowContainer>
+        </S.Container>
       </IntroAnimation>
     </PageAnimation>
   )
