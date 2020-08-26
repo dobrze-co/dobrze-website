@@ -31,11 +31,11 @@ export const Container = styled.div`
 
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 
-  ${mediaQueries.tablet} {
+  ${mediaQueries.mobileLandscape} {
     align-items: center;
   }
 
-  ${mediaQueries.mobileLandscape} {
+  ${mediaQueries.laptop} {
     align-items: center;
   }
 
@@ -54,26 +54,42 @@ export const Content = styled.div`
 export const MenuItems = styled.div`
   margin: 18vh 38px 9vh;
 
-  ${mediaQueries.tablet} {
-    margin: 0 10vw;
-  }
-
   ${mediaQueries.mobileLandscape} {
     margin: 0 38px;
+  }
+
+  ${mediaQueries.tablet} {
+    margin: 18vh 8vw 9vh;
+  }
+
+  ${mediaQueries.laptop} {
+    margin: 0 8vw;
   }
 `
 
 export const MenuItem = styled.div`
-  font-size: 25px;
-  line-height: 50px;
-  letter-spacing: 6px;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 5px;
   font-family: "Times New Roman";
   text-transform: uppercase;
   color: ${Colors.Primary};
 
+  ${mediaQueries.mobileM} {
+    font-size: 25px;
+    line-height: 50px;
+    letter-spacing: 6px;
+  }
+
   ${mediaQueries.tablet} {
-    font-size: 2.6vw;
-    line-height: 5.2vw;
+    font-size: 40px;
+    line-height: 80px;
+    letter-spacing: 10px;
+  }
+
+  ${mediaQueries.laptopM} {
+    font-size: 50px;
+    line-height: 100px;
     letter-spacing: 12px;
   }
 
@@ -91,6 +107,10 @@ export const Image = styled.img`
   height: 34vh;
 
   ${mediaQueries.tablet} {
+    left: 8vw;
+  }
+
+  ${mediaQueries.laptop} {
     top: 0;
     right: 0;
     bottom: auto;

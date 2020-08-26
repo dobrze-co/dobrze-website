@@ -11,6 +11,11 @@ export const Container = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background-color: ${Colors.White};
+
+  ${mediaQueries.mobileLandscape} {
+    display: block;
+  }
 
   ${mediaQueries.tablet} {
     display: block;
@@ -27,6 +32,15 @@ export const Title = styled.div`
   justify-content: center;
   align-items: center;
   user-select: none;
+
+  ${mediaQueries.mobileLandscape} {
+    position: absolute;
+    z-index: 2;
+    font-size: 25vw;
+    line-height: 570px;
+    width: 100%;
+    height: 100%;
+  }
 
   ${mediaQueries.tablet} {
     position: absolute;
@@ -45,6 +59,12 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: flex-end;
 
+  ${mediaQueries.mobileLandscape} {
+    display: block;
+    height: auto;
+    width: auto;
+  }
+
   ${mediaQueries.tablet} {
     display: block;
     height: auto;
@@ -56,6 +76,17 @@ export const Slider = styled.div`
   height: 55%;
   width: 100%;
   position: relative;
+
+  ${mediaQueries.mobileLandscape} {
+    height: auto;
+    width: auto;
+    position: absolute;
+    z-index: 1;
+    left: 22%;
+    right: 22%;
+    top: 14%;
+    bottom: 14%;
+  }
 
   ${mediaQueries.tablet} {
     height: auto;
@@ -98,6 +129,19 @@ export const Footer = styled.div`
   letter-spacing: 3.6px;
   padding-left: 3.6px;
   margin-bottom: 30px;
+
+  ${mediaQueries.mobileLandscape} {
+    position: absolute;
+    z-index: 1;
+    left: 22%;
+    right: 22%;
+    height: 14%;
+    bottom: 0;
+    font-size: 2.75vw;
+    letter-spacing: 0.7vw;
+    padding-left: 0.7vw;
+    margin-bottom: 0;
+  }
 
   ${mediaQueries.tablet} {
     position: absolute;
