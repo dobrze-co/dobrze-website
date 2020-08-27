@@ -17,11 +17,11 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    padding: 160px 100px 140px;
+    padding: 160px 100px 130px;
   }
 
   ${mediaQueries.desktop} {
-    padding: 214px 115px 140px;
+    padding: 214px 115px 130px;
   }
 `
 
@@ -37,21 +37,21 @@ export const Header = styled.h1`
     font-size: 25px;
     line-height: 28px;
     letter-spacing: 6px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   ${mediaQueries.tablet} {
     font-size: 52px;
     line-height: 60px;
     letter-spacing: 12px;
-    margin-bottom: 55px;
+    margin-bottom: 35px;
   }
 
   ${mediaQueries.laptopM} {
     font-size: 80px;
     line-height: 92px;
     letter-spacing: 24px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
   }
 
   ${mediaQueries.desktop} {
@@ -138,21 +138,19 @@ export const Submit = styled.button`
     font-size: 22px;
     line-height: 28px;
     letter-spacing: 4.5px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   ${mediaQueries.laptopM} {
     font-size: 28px;
     line-height: 32px;
     letter-spacing: 6px;
-    margin-bottom: 50px;
   }
 
   ${mediaQueries.desktop} {
     font-size: 31px;
     line-height: 36px;
     letter-spacing: 7.5px;
-    margin-bottom: 60px;
   }
 `
 
@@ -169,7 +167,7 @@ export const FooterDesktopHeader = styled.div`
     font-size: 32px;
     line-height: 38px;
     letter-spacing: 8px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     display: block;
   }
 
@@ -177,14 +175,14 @@ export const FooterDesktopHeader = styled.div`
     font-size: 48px;
     line-height: 60px;
     letter-spacing: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   ${mediaQueries.desktop} {
     font-size: 60px;
     line-height: 70px;
     letter-spacing: 14.4px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 `
 
@@ -219,35 +217,35 @@ export const FooterItem = styled.div`
   }
 
   ${mediaQueries.tablet} {
-    font-size: 26px;
-    line-height: 30px;
+    font-size: 22px;
+    line-height: 24px;
 
     ${({ withDesktopSpacing }) =>
       withDesktopSpacing &&
       css`
-        margin-bottom: 35px;
+        margin-bottom: 25px;
       `}
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 32px;
-    line-height: 38px;
+    font-size: 28px;
+    line-height: 32px;
+
+    ${({ withDesktopSpacing }) =>
+      withDesktopSpacing &&
+      css`
+        margin-bottom: 30px;
+      `}
+  }
+
+  ${mediaQueries.desktop} {
+    font-size: 30px;
+    line-height: 36px;
 
     ${({ withDesktopSpacing }) =>
       withDesktopSpacing &&
       css`
         margin-bottom: 40px;
-      `}
-  }
-
-  ${mediaQueries.desktop} {
-    font-size: 35px;
-    line-height: 42px;
-
-    ${({ withDesktopSpacing }) =>
-      withDesktopSpacing &&
-      css`
-        margin-bottom: 50px;
       `}
   }
 `
