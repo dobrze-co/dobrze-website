@@ -145,49 +145,20 @@ export const ContentBackground = styled.div`
 `
 
 export const Footer = styled.div`
-  text-align: center;
-  color: ${Colors.Primary};
-  font-size: 12px;
-  line-height: 28px;
-  letter-spacing: 2.5px;
-  font-family: "Times New Roman";
+  margin: 0 -10px;
   padding: 15px 0;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  ${mediaQueries.mobileM} {
-    font-size: 15px;
-    line-height: 31px;
-    letter-spacing: 3.2px;
-  }
-
-  ${mediaQueries.tablet} {
-    font-size: 28px;
-    line-height: 80px;
-    letter-spacing: 8px;
-  }
-
   ${mediaQueries.laptopM} {
-    font-size: 40px;
-    line-height: 80px;
-    letter-spacing: 10px;
     padding: 30px 0;
-  }
-
-  ${mediaQueries.desktop} {
-    font-size: 50px;
-    line-height: 100px;
-    letter-spacing: 12px;
   }
 `
 
 export const ArrowContainer = styled.div`
-  cursor: pointer;
   position: absolute;
-  width: 30px;
-  height: 30px;
   bottom: 15px;
   left: 50%;
   margin-left: -15px;
@@ -197,41 +168,16 @@ export const ArrowContainer = styled.div`
   }
 
   ${mediaQueries.tablet} {
-    width: 60px;
-    height: 60px;
     margin-left: -30px;
     bottom: 40px;
   }
 
   ${mediaQueries.laptopM} {
-    width: 60px;
-    height: 60px;
     margin-left: -30px;
     bottom: 40px;
   }
 
   ${mediaQueries.desktop} {
     bottom: 60px;
-  }
-`
-
-export const Arrow = styled.div`
-  position: absolute;
-  top: 0;
-  left: 5px;
-  width: 20px;
-  height: 20px;
-  padding: 5px;
-  border-bottom: 2px solid ${Colors.Primary};
-  border-right: 2px solid ${Colors.Primary};
-  transform: rotate(45deg);
-
-  ${mediaQueries.tablet} {
-    left: 10px;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    border-bottom: 3px solid ${Colors.Primary};
-    border-right: 3px solid ${Colors.Primary};
   }
 `

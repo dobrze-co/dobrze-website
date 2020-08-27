@@ -1,6 +1,6 @@
 import React from "react"
 import Contact from "../modules/contact/Contact"
 
-export default ({ transitionStatus }) => {
-  return <Contact transitionStatus={transitionStatus} />
-}
+export default ({ transitionStatus, exit, entry }) => (
+  <Contact transitionStatus={transitionStatus} exit={exit} entry={entry} />
+)

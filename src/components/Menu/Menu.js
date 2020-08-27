@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import * as S from "./Menu.styled"
-import { Link } from "gatsby"
+import TransitionLink from "gatsby-plugin-transition-link"
 import heroImage1 from "../../images/hero_1.png"
 
 export default ({
@@ -27,24 +27,44 @@ export default ({
       <S.Content>
         <S.MenuItems>
           <S.MenuItem>
-            <Link to="/aboutUs" onClick={onLinkClick}>
+            <TransitionLink
+              to="/aboutUs"
+              onClick={onLinkClick}
+              exit={{ length: 0 }}
+              entry={{ length: 0 }}
+            >
               O nas
-            </Link>
+            </TransitionLink>
           </S.MenuItem>
           <S.MenuItem>
-            <Link to="/mission" onClick={onLinkClick}>
+            <TransitionLink
+              to="/mission"
+              onClick={onLinkClick}
+              exit={{ length: 0 }}
+              entry={{ length: 0 }}
+            >
               Co robimy
-            </Link>
+            </TransitionLink>
           </S.MenuItem>
           <S.MenuItem>
-            <Link to="/portfolio" onClick={onLinkClick}>
+            <TransitionLink
+              to="/portfolio"
+              onClick={onLinkClick}
+              exit={{ length: 0 }}
+              entry={{ length: 0 }}
+            >
               katalog zmian
-            </Link>
+            </TransitionLink>
           </S.MenuItem>
           <S.MenuItem>
-            <Link to="/contact" onClick={onLinkClick}>
+            <TransitionLink
+              to="/contact"
+              onClick={onLinkClick}
+              exit={{ length: 0 }}
+              entry={{ length: 0 }}
+            >
               kontakt
-            </Link>
+            </TransitionLink>
           </S.MenuItem>
         </S.MenuItems>
 

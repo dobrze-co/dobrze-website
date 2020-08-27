@@ -21,11 +21,33 @@ export const Container = styled.div`
   }
 `
 
+export const Background = styled.div`
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  background: ${Colors.White};
+  display: none;
+
+  ${mediaQueries.tablet} {
+    height: 160px;
+  }
+
+  ${({ active }) =>
+    active &&
+    css`
+      display: block;
+    `}
+`
+
 export const HomepageButton = styled.div`
   font-size: 23px;
   line-height: 27px;
   font-family: "Futura";
-  transform: translate(0, -250%);
+  transform: translate(150%, 0);
   transition: ${Transitions.PageTransition};
 
   ${mediaQueries.tablet} {

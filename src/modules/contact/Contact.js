@@ -3,10 +3,17 @@ import * as S from "./Contact.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
 
-export default ({ transitionStatus }) => {
+export default ({ transitionStatus, exit, entry }) => {
   return (
-    <PageAnimation transitionStatus={transitionStatus}>
-      <IntroAnimation content="CZEŚĆ!">
+    <PageAnimation
+      transitionStatus={transitionStatus}
+      exit={exit}
+      entry={entry}
+    >
+      <IntroAnimation
+        content="CZEŚĆ!"
+        active={!entry.state.disableIntroAnimation}
+      >
         <S.Container>
           <S.Header>ZRÓBMY RAZEM RZECZY DOBRZE.</S.Header>
 

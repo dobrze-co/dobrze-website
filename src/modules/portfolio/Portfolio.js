@@ -3,10 +3,17 @@ import * as S from "./Portfolio.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
 
-export default ({ transitionStatus }) => {
+export default ({ transitionStatus, exit, entry }) => {
   return (
-    <PageAnimation transitionStatus={transitionStatus}>
-      <IntroAnimation content="JAK PROJEKTUJEMY ZMIANĘ?">
+    <PageAnimation
+      transitionStatus={transitionStatus}
+      exit={exit}
+      entry={entry}
+    >
+      <IntroAnimation
+        content="JAK PROJEKTUJEMY ZMIANĘ?"
+        active={!entry.state.disableIntroAnimation}
+      >
         <S.Container>TBD</S.Container>
       </IntroAnimation>
     </PageAnimation>

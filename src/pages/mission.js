@@ -1,6 +1,11 @@
 import React from "react"
 import Mission from "../modules/mission/Mission"
 
-export default ({ transitionStatus }) => {
-  return <Mission transitionStatus={transitionStatus} />
-}
+export default ({ location, transitionStatus, exit, entry }) => (
+  <Mission
+    location={location}
+    transitionStatus={transitionStatus}
+    exit={exit}
+    entry={entry}
+  />
+)

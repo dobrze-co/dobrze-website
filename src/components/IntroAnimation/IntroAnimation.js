@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react"
 import * as S from "./IntroAnimation.styled"
 import * as Transitions from "../../theme/transitions"
 
-export default ({ content, children }) => {
-  const [displayChildren, setDisplayChildren] = useState(false)
-  const [isAnimationFinished, setIsAnimationFinished] = useState(false)
+export default ({ content, active, children }) => {
+  const [displayChildren, setDisplayChildren] = useState(!active)
+  const [isAnimationFinished, setIsAnimationFinished] = useState(!active)
 
   useEffect(() => {
     const animationTimeout = setTimeout(() => {
