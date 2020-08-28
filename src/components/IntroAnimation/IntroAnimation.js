@@ -21,7 +21,7 @@ export default ({ content, active, children }) => {
   }, [])
 
   return (
-    <S.Container>
+    <S.Container active={!displayChildren}>
       <S.Content
         active={!displayChildren}
         isAnimationFinished={isAnimationFinished}

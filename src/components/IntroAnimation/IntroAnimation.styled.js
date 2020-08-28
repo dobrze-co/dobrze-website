@@ -6,8 +6,15 @@ import { mediaQueries } from "../../theme/responsive"
 export const ANIMATION_DELAY = 1500
 
 export const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
+
+  ${({ active }) =>
+    active &&
+    css`
+      height: 100vh;
+      overflow: hidden;
+    `}
 `
 
 export const Content = styled.div`

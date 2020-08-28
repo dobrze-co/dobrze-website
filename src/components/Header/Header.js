@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import * as S from "./Header.styled"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../PageAnimation/PageAnimation.styled"
@@ -17,7 +17,8 @@ export default ({
     }
   }
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
+    console.log("scrol")
     const top =
       (window.pageYOffset || document.documentElement.scrollTop) -
       (document.documentElement.clientTop || 0)
@@ -29,7 +30,7 @@ export default ({
     if (isBackgroundActive && top === 0) {
       setIsBackgroundActive(false)
     }
-  }
+  }, [isBackgroundActive])
 
   const isOnHomepage = location.pathname === "/"
 
@@ -38,7 +39,7 @@ export default ({
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [isBackgroundActive, handleScroll])
+  }, [handleScroll])
 
   const renderHomepageLink = () => {
     if (isHamburgerOpen) {

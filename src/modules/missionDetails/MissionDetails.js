@@ -3,7 +3,7 @@ import * as S from "./MissionDetails.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import Navigation from "../../components/Navigation/Navigation"
 import Arrow from "../../components/Arrow/Arrow"
-import missionsData from "../../../data/missions.json"
+import missionsData from "../../data/missions.js"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 

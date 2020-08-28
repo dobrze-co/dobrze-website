@@ -1,20 +1,19 @@
 const path = require("path")
-const missionsData = require("./data/missions.json")
 
 exports.createPages = ({ boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
-  const template = path.resolve(`src/modules/missionDetails/MissionDetails.js`)
+  const missionDetailsTemplate = path.resolve(
+    `src/modules/missionDetails/MissionDetails.js`
+  )
+  const aboutUsDetailsTemplate = path.resolve(
+    `src/modules/aboutUsDetails/aboutUsDetails.js`
+  )
 
-  missionsData.forEach(({ name, path }) => {
-    createPage({
-      path: `/mission/${path}`,
-      component: template,
+  createPage({ path: `/mission/pr`, component: missionDetailsTemplate })
+  createPage({ path: `/mission/branding`, component: missionDetailsTemplate })
+  createPage({ path: `/mission/marketing`, component: missionDetailsTemplate })
 
-      // Send additional data to page from JSON (or query inside template)
-      context: {
-        name,
-      },
-    })
-  })
+  createPage({ path: `/aboutUs/ada`, component: aboutUsDetailsTemplate })
+  createPage({ path: `/aboutUs/asia`, component: aboutUsDetailsTemplate })
 }
