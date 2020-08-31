@@ -11,8 +11,12 @@ export const Container = styled.div`
     padding: 120px 38px;
   }
 
+  ${mediaQueries.tablet} {
+    padding: 160px 38px 120px;
+  }
+
   ${mediaQueries.laptopM} {
-    padding: 120px;
+    padding: 160px 120px 120px;
   }
 
   ${mediaQueries.desktop} {
