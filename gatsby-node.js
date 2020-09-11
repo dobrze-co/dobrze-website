@@ -1,13 +1,13 @@
 const path = require("path")
 
-exports.createPages = ({ boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions
 
   const missionDetailsTemplate = path.resolve(
     `src/modules/missionDetails/MissionDetails.js`
   )
   const aboutUsDetailsTemplate = path.resolve(
-    `src/modules/aboutUsDetails/aboutUsDetails.js`
+    `src/modules/aboutUsDetails/AboutUsDetails.js`
   )
 
   createPage({ path: `/mission/pr`, component: missionDetailsTemplate })
