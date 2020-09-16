@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react"
 import * as S from "./Home.styled"
 import heroImage1 from "../../images/hero_1.png"
 import heroImage2 from "../../images/hero_2.png"
+import heroImage3 from "../../images/hero_3.png"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 
 export default ({ transitionStatus, exit, entry }) => {
-  const sliderImages = [heroImage1, heroImage2]
+  const sliderImages = [heroImage1, heroImage2, heroImage3]
   const [activeImage, setActiveImage] = useState(0)
 
   useEffect(() => {
@@ -15,7 +16,7 @@ export default ({ transitionStatus, exit, entry }) => {
       setActiveImage(activeImage =>
         activeImage === sliderImages.length - 1 ? 0 : activeImage + 1
       )
-    }, 5000)
+    }, 500)
     return () => clearInterval(interval)
   }, [sliderImages])
 
