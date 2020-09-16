@@ -16,6 +16,11 @@ export const Container = styled.div`
   align-items: center;
 
   ${mediaQueries.tablet} {
+    height: 120px;
+    padding: 30px 42px 30px 38px;
+  }
+
+  ${mediaQueries.desktop} {
     height: 160px;
     padding: 50px 42px 50px 38px;
   }
@@ -33,6 +38,10 @@ export const Background = styled.div`
   display: none;
 
   ${mediaQueries.tablet} {
+    height: 120px;
+  }
+
+  ${mediaQueries.desktop} {
     height: 160px;
   }
 
@@ -76,8 +85,8 @@ export const Hamburger = styled.div`
   cursor: pointer;
 
   ${mediaQueries.tablet} {
-    width: 55px;
-    height: 50px;
+    width: 50px;
+    height: 42px;
   }
 `
 
@@ -93,7 +102,7 @@ export const HamburgerBar = styled.span`
   transition: 0.25s ease-in-out;
 
   ${mediaQueries.tablet} {
-    height: 5px;
+    height: 3px;
   }
 
   &:nth-child(1) {
@@ -117,7 +126,7 @@ export const HamburgerBar = styled.span`
     transform-origin: left center;
 
     ${mediaQueries.tablet} {
-      top: 20px;
+      top: 18px;
     }
 
     ${({ isOpen }) =>
@@ -133,7 +142,7 @@ export const HamburgerBar = styled.span`
     transform-origin: left center;
 
     ${mediaQueries.tablet} {
-      top: 40px;
+      top: 36px;
     }
 
     ${({ isOpen }) =>
