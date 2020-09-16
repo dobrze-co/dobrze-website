@@ -29,7 +29,7 @@ export const Background = styled.div`
   width: 100%;
   height: 70px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
-  background: ${Colors.White};
+  background: ${({ color }) => color};
   display: none;
 
   ${mediaQueries.tablet} {

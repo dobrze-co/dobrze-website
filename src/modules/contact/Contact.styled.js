@@ -17,11 +17,11 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    padding: 160px 100px 130px;
+    padding: 160px 100px 80px;
   }
 
   ${mediaQueries.desktop} {
-    padding: 214px 115px 130px;
+    padding: 214px 115px 80px;
   }
 `
 

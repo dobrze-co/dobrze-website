@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react"
 import * as S from "./Header.styled"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../PageAnimation/PageAnimation.styled"
+import * as Colors from "../../theme/colors"
 
 export default ({
   isHamburgerOpen,
@@ -11,6 +12,16 @@ export default ({
 }) => {
   const [isBackgroundActive, setIsBackgroundActive] = useState(false)
 
+  const isOnHomepage = location.pathname === "/"
+  const isOnContactPage = location.pathname === "/contact"
+
+  const getHeaderBackground = () => {
+    if (isOnContactPage) {
+      return Colors.Accent
+    }
+    return Colors.White
+  }
+
   const handleHamburgerClick = () => {
     if (onHamburgerClick) {
       onHamburgerClick()
@@ -18,7 +29,6 @@ export default ({
   }
 
   const handleScroll = useCallback(() => {
-    console.log("scrol")
     const top =
       (window.pageYOffset || document.documentElement.scrollTop) -
       (document.documentElement.clientTop || 0)
@@ -31,8 +41,6 @@ export default ({
       setIsBackgroundActive(false)
     }
   }, [isBackgroundActive])
-
-  const isOnHomepage = location.pathname === "/"
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll)
@@ -68,7 +76,7 @@ export default ({
 
   return (
     <>
-      <S.Background active={isBackgroundActive} />
+      <S.Background active={isBackgroundActive} color={getHeaderBackground()} />
       <S.Container>
         <S.Hamburger onClick={handleHamburgerClick}>
           <S.HamburgerBar isOpen={isHamburgerOpen} />
