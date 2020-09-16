@@ -5,6 +5,7 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import heroImage1 from "../../images/hero_1.png"
 
 export default ({
+  location,
   animationDirection,
   isTransitionEnabled,
   isOpen,
@@ -28,6 +29,7 @@ export default ({
         <S.MenuItems>
           <S.MenuItem>
             <TransitionLink
+              className={location.pathname.match(/aboutUs/) ? "active" : ""}
               to="/aboutUs"
               onClick={onLinkClick}
               exit={{ length: 0 }}
@@ -38,6 +40,7 @@ export default ({
           </S.MenuItem>
           <S.MenuItem>
             <TransitionLink
+              className={location.pathname.match(/mission/) ? "active" : ""}
               to="/mission"
               onClick={onLinkClick}
               exit={{ length: 0 }}
@@ -48,6 +51,7 @@ export default ({
           </S.MenuItem>
           <S.MenuItem>
             <TransitionLink
+              className={location.pathname.match(/portfolio/) ? "active" : ""}
               to="/portfolio"
               onClick={onLinkClick}
               exit={{ length: 0 }}
@@ -58,6 +62,7 @@ export default ({
           </S.MenuItem>
           <S.MenuItem>
             <TransitionLink
+              className={location.pathname.match(/contact/) ? "active" : ""}
               to="/contact"
               onClick={onLinkClick}
               exit={{ length: 0 }}

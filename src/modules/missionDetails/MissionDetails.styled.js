@@ -68,6 +68,10 @@ export const MobileBackButton = styled.div`
   ${mediaQueries.laptopM} {
     display: none;
   }
+
+  a:hover {
+    text-decoration: underline;
+  }
 `
 
 export const DesktopBackButton = styled.div`

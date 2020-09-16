@@ -3,6 +3,8 @@ import * as S from "./Home.styled"
 import heroImage1 from "../../images/hero_1.png"
 import heroImage2 from "../../images/hero_2.png"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
+import TransitionLink from "gatsby-plugin-transition-link"
+import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 
 export default ({ transitionStatus, exit, entry }) => {
   const sliderImages = [heroImage1, heroImage2]
@@ -27,7 +29,46 @@ export default ({ transitionStatus, exit, entry }) => {
         <S.Content>
           <S.Title>dobrze.</S.Title>
 
-          <S.Footer>PR &#8226; BRANDING &#8226; MARKETING</S.Footer>
+          <S.Footer>
+            <TransitionLink
+              to={"/mission/pr"}
+              exit={{ length: 0.5 }}
+              entry={{
+                length: 0,
+                state: {
+                  animation: PAGE_ANIMATION.SLIDE_TOP,
+                },
+              }}
+            >
+              PR
+            </TransitionLink>
+            &#8226;
+            <TransitionLink
+              to={"/mission/branding"}
+              exit={{ length: 0.5 }}
+              entry={{
+                length: 0,
+                state: {
+                  animation: PAGE_ANIMATION.SLIDE_TOP,
+                },
+              }}
+            >
+              BRANDING
+            </TransitionLink>
+            &#8226;
+            <TransitionLink
+              to={"/mission/marketing"}
+              exit={{ length: 0.5 }}
+              entry={{
+                length: 0,
+                state: {
+                  animation: PAGE_ANIMATION.SLIDE_TOP,
+                },
+              }}
+            >
+              MARKETING
+            </TransitionLink>
+          </S.Footer>
         </S.Content>
 
         <S.Slider>

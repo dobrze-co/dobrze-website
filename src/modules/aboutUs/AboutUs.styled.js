@@ -143,6 +143,10 @@ export const Navigation = styled.div`
     text-decoration: none;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   ${mediaQueries.tablet} {
     flex: 1;
   }
@@ -185,21 +189,18 @@ export const NavigationSeparator = styled.div`
     font-size: 50px;
     line-height: 58px;
     letter-spacing: 12px;
-    padding-left: 12px;
   }
 
   ${mediaQueries.laptopM} {
     font-size: 70px;
     line-height: 80px;
     letter-spacing: 17px;
-    padding-left: 17px;
   }
 
   ${mediaQueries.desktop} {
     font-size: 100px;
     line-height: 115px;
     letter-spacing: 24px;
-    padding-left: 24px;
   }
 `
 

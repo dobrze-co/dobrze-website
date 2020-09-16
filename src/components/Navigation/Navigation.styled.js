@@ -43,6 +43,10 @@ export const Container = styled.div`
     color: ${Colors.Primary};
     text-decoration: none;
   }
+
+  a:hover:not(.active) {
+    text-decoration: underline;
+  }
 `
 
 export const Item = styled.div`

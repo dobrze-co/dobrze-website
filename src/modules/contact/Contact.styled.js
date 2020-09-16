@@ -72,7 +72,6 @@ export const Input = styled.input`
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 5px;
-  font-style: italic;
   font-family: "Times New Roman";
   width: 100%;
 
@@ -133,6 +132,11 @@ export const Submit = styled.button`
   line-height: 30px;
   letter-spacing: 3.6px;
   margin-bottom: 20px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   ${mediaQueries.tablet} {
     font-size: 22px;
@@ -253,4 +257,8 @@ export const FooterItem = styled.div`
 export const FooterLink = styled.a`
   color: ${Colors.Primary};
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `

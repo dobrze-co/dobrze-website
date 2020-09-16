@@ -130,9 +130,18 @@ export const Footer = styled.div`
   padding-left: 3.6px;
   margin-bottom: 30px;
 
+  a {
+    color: ${Colors.Primary};
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
   ${mediaQueries.mobileLandscape} {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     left: 22%;
     right: 22%;
     height: 14%;
@@ -145,7 +154,7 @@ export const Footer = styled.div`
 
   ${mediaQueries.tablet} {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     left: 22%;
     right: 22%;
     height: 14%;

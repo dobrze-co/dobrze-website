@@ -97,6 +97,14 @@ export const MenuItem = styled.div`
     color: ${Colors.Primary};
     text-decoration: none;
   }
+
+  a.active {
+    color: ${Colors.Secondary};
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 `
 
 export const Image = styled.img`

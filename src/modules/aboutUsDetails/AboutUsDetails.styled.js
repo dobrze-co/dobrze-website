@@ -46,6 +46,10 @@ export const MobileBackButton = styled.div`
     }
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   ${mediaQueries.laptopM} {
     display: none;
   }
@@ -271,4 +275,5 @@ export const Feature = styled.div``
 
 export const Separator = styled.div`
   padding-left: 6px;
+  padding-right: 6px;
 `

@@ -47,6 +47,7 @@ export default ({ children, location }) => {
         onHomepageClick={handleLinkClick}
       />
       <Menu
+        location={location}
         animationDirection={meuAnimationDirection}
         isTransitionEnabled={isMenuTransitionEnabled}
         isOpen={isMenuOpen}

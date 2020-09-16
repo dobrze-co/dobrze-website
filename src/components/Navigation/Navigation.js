@@ -12,6 +12,7 @@ export default ({ location, items, exitTransition, entryTransition }) => {
               to={item.path}
               exit={exitTransition}
               entry={entryTransition}
+              className={location.pathname === item.path ? "active" : ""}
             >
               <S.Item active={location.pathname === item.path}>
                 {item.label}
