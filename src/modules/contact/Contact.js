@@ -15,7 +15,9 @@ export default ({ transitionStatus, exit, entry }) => {
         active={!entry.state.disableIntroAnimation}
       >
         <S.Container>
-          <S.Header>ZRÓBMY RAZEM RZECZY DOBRZE.</S.Header>
+          <S.Header>
+            ZRÓBMY RAZEM RZECZY <S.HeaderLogo>dobrze.</S.HeaderLogo>
+          </S.Header>
 
           <S.Input placeholder="WPISZ SWÓJ EMAIL" />
 

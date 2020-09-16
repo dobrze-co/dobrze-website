@@ -61,6 +61,28 @@ export const Header = styled.h1`
   }
 `
 
+export const HeaderLogo = styled.span`
+  font-family: "Futura";
+  letter-spacing: 0;
+  font-size: 24px;
+
+  ${mediaQueries.mobileM} {
+    font-size: 30px;
+  }
+
+  ${mediaQueries.tablet} {
+    font-size: 65px;
+  }
+
+  ${mediaQueries.laptopM} {
+    font-size: 95px;
+  }
+
+  ${mediaQueries.desktop} {
+    font-size: 120px;
+  }
+`
+
 export const Input = styled.input`
   background: transparent;
   border: 0;
