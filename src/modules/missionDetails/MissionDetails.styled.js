@@ -181,10 +181,9 @@ export const Paragraphs = styled.div`
 `
 
 export const Paragraph = styled.div`
-  font-family: "Times New Roman";
-  font-size: 15px;
-  line-height: 18px;
-  letter-spacing: 1.5px;
+  font-family: "Lato";
+  font-size: 12px;
+  line-height: 26px;
   color: ${Colors.Accent};
   margin-bottom: 30px;
 
@@ -211,14 +210,17 @@ export const Paragraph = styled.div`
   }
 
   ${mediaQueries.mobileM} {
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 2px;
+    font-size: 15px;
+    line-height: 30px;
   }
 
-  ${mediaQueries.tablet} {
+  ${mediaQueries.laptopM} {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  ${mediaQueries.desktop} {
     font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 3px;
+    line-height: 35px;
   }
 `

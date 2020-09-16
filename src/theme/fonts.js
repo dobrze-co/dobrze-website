@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 import FuturaBook from "../fonts/Futura/FuturaTOT-Book.otf"
-import Lato from "../fonts/Lato/Lato-Hairline.ttf"
+import Lato from "../fonts/Lato/Lato-Regular.ttf"
 
 export const FontFutura = createGlobalStyle`
   @font-face {

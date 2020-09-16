@@ -176,7 +176,7 @@ export const SectionImage = styled.img`
 export const SectionText = styled.div`
   position: relative;
   z-index: 2;
-  font-family: "Arial";
+  font-family: "Lato";
   font-size: 12px;
   line-height: 26px;
   color: ${Colors.Primary};

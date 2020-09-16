@@ -105,13 +105,12 @@ export const ContentBackground = styled.div`
   ${mediaQueries.laptopM} {
     bottom: 0;
     height: auto;
-    top: -120px;
+    top: -160px;
     left: 10vw;
     right: 5vw;
   }
 
   ${mediaQueries.desktop} {
-    top: -160px;
     right: 10vw;
   }
 `
@@ -215,7 +214,7 @@ export const ContentPhoto = styled.div`
 export const ContentText = styled.div`
   position: relative;
   z-index: 2;
-  font-family: "Arial";
+  font-family: "Lato";
   font-size: 12px;
   line-height: 26px;
   color: ${Colors.Primary};

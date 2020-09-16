@@ -211,6 +211,7 @@ export const FooterMobileHeader = styled.div`
 `
 
 export const FooterItem = styled.div`
+  font-family: "Lato";
   font-size: 18px;
   line-height: 22px;
   letter-spacing: 0;

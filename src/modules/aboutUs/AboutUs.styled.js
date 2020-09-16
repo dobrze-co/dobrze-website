@@ -98,7 +98,7 @@ export const ContentText = styled.div`
   position: relative;
   z-index: 2;
   padding: 12px 20px;
-  font-family: "Arial";
+  font-family: "Lato";
   font-size: 12px;
   line-height: 26px;
   color: ${Colors.Primary};
