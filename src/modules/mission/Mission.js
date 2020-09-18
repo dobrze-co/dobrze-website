@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import * as S from "./Mission.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
@@ -7,6 +7,7 @@ import missionsData from "../../data/missions.js"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import Arrow from "../../components/Arrow/Arrow"
 import Navigation from "../../components/Navigation/Navigation"
+import { IsInitializedContext } from "../../context"
 
 const navigationItems = missionsData.map(({ path, name }) => ({
   path: `/mission/${path}`,
@@ -14,6 +15,8 @@ const navigationItems = missionsData.map(({ path, name }) => ({
 }))
 
 export default ({ location, transitionStatus, exit, entry }) => {
+  const isInitialized = useContext(IsInitializedContext)
+
   const renderIntroContent = () => (
     <S.IntroContent>
       CZYM JEST <br /> <S.IntroLogo>dobrze.</S.IntroLogo>
@@ -28,6 +31,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
     >
       <IntroAnimation
         content={renderIntroContent()}
+        started={isInitialized}
         active={!entry.state.disableIntroAnimation}
       >
         <S.Container>

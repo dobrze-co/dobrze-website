@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import * as S from "./Contact.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
+import { IsInitializedContext } from "../../context"
 
 export default ({ transitionStatus, exit, entry }) => {
+  const isInitialized = useContext(IsInitializedContext)
+
   return (
     <PageAnimation
       transitionStatus={transitionStatus}
@@ -12,6 +15,7 @@ export default ({ transitionStatus, exit, entry }) => {
     >
       <IntroAnimation
         content="CZEŚĆ!"
+        started={isInitialized}
         active={!entry.state.disableIntroAnimation}
       >
         <S.Container>

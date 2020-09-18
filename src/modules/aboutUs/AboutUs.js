@@ -1,13 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
 import * as S from "./AboutUs.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
 import aboutUsData from "../../data/aboutUs"
+import { IsInitializedContext } from "../../context"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import heroImage1 from "../../images/hero_1.png"
 
 export default ({ transitionStatus, exit, entry }) => {
+  const isInitialized = useContext(IsInitializedContext)
+
   return (
     <PageAnimation
       transitionStatus={transitionStatus}
@@ -16,6 +19,7 @@ export default ({ transitionStatus, exit, entry }) => {
     >
       <IntroAnimation
         content="POZNAJ NAS"
+        started={isInitialized}
         active={!entry.state.disableIntroAnimation}
       >
         <S.Container>

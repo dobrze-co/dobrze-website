@@ -3,13 +3,16 @@ import * as S from "./Home.styled"
 import heroImage1 from "../../images/hero_1.png"
 import heroImage2 from "../../images/hero_2.png"
 import heroImage3 from "../../images/hero_3.png"
+import { preloadImages } from "../../utils"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 
+const sliderImages = [heroImage1, heroImage2, heroImage3]
+
 export default ({ transitionStatus, exit, entry }) => {
-  const sliderImages = [heroImage1, heroImage2, heroImage3]
   const [activeImage, setActiveImage] = useState(0)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,6 +22,12 @@ export default ({ transitionStatus, exit, entry }) => {
     }, 500)
     return () => clearInterval(interval)
   }, [sliderImages])
+
+  useEffect(() => {
+    preloadImages(sliderImages).then(() => {
+      setImagesLoaded(true)
+    })
+  }, [])
 
   return (
     <PageAnimation
@@ -73,9 +82,15 @@ export default ({ transitionStatus, exit, entry }) => {
         </S.Content>
 
         <S.Slider>
-          {sliderImages.map((image, index) => (
-            <S.Image key={image} active={index === activeImage} image={image} />
-          ))}
+          {!imagesLoaded && <S.ImagePlaceholder />}
+          {imagesLoaded &&
+            sliderImages.map((image, index) => (
+              <S.Image
+                key={image}
+                active={index === activeImage}
+                image={image}
+              />
+            ))}
         </S.Slider>
       </S.Container>
     </PageAnimation>

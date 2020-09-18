@@ -1,12 +1,15 @@
-import React from "react"
+import React, { useContext } from "react"
 import * as S from "./Portfolio.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
 import portfolioImage1 from "../../images/portfolio_1.png"
 import portfolioImage2 from "../../images/portfolio_2.png"
 import portfolioImage3 from "../../images/portfolio_3.png"
+import { IsInitializedContext } from "../../context"
 
 export default ({ transitionStatus, exit, entry }) => {
+  const isInitialized = useContext(IsInitializedContext)
+
   return (
     <PageAnimation
       transitionStatus={transitionStatus}
@@ -15,6 +18,7 @@ export default ({ transitionStatus, exit, entry }) => {
     >
       <IntroAnimation
         content="JAK PROJEKTUJEMY ZMIANĘ?"
+        started={isInitialized}
         active={!entry.state.disableIntroAnimation}
       >
         <S.Container>

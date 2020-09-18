@@ -100,6 +100,15 @@ export const Slider = styled.div`
   }
 `
 
+export const ImagePlaceholder = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${Colors.Secondary};
+`
+
 export const Image = styled.div`
   position: absolute;
   left: 0;
