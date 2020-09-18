@@ -56,8 +56,6 @@ export const HomepageButton = styled.div`
   font-size: 23px;
   line-height: 27px;
   font-family: "Futura";
-  transform: translate(150%, 0);
-  transition: ${Transitions.PageTransition};
 
   ${mediaQueries.tablet} {
     font-size: 32px;
@@ -70,9 +68,9 @@ export const HomepageButton = styled.div`
   }
 
   ${({ active }) =>
-    active &&
+    !active &&
     css`
-      transform: translate(0, 0);
+      pointer-events: none;
     `}
 `
 

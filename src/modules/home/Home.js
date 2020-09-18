@@ -1,27 +1,59 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import * as S from "./Home.styled"
 import heroImage1 from "../../images/hero_1.png"
 import heroImage2 from "../../images/hero_2.png"
 import heroImage3 from "../../images/hero_3.png"
 import { preloadImages } from "../../utils"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
+import LogoAnimation from "../../components/LogoAnimation/LogoAnimation"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
+import * as Transitions from "../../theme/transitions"
+import { IsInitializedContext } from "../../context"
 
 const sliderImages = [heroImage1, heroImage2, heroImage3]
 
 export default ({ transitionStatus, exit, entry }) => {
+  const isInitialized = useContext(IsInitializedContext)
+
   const [activeImage, setActiveImage] = useState(0)
+  const [isLogoAnimationActive, setIsLogoAnimationActive] = useState(false)
+  const [isLogoAnimationFinished, setIsLogoAnimationFinished] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
+  // start logo animation when page transition is finished
   useEffect(() => {
+    if (isInitialized) {
+      const timeout = setTimeout(() => {
+        setIsLogoAnimationActive(true)
+      }, exit.length * 1000)
+      return () => clearTimeout(timeout)
+    }
+  }, [isInitialized])
+
+  // set variable indicating that logo transition is finished
+  useEffect(() => {
+    if (!isInitialized) {
+      return
+    }
+    const timeout = setTimeout(() => {
+      setIsLogoAnimationFinished(true)
+    }, 7 * Transitions.LOGO_TRANSITION_DURATION)
+    return () => clearTimeout(timeout)
+  }, [isLogoAnimationActive])
+
+  // start slides animation when logo animation is finished
+  useEffect(() => {
+    if (!isLogoAnimationFinished) {
+      return
+    }
     const interval = setInterval(() => {
       setActiveImage(activeImage =>
         activeImage === sliderImages.length - 1 ? 0 : activeImage + 1
       )
     }, 500)
     return () => clearInterval(interval)
-  }, [sliderImages])
+  }, [isLogoAnimationFinished])
 
   useEffect(() => {
     preloadImages(sliderImages).then(() => {
@@ -37,7 +69,11 @@ export default ({ transitionStatus, exit, entry }) => {
     >
       <S.Container>
         <S.Content>
-          <S.Title>dobrze.</S.Title>
+          <S.Title>
+            <LogoAnimation active={isLogoAnimationActive}>
+              dobrze.
+            </LogoAnimation>
+          </S.Title>
 
           <S.Footer>
             <TransitionLink

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react"
 import * as S from "./Header.styled"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../PageAnimation/PageAnimation.styled"
+import LogoAnimation from "../LogoAnimation/LogoAnimation"
 import * as Colors from "../../theme/colors"
 
 export default ({
@@ -58,7 +59,7 @@ export default ({
           exit={{ length: 0 }}
           entry={{ length: 0 }}
         >
-          dobrze.
+          <LogoAnimation active={!isOnHomepage}>dobrze.</LogoAnimation>
         </TransitionLink>
       )
     }
@@ -69,7 +70,7 @@ export default ({
         exit={{ length: 0.5 }}
         entry={{ length: 0, state: { animation: PAGE_ANIMATION.SLIDE_BOTTOM } }}
       >
-        dobrze.
+        <LogoAnimation active={!isOnHomepage}>dobrze.</LogoAnimation>
       </TransitionLink>
     )
   }
