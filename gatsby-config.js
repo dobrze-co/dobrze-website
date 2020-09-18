@@ -9,6 +9,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-transition-link",
+    "gatsby-plugin-netlify",
     "gatsby-plugin-layout",
     {
       resolve: `gatsby-plugin-favicon`,

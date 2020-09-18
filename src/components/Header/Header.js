@@ -15,12 +15,12 @@ export default ({
   const isOnHomepage = location.pathname === "/"
   const isOnContactPage = location.pathname === "/contact"
 
-  const getHeaderBackground = () => {
+  const getHeaderBackground = useCallback(() => {
     if (isOnContactPage) {
       return Colors.Accent
     }
     return Colors.White
-  }
+  }, [isOnContactPage])
 
   const handleHamburgerClick = () => {
     if (onHamburgerClick) {
