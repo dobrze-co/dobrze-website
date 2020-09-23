@@ -8,7 +8,7 @@ import Arrow from "../../components/Arrow/Arrow"
 
 export default ({ location, transitionStatus, exit, entry }) => {
   const aboutUsItem = aboutUsData.find(aboutUs =>
-    location.pathname.includes(`/aboutUs/${aboutUs.path}`)
+    location.pathname.includes(`/o-nas/${aboutUs.path}`)
   )
 
   return (
@@ -20,7 +20,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
       <S.Container>
         <S.MobileBackButton>
           <TransitionLink
-            to="/aboutUs"
+            to="/o-nas"
             exit={{ length: 0.5 }}
             entry={{
               length: 0,
@@ -37,7 +37,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
 
         <S.DesktopBackButton>
           <TransitionLink
-            to="/aboutUs"
+            to="/o-nas"
             exit={{ length: 0.5 }}
             entry={{
               length: 0,

@@ -134,9 +134,9 @@ export const Footer = styled.div`
   justify-content: center;
   white-space: nowrap;
   color: ${Colors.Primary};
-  font-size: 15px;
-  letter-spacing: 3.6px;
-  padding-left: 3.6px;
+  font-size: 14px;
+  letter-spacing: 1.6px;
+  padding-left: 1.6px;
   margin-bottom: 30px;
 
   a {
@@ -146,6 +146,11 @@ export const Footer = styled.div`
 
   a:hover {
     text-decoration: underline;
+  }
+
+  ${mediaQueries.mobileM} {
+    letter-spacing: 2.6px;
+    padding-left: 2.6px;
   }
 
   ${mediaQueries.mobileLandscape} {

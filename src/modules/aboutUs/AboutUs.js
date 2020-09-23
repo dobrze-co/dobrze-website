@@ -53,7 +53,7 @@ export default ({ transitionStatus, exit, entry }) => {
 
           <S.Navigation>
             <TransitionLink
-              to={`/aboutUs/${aboutUsData[0].path}`}
+              to={`/o-nas/${aboutUsData[0].path}`}
               exit={{ length: 0.5 }}
               entry={{
                 length: 0,
@@ -71,7 +71,7 @@ export default ({ transitionStatus, exit, entry }) => {
             <S.NavigationSeparator>&#8226;</S.NavigationSeparator>
 
             <TransitionLink
-              to={`/aboutUs/${aboutUsData[1].path}`}
+              to={`/o-nas/${aboutUsData[1].path}`}
               exit={{ length: 0.5 }}
               entry={{
                 length: 0,

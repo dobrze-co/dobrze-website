@@ -74,23 +74,9 @@ export default ({ transitionStatus, exit, entry }) => {
               dobrze.
             </LogoAnimation>
           </S.Title>
-
           <S.Footer>
             <TransitionLink
-              to={"/mission/pr"}
-              exit={{ length: 0.5 }}
-              entry={{
-                length: 0,
-                state: {
-                  animation: PAGE_ANIMATION.SLIDE_TOP,
-                },
-              }}
-            >
-              PR
-            </TransitionLink>
-            &#8226;
-            <TransitionLink
-              to={"/mission/branding"}
+              to={"/co-robimy/branding"}
               exit={{ length: 0.5 }}
               entry={{
                 length: 0,
@@ -103,7 +89,7 @@ export default ({ transitionStatus, exit, entry }) => {
             </TransitionLink>
             &#8226;
             <TransitionLink
-              to={"/mission/marketing"}
+              to={"/co-robimy/marketing"}
               exit={{ length: 0.5 }}
               entry={{
                 length: 0,
@@ -113,6 +99,19 @@ export default ({ transitionStatus, exit, entry }) => {
               }}
             >
               MARKETING
+            </TransitionLink>
+            &#8226;
+            <TransitionLink
+              to={"/co-robimy/sprzedaz"}
+              exit={{ length: 0.5 }}
+              entry={{
+                length: 0,
+                state: {
+                  animation: PAGE_ANIMATION.SLIDE_TOP,
+                },
+              }}
+            >
+              SPRZEDAŻ
             </TransitionLink>
           </S.Footer>
         </S.Content>

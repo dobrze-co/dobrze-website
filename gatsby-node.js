@@ -10,12 +10,15 @@ exports.createPages = ({ actions }) => {
     `src/modules/aboutUsDetails/AboutUsDetails.js`
   )
 
-  createPage({ path: `/mission/sale`, component: missionDetailsTemplate })
-  createPage({ path: `/mission/branding`, component: missionDetailsTemplate })
-  createPage({ path: `/mission/marketing`, component: missionDetailsTemplate })
+  createPage({ path: `/co-robimy/sprzedaz`, component: missionDetailsTemplate })
+  createPage({ path: `/co-robimy/branding`, component: missionDetailsTemplate })
+  createPage({
+    path: `/co-robimy/marketing`,
+    component: missionDetailsTemplate,
+  })
 
-  createPage({ path: `/aboutUs/ada`, component: aboutUsDetailsTemplate })
-  createPage({ path: `/aboutUs/asia`, component: aboutUsDetailsTemplate })
+  createPage({ path: `/o-nas/ada`, component: aboutUsDetailsTemplate })
+  createPage({ path: `/o-nas/asia`, component: aboutUsDetailsTemplate })
 }
 
 exports.onCreatePage = ({ page, actions }) => {

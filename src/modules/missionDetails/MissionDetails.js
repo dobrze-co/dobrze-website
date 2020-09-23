@@ -8,13 +8,13 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 
 const navigationItems = missionsData.map(({ path, name }) => ({
-  path: `/mission/${path}`,
+  path: `/co-robimy/${path}`,
   label: name,
 }))
 
 export default ({ location, transitionStatus, exit, entry }) => {
   const missionData = missionsData.find(mission =>
-    location.pathname.includes(`/mission/${mission.path}`)
+    location.pathname.includes(`/co-robimy/${mission.path}`)
   )
 
   const renderParagraph = paragraph => {
@@ -57,7 +57,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
       <S.Container>
         <S.MobileBackButton>
           <TransitionLink
-            to="/mission"
+            to="/co-robimy"
             exit={{ length: 0.5 }}
             entry={{
               length: 0,
@@ -74,7 +74,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
 
         <S.DesktopBackButton>
           <TransitionLink
-            to="/mission"
+            to="/co-robimy"
             exit={{ length: 0.5 }}
             entry={{
               length: 0,

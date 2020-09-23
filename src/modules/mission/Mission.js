@@ -10,7 +10,7 @@ import Navigation from "../../components/Navigation/Navigation"
 import { IsInitializedContext } from "../../context"
 
 const navigationItems = missionsData.map(({ path, name }) => ({
-  path: `/mission/${path}`,
+  path: `/co-robimy/${path}`,
   label: name,
 }))
 
@@ -58,7 +58,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
           </S.Footer>
 
           <TransitionLink
-            to={`/mission/${missionsData[0].path}`}
+            to={`/co-robimy/${missionsData[0].path}`}
             exit={{ length: 0.5 }}
             entry={{
               length: 0,

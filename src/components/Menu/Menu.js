@@ -29,8 +29,8 @@ export default ({
         <S.MenuItems>
           <S.MenuItem>
             <TransitionLink
-              className={location.pathname.match(/aboutUs/) ? "active" : ""}
-              to="/aboutUs"
+              className={location.pathname.match(/o-nas/) ? "active" : ""}
+              to="/o-nas"
               onClick={onLinkClick}
               exit={{ length: 0 }}
               entry={{ length: 0 }}
@@ -40,8 +40,8 @@ export default ({
           </S.MenuItem>
           <S.MenuItem>
             <TransitionLink
-              className={location.pathname.match(/mission/) ? "active" : ""}
-              to="/mission"
+              className={location.pathname.match(/co-robimy/) ? "active" : ""}
+              to="/co-robimy"
               onClick={onLinkClick}
               exit={{ length: 0 }}
               entry={{ length: 0 }}
@@ -51,8 +51,10 @@ export default ({
           </S.MenuItem>
           <S.MenuItem>
             <TransitionLink
-              className={location.pathname.match(/portfolio/) ? "active" : ""}
-              to="/portfolio"
+              className={
+                location.pathname.match(/katalog-zmian/) ? "active" : ""
+              }
+              to="/katalog-zmian"
               onClick={onLinkClick}
               exit={{ length: 0 }}
               entry={{ length: 0 }}
@@ -62,8 +64,8 @@ export default ({
           </S.MenuItem>
           <S.MenuItem>
             <TransitionLink
-              className={location.pathname.match(/contact/) ? "active" : ""}
-              to="/contact"
+              className={location.pathname.match(/kontakt/) ? "active" : ""}
+              to="/kontakt"
               onClick={onLinkClick}
               exit={{ length: 0 }}
               entry={{ length: 0 }}
