@@ -28,22 +28,24 @@ export default ({ transitionStatus, exit, entry }) => {
 
             <S.ContentText>
               <S.ContentParagraph>
-                Wymyśliłyśmy dobrze. po jednej z wielu konferencji dotyczących
-                projektowania biznesu. Już wtedy miałyśmy na koncie całkiem
-                sporo doświadczeń i sukcesów - tych osiągniętych wspólnie
-                (pracujemy razem od 3 lat) i osobno (każda z nas realizuje się
-                we własnych projektach, o których możesz przeczytać poniżej).
+                Stworzyłyśmy <strong>dobrze. </strong> bo wiemy jak trudno jest
+                coś zmienić. W wielu firmach są obszary, których zwyczajnie się
+                nie dotyka. Nie dlatego, że są tak dobre. Dlatego, że wymagają
+                zmian, których z natury się boimy. To, czego boisz się dotknąć,
+                prędzej czy później urośnie do rangi problemu, którego nie
+                sposób ignorować. Branding, marketing i sprzedaż to obszary
+                naszego działania.
               </S.ContentParagraph>
               <S.ContentParagraph>
-                Misja od początku była jasna - chcemy pomagać, tam gdzie inni
-                mówią, że bez milionowych nakładów finansowych się nie da. Każda
-                marka ma szansę być dobra, niezależnie od budżetu. Każdy biznes
-                ma szansę zaistnieć w świadomości klientów, każdy biznes ma
-                szanse zarabiać i funkcjonować dobrze, opierając się na
-                przemyślanym i spójnym procesie. Chcemy zmieniać i udowadniać,
-                że małe zmiany przynoszą duże korzyści. dobrze. to świadome,
-                proekologiczne, etyczne rozwiązania. Chcemy, żeby świat biznesu
-                był zwyczajnie dobry, tak jak ludzie, którzy go tworzą.
+                Misja od początku była dla nas jasna - chcemy pomagać, tam gdzie
+                inni mówią, że bez milionowych nakładów finansowych się nie da.
+                Chcemy oswajać ze zmianami i zachęcać do ich wprowadzania.
+                <strong>
+                  {" "}
+                  Każda marka ma szansę być dobra, niezależnie od budżetu.{" "}
+                </strong>
+                Chcemy pomagać budować szczere i długotrwałe relacje z
+                klientami, tworzyć piękne kampanie i spójne przekazy.
               </S.ContentParagraph>
             </S.ContentText>
             <S.ContentBackground />

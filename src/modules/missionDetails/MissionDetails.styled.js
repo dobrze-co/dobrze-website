@@ -187,6 +187,15 @@ export const Paragraph = styled.div`
   color: ${Colors.Accent};
   margin-bottom: 30px;
 
+  a {
+    color: ${Colors.Accent};
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
   &:nth-child(2n + 1) {
     padding-left: 10vw;
   }

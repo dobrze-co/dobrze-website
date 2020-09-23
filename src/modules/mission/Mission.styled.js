@@ -88,16 +88,16 @@ export const ContentText = styled.div`
   position: relative;
   z-index: 2;
   color: ${Colors.Primary};
-  font-size: 34px;
-  line-height: 42px;
+  font-size: 24px;
+  line-height: 32px;
   letter-spacing: 6px;
   font-family: "Times New Roman";
   padding-right: 30px;
 
   ${mediaQueries.mobileM} {
-    font-size: 40px;
-    line-height: 47px;
-    letter-spacing: 10px;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 8px;
     padding-right: 38px;
   }
 
@@ -110,16 +110,16 @@ export const ContentText = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 70px;
-    line-height: 80px;
-    letter-spacing: 17px;
+    font-size: 58px;
+    line-height: 76px;
+    letter-spacing: 15px;
     margin-left: -55px;
     padding-right: 55px;
   }
 
   ${mediaQueries.desktop} {
-    font-size: 100px;
-    line-height: 115px;
+    font-size: 90px;
+    line-height: 110px;
     letter-spacing: 24px;
     margin-left: -70px;
     padding-right: 70px;

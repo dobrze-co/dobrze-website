@@ -37,8 +37,8 @@ export default ({ location, transitionStatus, exit, entry }) => {
         <S.Container>
           <S.Content>
             <S.ContentText>
-              We transform brands, grow businesses tell stories that deepen
-              engagement
+              Każda marka może być dobra, niezależnie od budżetu. Projektujemy
+              zmiany, które przynoszą wymierne korzyści.
             </S.ContentText>
             <S.ContentBackground />
           </S.Content>

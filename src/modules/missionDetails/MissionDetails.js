@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import * as S from "./MissionDetails.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import Navigation from "../../components/Navigation/Navigation"
@@ -16,6 +16,37 @@ export default ({ location, transitionStatus, exit, entry }) => {
   const missionData = missionsData.find(mission =>
     location.pathname.includes(`/mission/${mission.path}`)
   )
+
+  const renderParagraph = paragraph => {
+    return paragraph
+      .split(/(<a href='\/.*?'>.*?<\/a>)/g)
+      .map((element, index) => {
+        if (/(<a href='\/.*?'>.*?<\/a>)/.test(element)) {
+          const href = element.match(/href='(.*?)'/)[1]
+          const content = element.match(/<a href='.*?'>(.*?)<\/a>/)[1]
+
+          return (
+            <Fragment key={index}>
+              {" "}
+              <TransitionLink
+                to={href}
+                exit={{ length: 0.5 }}
+                entry={{
+                  length: 0,
+                  state: {
+                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                  },
+                }}
+              >
+                {content}
+              </TransitionLink>
+            </Fragment>
+          )
+        }
+
+        return <Fragment key={index}>{element}</Fragment>
+      })
+  }
 
   return (
     <PageAnimation
@@ -73,7 +104,9 @@ export default ({ location, transitionStatus, exit, entry }) => {
 
           <S.Paragraphs>
             {missionData.paragraphs.map((paragraph, index) => (
-              <S.Paragraph key={index}>{paragraph}</S.Paragraph>
+              <S.Paragraph key={index}>
+                {renderParagraph(paragraph)}
+              </S.Paragraph>
             ))}
           </S.Paragraphs>
         </S.Content>

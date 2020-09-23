@@ -29,20 +29,16 @@ export default ({ transitionStatus, exit, entry }) => {
           <S.Sections>
             <S.Section reversed>
               <S.SectionText center>
+                <S.SectionParagraph>Analiza:</S.SectionParagraph>
                 <S.SectionParagraph>
-                  Katalog zmian to rodzaj audytu z rozbudowaną częścią dotyczącą
-                  rozwiązywania problemów.
-                </S.SectionParagraph>
-                <S.SectionParagraph>
-                  Katalog składa się z 3 części. Pierwsza z nich poświęcona jest
-                  trendom dotyczącym Twojej branży. Dzięki niej lepiej
-                  zrozumiesz jak rozwijać swój biznes w obliczu nadchodzących
-                  zmian. Tę część opracowujemy w oparciu o raporty tworzone
-                  przez najważniejsze światowe agencje, własne badania i analizę
-                  konkurencji. Skupiamy się na trendach długoterminowych
-                  wynikających ze zmiany stylu życia, nowej generacji wchodzącej
-                  na rynek pracy, sytuacji polityczno-gospodarczej, a nie na
-                  chwilowych modach.
+                  Wszystkie nasze działania projektujemy <strong>po</strong>{" "}
+                  wykonaniu analizy danych, grup docelowych, trendów. Każde
+                  proponowane przez nas rozwiązanie z czegoś wynika. Katalog
+                  zmian zawiera pełen audyt komunikacji wizualnej, językowej i
+                  udostępnionych przez Ciebie materiałów oraz analizę Twojej
+                  konkurencji. Dzięki temu dowiesz z czego wynikają
+                  zaprojektowane przez nas działania i zrozumiesz w jakich
+                  obszarach zmiana jest niezbędna.
                 </S.SectionParagraph>
               </S.SectionText>
               <S.SectionImage src={portfolioImage1} />
@@ -50,20 +46,14 @@ export default ({ transitionStatus, exit, entry }) => {
 
             <S.Section withOffset>
               <S.SectionText bottom>
+                <S.SectionParagraph>Trendy:</S.SectionParagraph>
                 <S.SectionParagraph>
-                  Katalog zmian to rodzaj audytu z rozbudowaną częścią dotyczącą
-                  rozwiązywania problemów.
-                </S.SectionParagraph>
-                <S.SectionParagraph>
-                  Katalog składa się z 3 części. Pierwsza z nich poświęcona jest
-                  trendom dotyczącym Twojej branży. Dzięki niej lepiej
-                  zrozumiesz jak rozwijać swój biznes w obliczu nadchodzących
-                  zmian. Tę część opracowujemy w oparciu o raporty tworzone
-                  przez najważniejsze światowe agencje, własne badania i analizę
-                  konkurencji. Skupiamy się na trendach długoterminowych
-                  wynikających ze zmiany stylu życia, nowej generacji wchodzącej
-                  na rynek pracy, sytuacji polityczno-gospodarczej, a nie na
-                  chwilowych modach.
+                  Projektując zmianę przyglądamy się światowym trendom,
+                  docieramy do raportów największych agencji i studiujemy
+                  najnowsze badania rynku. Bierzemy pod uwagę lokalne i globalne
+                  trendy długoterminowe i zachowania poszczególnych grup
+                  konsumenckich. Projektowane przez nas zmiany są odpowiedzią na
+                  szybko zmieniającą się rzeczywistość.
                 </S.SectionParagraph>
               </S.SectionText>
               <S.SectionImage src={portfolioImage2} wide />
@@ -71,26 +61,23 @@ export default ({ transitionStatus, exit, entry }) => {
 
             <S.Section reversed>
               <S.SectionText top>
+                <S.SectionParagraph>Katalog zmian:</S.SectionParagraph>
                 <S.SectionParagraph>
-                  Katalog zmian to rodzaj audytu z rozbudowaną częścią dotyczącą
-                  rozwiązywania problemów.
+                  Katalog zmian to 3 częściowy przewodnik po zaprojektowanych
+                  dla Ciebie działaniach. Jego pierwsza część zawiera analizę.
+                  Zawsze możesz do niej wrócić, jeśli, któreś z działań wyda Ci
+                  się niejasne. Druga część poświęcona trendom pomoże Ci
+                  samodzielnie kreować kolejne kampanie marketingowe. Nie chcemy
+                  uzależniać Ciebie od naszej pomocy, zależy nam na Twojej
+                  samodzielności w świecie marketingu. Ostatnia część to
+                  proponowane przez nas zmiany w 3 wariantach. Każda z nich
+                  zakłada inny nakład finansowy. Czuwamy nad całym procesem
+                  wdrażania każdej ze zmian, niezależnie od jej wielkości.
+                  Możesz liczyć na naszą pomoc.
                 </S.SectionParagraph>
                 <S.SectionParagraph>
-                  Katalog składa się z 3 części. Pierwsza z nich poświęcona jest
-                  trendom dotyczącym Twojej branży. Dzięki niej lepiej
-                  zrozumiesz jak rozwijać swój biznes w obliczu nadchodzących
-                  zmian. Tę część opracowujemy w oparciu o raporty tworzone
-                  przez najważniejsze światowe agencje, własne badania i analizę
-                  konkurencji. Skupiamy się na trendach długoterminowych
-                  wynikających ze zmiany stylu życia, nowej generacji wchodzącej
-                  na rynek pracy, sytuacji polityczno-gospodarczej, a nie na
-                  chwilowych modach.
-                </S.SectionParagraph>
-                <S.SectionParagraph>
-                  Druga część katalogu to analiza komunikacji marki. Na
-                  przykładach pokazujemy w jakiej kondycji jest Twój biznes na
-                  tle światowych i lokalnych trendów. Jest to rozszerzona wersja
-                  audytu.
+                  Jeśli chcesz żebyśmy zaprojektowały zmianę dla Twojego
+                  biznesu, mówimy <strong>dobrze.</strong>
                 </S.SectionParagraph>
               </S.SectionText>
               <S.SectionImage src={portfolioImage3} wide />

@@ -62,9 +62,10 @@ export default ({ location, transitionStatus, exit, entry }) => {
 
             <S.ContentText>
               {aboutUsItem.paragraphs.map((paragraph, index) => (
-                <S.ContentTextParagraph key={index}>
-                  {paragraph}
-                </S.ContentTextParagraph>
+                <S.ContentTextParagraph
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                />
               ))}
             </S.ContentText>
           </S.ContentTextWrapper>

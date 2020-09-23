@@ -10,7 +10,7 @@ exports.createPages = ({ actions }) => {
     `src/modules/aboutUsDetails/AboutUsDetails.js`
   )
 
-  createPage({ path: `/mission/pr`, component: missionDetailsTemplate })
+  createPage({ path: `/mission/sale`, component: missionDetailsTemplate })
   createPage({ path: `/mission/branding`, component: missionDetailsTemplate })
   createPage({ path: `/mission/marketing`, component: missionDetailsTemplate })
 

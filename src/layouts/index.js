@@ -9,7 +9,12 @@ import FontFaceObserver from "fontfaceobserver"
 import * as S from "./styled"
 
 const futuraObserver = new FontFaceObserver("Futura")
-const latoObserver = new FontFaceObserver("Lato")
+const latoNormalObserver = new FontFaceObserver("Lato", {
+  weight: "normal",
+})
+const latoBoldObserver = new FontFaceObserver("Lato", {
+  weight: "bold",
+})
 
 export default ({ children, location, pageContext }) => {
   const [isInitialized, setIsInitialized] = useState(false)
@@ -21,7 +26,11 @@ export default ({ children, location, pageContext }) => {
   const isOn404Page = pageContext.is404
 
   useEffect(() => {
-    Promise.all([futuraObserver.load(), latoObserver.load()]).then(() => {
+    Promise.all([
+      futuraObserver.load(),
+      latoNormalObserver.load(),
+      latoBoldObserver.load(),
+    ]).then(() => {
       setIsInitialized(true)
     })
   }, [])
