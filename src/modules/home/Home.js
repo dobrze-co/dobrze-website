@@ -29,7 +29,7 @@ export default ({ transitionStatus, exit, entry }) => {
       }, exit.length * 1000)
       return () => clearTimeout(timeout)
     }
-  }, [isInitialized])
+  }, [isInitialized, exit.length])
 
   // set variable indicating that logo transition is finished
   useEffect(() => {
@@ -40,7 +40,7 @@ export default ({ transitionStatus, exit, entry }) => {
       setIsLogoAnimationFinished(true)
     }, 7 * Transitions.LOGO_TRANSITION_DURATION)
     return () => clearTimeout(timeout)
-  }, [isLogoAnimationActive])
+  }, [isInitialized, isLogoAnimationActive])
 
   // start slides animation when logo animation is finished
   useEffect(() => {

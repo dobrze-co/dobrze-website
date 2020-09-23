@@ -1,6 +1,12 @@
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 import * as Colors from "../../theme/colors"
 import { mediaQueries } from "../../theme/responsive"
+
+const bounceAnimation = keyframes`  
+  0%   { transform: scaleX(0); }
+  50%  { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+`
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -83,6 +89,26 @@ export const HeaderLogo = styled.span`
   }
 `
 
+export const Form = styled.form``
+
+export const InputWrapper = styled.div`
+  margin-bottom: 8px;
+  position: relative;
+
+  ${mediaQueries.tablet} {
+    margin-bottom: 14px;
+  }
+
+  ${mediaQueries.laptopM} {
+    margin-bottom: 20px;
+    max-width: 75%;
+  }
+
+  ${mediaQueries.desktop} {
+    max-width: 65%;
+  }
+`
+
 export const Input = styled.input`
   background: transparent;
   border: 0;
@@ -90,7 +116,6 @@ export const Input = styled.input`
   color: ${Colors.Secondary};
   outline: 0;
   padding: 8px 0;
-  margin-bottom: 8px;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 5px;
@@ -112,7 +137,6 @@ export const Input = styled.input`
     line-height: 42px;
     letter-spacing: 8px;
     padding: 10px 0;
-    margin-bottom: 14px;
   }
 
   ${mediaQueries.laptopM} {
@@ -120,9 +144,7 @@ export const Input = styled.input`
     line-height: 60px;
     letter-spacing: 12px;
     padding: 16px 0;
-    margin-bottom: 20px;
     border-bottom: 5px solid ${Colors.Secondary};
-    max-width: 75%;
   }
 
   ${mediaQueries.desktop} {
@@ -133,12 +155,38 @@ export const Input = styled.input`
     max-width: 65%;
   }
 `
+export const InputLoader = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: ${Colors.Primary};
+  width: 100%;
+  height: 3px;
+  transform-origin: center;
+  animation: ${bounceAnimation} 3s infinite;
+  animation-timing-function: cubic-bezier(0.32, 0.83, 0.69, 1);
+
+  ${mediaQueries.laptopM} {
+    height: 5px;
+  }
+`
 
 export const SubmitContainer = styled.div`
+  display: flex;
   text-align: right;
+  margin-bottom: 20px;
+  justify-content: space-between;
 
   ${mediaQueries.tablet} {
-    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  ${mediaQueries.laptopM} {
+    max-width: 75%;
+  }
+
+  ${mediaQueries.desktop} {
+    max-width: 65%;
   }
 `
 
@@ -153,18 +201,21 @@ export const Submit = styled.button`
   font-size: 15px;
   line-height: 30px;
   letter-spacing: 3.6px;
-  margin-bottom: 20px;
   cursor: pointer;
 
-  &:hover {
+  &:hover:not(&:disabled) {
     text-decoration: underline;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   ${mediaQueries.tablet} {
     font-size: 22px;
     line-height: 28px;
     letter-spacing: 4.5px;
-    margin-bottom: 30px;
   }
 
   ${mediaQueries.laptopM} {
@@ -178,6 +229,39 @@ export const Submit = styled.button`
     line-height: 36px;
     letter-spacing: 7.5px;
   }
+`
+
+export const SubmitMessage = styled.div`
+  font-family: "Times New Roman";
+  font-size: 15px;
+  line-height: 30px;
+  letter-spacing: 3.6px;
+
+  ${mediaQueries.tablet} {
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 4.5px;
+  }
+
+  ${mediaQueries.laptopM} {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 6px;
+  }
+
+  ${mediaQueries.desktop} {
+    font-size: 31px;
+    line-height: 36px;
+    letter-spacing: 7.5px;
+  }
+`
+
+export const SubmitMessageSuccess = styled.div`
+  color: ${Colors.Secondary};
+`
+
+export const SubmitMessageError = styled.div`
+  color: ${Colors.Primary};
 `
 
 export const Footer = styled.div`

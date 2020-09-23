@@ -13,8 +13,8 @@ const navigationItems = missionsData.map(({ path, name }) => ({
 }))
 
 export default ({ location, transitionStatus, exit, entry }) => {
-  const missionData = missionsData.find(
-    mission => location.pathname === `/mission/${mission.path}`
+  const missionData = missionsData.find(mission =>
+    location.pathname.includes(`/mission/${mission.path}`)
   )
 
   return (

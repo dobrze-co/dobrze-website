@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
-import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
 
 export const Container = styled.div`

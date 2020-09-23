@@ -7,8 +7,8 @@ import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.sty
 import Arrow from "../../components/Arrow/Arrow"
 
 export default ({ location, transitionStatus, exit, entry }) => {
-  const aboutUsItem = aboutUsData.find(
-    aboutUs => location.pathname === `/aboutUs/${aboutUs.path}`
+  const aboutUsItem = aboutUsData.find(aboutUs =>
+    location.pathname.includes(`/aboutUs/${aboutUs.path}`)
   )
 
   return (
