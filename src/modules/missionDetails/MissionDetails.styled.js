@@ -1,6 +1,12 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
 import { mediaQueries } from "../../theme/responsive"
+
+export const BACKGROUND_ANIMATION_DURATION = 1000
+export const BACKGROUND_ANIMATION_DELAY = 200
+export const TITLE_ANIMATION_DURATION = 1000
+export const TITLE_ANIMATION_DELAY = 200
+export const TEXT_ANIMATION_DURATION = 500
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -39,7 +45,27 @@ export const NavigationContainer = styled.div`
   }
 `
 
+const getBackButtonDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return TITLE_ANIMATION_DURATION + TITLE_ANIMATION_DELAY + animationDelay
+}
+
 export const MobileBackButton = styled.div`
+  opacity: 0;
+  transform: translateY(30%);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getBackButtonDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getBackButtonDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(-30%);
+    `}
+
   a {
     display: flex;
     align-items: center;
@@ -79,6 +105,18 @@ export const DesktopBackButton = styled.div`
   position: absolute;
   left: 38px;
   top: 560px;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getBackButtonDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getBackButtonDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.laptopM} {
     display: block;
@@ -109,7 +147,6 @@ export const TitleContainer = styled.div`
   max-width: 110px;
   min-width: 110px;
   height: 110px;
-  background: ${Colors.Accent};
   margin-bottom: 30px;
 
   ${mediaQueries.tablet} {
@@ -133,6 +170,21 @@ export const TitleContainer = styled.div`
   }
 `
 
+export const TitleBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: ${Colors.Accent};
+  transition: opacity ${BACKGROUND_ANIMATION_DURATION}ms ease-in-out
+    ${BACKGROUND_ANIMATION_DELAY}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+    `}
+`
+
 export const Title = styled.div`
   position: absolute;
   left: 50%;
@@ -142,6 +194,20 @@ export const Title = styled.div`
   line-height: 30px;
   letter-spacing: 6px;
   color: ${Colors.Primary};
+  z-index: 1;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform ${TITLE_ANIMATION_DURATION}ms ease-out
+      ${TITLE_ANIMATION_DELAY}ms,
+    opacity ${TITLE_ANIMATION_DURATION}ms ease-out ${TITLE_ANIMATION_DELAY}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(-38%);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 34px;
@@ -180,12 +246,31 @@ export const Paragraphs = styled.div`
   }
 `
 
+const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return TITLE_ANIMATION_DURATION + TITLE_ANIMATION_DELAY + animationDelay
+}
+
 export const Paragraph = styled.div`
   font-family: "Lato";
   font-size: 12px;
   line-height: 26px;
   color: ${Colors.Accent};
   margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getParagraphDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   a {
     color: ${Colors.Accent};

@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import * as S from "./Contact.styled"
 import fetchJsonp from "fetch-jsonp"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
 import { IsInitializedContext } from "../../context"
+import { INTRO_ANIMATION_DELAY } from "../../components/IntroAnimation/IntroAnimation.styled"
 
 const mailchimpUserId = "9e3b208a0a0c8cfd81b2654f2"
 const mailchimpListId = "20847587b0"
@@ -14,6 +15,19 @@ export default ({ transitionStatus, exit, entry }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState(false)
+  const [isAnimationActive, setIsAnimationActive] = useState(false)
+
+  useEffect(() => {
+    if (isInitialized) {
+      const animationTimeout = setTimeout(() => {
+        setIsAnimationActive(true)
+      }, INTRO_ANIMATION_DELAY)
+
+      return () => {
+        clearTimeout(animationTimeout)
+      }
+    }
+  }, [isInitialized])
 
   const isEmailValid = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)
@@ -65,11 +79,11 @@ export default ({ transitionStatus, exit, entry }) => {
         active={!entry.state.disableIntroAnimation}
       >
         <S.Container>
-          <S.Header>
+          <S.Header isAnimationActive={isAnimationActive}>
             ZRÓBMY RAZEM RZECZY <S.HeaderLogo>dobrze.</S.HeaderLogo>
           </S.Header>
 
-          <S.Form onSubmit={handleSubmit}>
+          <S.Form isAnimationActive={isAnimationActive} onSubmit={handleSubmit}>
             <S.InputWrapper>
               <S.Input
                 value={emailValue}
@@ -97,16 +111,41 @@ export default ({ transitionStatus, exit, entry }) => {
           </S.Form>
 
           <S.Footer>
-            <S.FooterDesktopHeader>ZADZWOŃ / NAPISZ</S.FooterDesktopHeader>
-            <S.FooterMobileHeader>ZADZWOŃ</S.FooterMobileHeader>
-            <S.FooterItem>
+            <S.FooterDesktopHeader
+              isAnimationActive={isAnimationActive}
+              animationDelay={0}
+            >
+              ZADZWOŃ / NAPISZ
+            </S.FooterDesktopHeader>
+            <S.FooterMobileHeader
+              isAnimationActive={isAnimationActive}
+              animationDelay={200}
+            >
+              ZADZWOŃ
+            </S.FooterMobileHeader>
+            <S.FooterItem
+              isAnimationActive={isAnimationActive}
+              animationDelay={200}
+            >
               Asia <S.FooterLink href="tel:777777777">777777777</S.FooterLink>
             </S.FooterItem>
-            <S.FooterItem withDesktopSpacing>
+            <S.FooterItem
+              isAnimationActive={isAnimationActive}
+              animationDelay={200}
+              withDesktopSpacing
+            >
               Ada <S.FooterLink href="tel:777777777">777777777</S.FooterLink>
             </S.FooterItem>
-            <S.FooterMobileHeader>NAPISZ</S.FooterMobileHeader>
-            <S.FooterItem>
+            <S.FooterMobileHeader
+              isAnimationActive={isAnimationActive}
+              animationDelay={400}
+            >
+              NAPISZ
+            </S.FooterMobileHeader>
+            <S.FooterItem
+              isAnimationActive={isAnimationActive}
+              animationDelay={400}
+            >
               <S.FooterLink href="mailto:kontakt@dobrze.co">
                 kontakt@dobrze.co
               </S.FooterLink>

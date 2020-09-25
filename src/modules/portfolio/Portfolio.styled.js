@@ -1,6 +1,12 @@
 import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
+import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
+
+export const BACKGROUND_ANIMATION_DURATION = 1000
+export const HEADER_ANIMATION_DURATION = 1000
+export const TEXT_ANIMATION_DURATION = 500
+export const IMAGE_ANIMATION_DURATION = 1000
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -30,15 +36,14 @@ export const Container = styled.div`
 `
 
 export const HeaderContainer = styled.div`
-  background: ${Colors.Secondary};
   margin: 0 -25px 25px 15px;
+  position: relative;
   
   ${mediaQueries.tablet} {
     margin: 0 0 50px 50px;
   }
 
   ${mediaQueries.laptop} {
-    background: none;
     margin: 0;
     position: absolute;
     top: 140px;
@@ -55,7 +60,31 @@ export const HeaderContainer = styled.div`
   }
 `
 
+export const HeaderBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: ${Colors.Secondary};
+  opacity: 0;
+  transition: opacity ${BACKGROUND_ANIMATION_DURATION}ms ease-out
+    ${Transitions.PAGE_TRANSITION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+    `}
+
+  ${mediaQueries.laptop} {
+    display: none;
+  }
+`
+
 export const Header = styled.h1`
+  position: relative;
+  z-index: 1;
   color: ${Colors.Primary};
   font-size: 20px;
   line-height: 40px;
@@ -64,6 +93,19 @@ export const Header = styled.h1`
   margin: 0 0 0 -15px;
   font-weight: normal;
   word-spacing: 100vw;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: transform ${HEADER_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION}ms,
+    opacity ${HEADER_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 25px;
@@ -139,7 +181,8 @@ export const Section = styled.div`
   }
 `
 
-export const SectionImage = styled.img`
+export const SectionImageWrapper = styled.div`
+  overflow: hidden;
   width: 100%;
   max-width: 500px;
   height: auto;
@@ -171,6 +214,35 @@ export const SectionImage = styled.img`
         max-width: 45%;
       `}
   }
+`
+
+const getImageDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    Transitions.PAGE_TRANSITION_DURATION +
+    HEADER_ANIMATION_DURATION +
+    animationDelay
+  )
+}
+
+export const SectionImage = styled.img`
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform ${IMAGE_ANIMATION_DURATION}ms ease-in-out
+      ${getImageDelay}ms,
+    opacity ${IMAGE_ANIMATION_DURATION}ms ease-in-out ${getImageDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 `
 
 export const SectionText = styled.div`
@@ -221,8 +293,31 @@ export const SectionText = styled.div`
     `}
 `
 
+const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    Transitions.PAGE_TRANSITION_DURATION +
+    HEADER_ANIMATION_DURATION +
+    animationDelay
+  )
+}
+
 export const SectionParagraph = styled.p`
   margin-top: 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getParagraphDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   ${mediaQueries.laptop} {
     &:last-child {
@@ -231,9 +326,32 @@ export const SectionParagraph = styled.p`
   }
 `
 
+const getFooterDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    Transitions.PAGE_TRANSITION_DURATION +
+    HEADER_ANIMATION_DURATION +
+    animationDelay
+  )
+}
+
 export const Footer = styled.div`
   justify-content: flex-end;
   display: none;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform ${IMAGE_ANIMATION_DURATION}ms ease-out
+      ${getFooterDelay}ms,
+    opacity ${IMAGE_ANIMATION_DURATION}ms ease-out ${getFooterDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   ${mediaQueries.laptop} {
     display: flex;

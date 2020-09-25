@@ -23,7 +23,7 @@ export default ({ transitionStatus, exit, entry }) => {
     ]).then(() => {
       setImagesLoaded(true)
     })
-  }, [isInitialized])
+  }, [])
 
   useEffect(() => {
     if (isInitialized && imagesLoaded) {
@@ -97,7 +97,7 @@ export default ({ transitionStatus, exit, entry }) => {
           <S.Navigation>
             <TransitionLink
               to={`/o-nas/${aboutUsData[0].path}`}
-              exit={{ length: 0.5 }}
+              exit={{ length: 0.8 }}
               entry={{
                 length: 0,
                 state: {
@@ -124,7 +124,7 @@ export default ({ transitionStatus, exit, entry }) => {
 
             <TransitionLink
               to={`/o-nas/${aboutUsData[1].path}`}
-              exit={{ length: 0.5 }}
+              exit={{ length: 0.8 }}
               entry={{
                 length: 0,
                 state: {

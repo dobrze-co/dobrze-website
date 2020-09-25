@@ -3,7 +3,7 @@ import * as Colors from "../../theme/colors"
 import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
 
-export const BACKGROUND_ANIMATION_DURATION = 800
+export const BACKGROUND_ANIMATION_DURATION = 1000
 export const IMAGE_ANIMATION_DURATION = 1000
 export const TEXT_ANIMATION_DURATION = 500
 

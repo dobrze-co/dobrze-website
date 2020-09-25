@@ -11,7 +11,6 @@ export const PAGE_ANIMATION = {
 
 export const Container = styled.div`
   transition: ${Transitions.PageTransition};
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 
   ${({ transitionStatus, exit, entry }) => {
     if (entry.state.animation === PAGE_ANIMATION.FADE) {

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useContext, useEffect, useState } from "react"
 import * as S from "./MissionDetails.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import Navigation from "../../components/Navigation/Navigation"
@@ -6,6 +6,7 @@ import Arrow from "../../components/Arrow/Arrow"
 import missionsData from "../../data/missions.js"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
+import { IsInitializedContext } from "../../context"
 
 const navigationItems = missionsData.map(({ path, name }) => ({
   path: `/co-robimy/${path}`,
@@ -13,9 +14,23 @@ const navigationItems = missionsData.map(({ path, name }) => ({
 }))
 
 export default ({ location, transitionStatus, exit, entry }) => {
+  const isInitialized = useContext(IsInitializedContext)
+  const [isAnimationActive, setIsAnimationActive] = useState(false)
+
   const missionData = missionsData.find(mission =>
     location.pathname.includes(`/co-robimy/${mission.path}`)
   )
+
+  useEffect(() => {
+    if (isInitialized) {
+      const timeout = setTimeout(() => {
+        setIsAnimationActive(true)
+      }, exit.length * 1000)
+      return () => {
+        clearTimeout(timeout)
+      }
+    }
+  }, [isInitialized, exit.length])
 
   const renderParagraph = paragraph => {
     return paragraph
@@ -30,11 +45,11 @@ export default ({ location, transitionStatus, exit, entry }) => {
               {" "}
               <TransitionLink
                 to={href}
-                exit={{ length: 0.5 }}
+                exit={{ length: 0.8 }}
                 entry={{
                   length: 0,
                   state: {
-                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                    animation: PAGE_ANIMATION.FADE,
                   },
                 }}
               >
@@ -55,14 +70,17 @@ export default ({ location, transitionStatus, exit, entry }) => {
       entry={entry}
     >
       <S.Container>
-        <S.MobileBackButton>
+        <S.MobileBackButton
+          isAnimationActive={isAnimationActive}
+          animationDelay={missionData.paragraphs.length * 150}
+        >
           <TransitionLink
             to="/co-robimy"
-            exit={{ length: 0.5 }}
+            exit={{ length: 0.8 }}
             entry={{
               length: 0,
               state: {
-                animation: PAGE_ANIMATION.SLIDE_RIGHT,
+                animation: PAGE_ANIMATION.FADE,
                 disableIntroAnimation: true,
               },
             }}
@@ -72,14 +90,17 @@ export default ({ location, transitionStatus, exit, entry }) => {
           </TransitionLink>
         </S.MobileBackButton>
 
-        <S.DesktopBackButton>
+        <S.DesktopBackButton
+          isAnimationActive={isAnimationActive}
+          animationDelay={missionData.paragraphs.length * 150}
+        >
           <TransitionLink
             to="/co-robimy"
-            exit={{ length: 0.5 }}
+            exit={{ length: 0.8 }}
             entry={{
               length: 0,
               state: {
-                animation: PAGE_ANIMATION.SLIDE_RIGHT,
+                animation: PAGE_ANIMATION.FADE,
                 disableIntroAnimation: true,
               },
             }}
@@ -99,12 +120,19 @@ export default ({ location, transitionStatus, exit, entry }) => {
 
         <S.Content>
           <S.TitleContainer>
-            <S.Title>{missionData.name}</S.Title>
+            <S.Title isAnimationActive={isAnimationActive}>
+              {missionData.name}
+            </S.Title>
+            <S.TitleBackground isAnimationActive={isAnimationActive} />
           </S.TitleContainer>
 
           <S.Paragraphs>
             {missionData.paragraphs.map((paragraph, index) => (
-              <S.Paragraph key={index}>
+              <S.Paragraph
+                key={index}
+                isAnimationActive={isAnimationActive}
+                animationDelay={index * 150}
+              >
                 {renderParagraph(paragraph)}
               </S.Paragraph>
             ))}

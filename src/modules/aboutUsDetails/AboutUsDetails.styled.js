@@ -3,8 +3,9 @@ import * as Colors from "../../theme/colors"
 import { mediaQueries } from "../../theme/responsive"
 import * as Transitions from "../../theme/transitions"
 
-export const BACKGROUND_ANIMATION_DURATION = 800
+export const BACKGROUND_ANIMATION_DURATION = 1000
 export const IMAGE_ANIMATION_DURATION = 1000
+export const TITLE_ANIMATION_DURATION = 1000
 export const TEXT_ANIMATION_DURATION = 500
 
 export const Container = styled.div`
@@ -25,14 +26,15 @@ export const Container = styled.div`
   }
 `
 
-const getBackButtonDelay = ({ isAnimationActive }) => {
+const getBackButtonDelay = ({ isAnimationActive, animationDelay }) => {
   if (!isAnimationActive) {
     return 0
   }
   return (
     Transitions.PAGE_TRANSITION_DURATION +
     BACKGROUND_ANIMATION_DURATION +
-    TEXT_ANIMATION_DURATION
+    TITLE_ANIMATION_DURATION +
+    animationDelay
   )
 }
 
@@ -200,8 +202,9 @@ export const ContentMobileTitle = styled.div`
   color: ${Colors.Primary};
   opacity: 0;
   transform: translateY(70%);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms;
+  transition: transform ${TITLE_ANIMATION_DURATION}ms ease-out
+      ${getTitleDelay}ms,
+    opacity ${TITLE_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -240,8 +243,9 @@ export const ContentDesktopTitle = styled.div`
   color: ${Colors.Primary};
   opacity: 0;
   transform: translateY(50%);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms;
+  transition: transform ${TITLE_ANIMATION_DURATION}ms ease-out
+      ${getTitleDelay}ms,
+    opacity ${TITLE_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -349,7 +353,7 @@ const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
   return (
     Transitions.PAGE_TRANSITION_DURATION +
     BACKGROUND_ANIMATION_DURATION +
-    TEXT_ANIMATION_DURATION +
+    TITLE_ANIMATION_DURATION +
     animationDelay
   )
 }

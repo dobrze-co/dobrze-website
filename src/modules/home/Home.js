@@ -86,11 +86,11 @@ export default ({ transitionStatus, exit, entry }) => {
             <S.FooterContainer isAnimationActive={isAnimationActive}>
               <TransitionLink
                 to={"/co-robimy/branding"}
-                exit={{ length: 0.5 }}
+                exit={{ length: 0.8 }}
                 entry={{
                   length: 0,
                   state: {
-                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                    animation: PAGE_ANIMATION.FADE,
                   },
                 }}
               >
@@ -99,11 +99,11 @@ export default ({ transitionStatus, exit, entry }) => {
               &nbsp;&#8226;&nbsp;
               <TransitionLink
                 to={"/co-robimy/marketing"}
-                exit={{ length: 0.5 }}
+                exit={{ length: 0.8 }}
                 entry={{
                   length: 0,
                   state: {
-                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                    animation: PAGE_ANIMATION.FADE,
                   },
                 }}
               >
@@ -112,11 +112,11 @@ export default ({ transitionStatus, exit, entry }) => {
               &nbsp;&#8226;&nbsp;
               <TransitionLink
                 to={"/co-robimy/sprzedaz"}
-                exit={{ length: 0.5 }}
+                exit={{ length: 0.8 }}
                 entry={{
                   length: 0,
                   state: {
-                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                    animation: PAGE_ANIMATION.FADE,
                   },
                 }}
               >

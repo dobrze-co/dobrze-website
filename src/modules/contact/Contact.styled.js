@@ -1,6 +1,11 @@
 import styled, { css, keyframes } from "styled-components"
 import * as Colors from "../../theme/colors"
+import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
+
+export const HEADER_ANIMATION_DURATION = 1000
+export const FORM_ANIMATION_DURATION = 1000
+export const FOOTER_ANIMATION_DURATION = 500
 
 const bounceAnimation = keyframes`  
   0%   { transform: scaleX(0); }
@@ -38,6 +43,19 @@ export const Header = styled.h1`
   font-family: "Times New Roman";
   margin: 0 0 30px;
   font-weight: normal;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: transform ${HEADER_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION}ms,
+    opacity ${HEADER_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 25px;
@@ -89,7 +107,21 @@ export const HeaderLogo = styled.span`
   }
 `
 
-export const Form = styled.form``
+export const Form = styled.form`
+  opacity: 0;
+  transform: translateY(50%);
+  transition: transform ${FORM_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION + HEADER_ANIMATION_DURATION}ms,
+    opacity ${FORM_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION + HEADER_ANIMATION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
+`
 
 export const InputWrapper = styled.div`
   margin-bottom: 8px;
@@ -260,6 +292,18 @@ export const SubmitMessageError = styled.div`
   color: ${Colors.Primary};
 `
 
+const getFooterItemDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    Transitions.PAGE_TRANSITION_DURATION +
+    HEADER_ANIMATION_DURATION +
+    FORM_ANIMATION_DURATION +
+    animationDelay
+  )
+}
+
 export const Footer = styled.div`
   color: ${Colors.Primary};
   font-family: "Times New Roman";
@@ -268,6 +312,18 @@ export const Footer = styled.div`
 
 export const FooterDesktopHeader = styled.div`
   display: none;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: transform ${FOOTER_ANIMATION_DURATION}ms ease-out
+      ${getFooterItemDelay}ms,
+    opacity ${FOOTER_ANIMATION_DURATION}ms ease-out ${getFooterItemDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.tablet} {
     font-size: 32px;
@@ -298,6 +354,18 @@ export const FooterMobileHeader = styled.div`
   letter-spacing: 6px;
   margin-top: 30px;
   margin-bottom: 5px;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: transform ${FOOTER_ANIMATION_DURATION}ms ease-out
+      ${getFooterItemDelay}ms,
+    opacity ${FOOTER_ANIMATION_DURATION}ms ease-out ${getFooterItemDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 30px;
@@ -317,6 +385,18 @@ export const FooterItem = styled.div`
   font-size: 18px;
   line-height: 22px;
   letter-spacing: 0;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: transform ${FOOTER_ANIMATION_DURATION}ms ease-out
+      ${getFooterItemDelay}ms,
+    opacity ${FOOTER_ANIMATION_DURATION}ms ease-out ${getFooterItemDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 20px;

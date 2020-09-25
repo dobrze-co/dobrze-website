@@ -21,7 +21,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
     preloadImages([aboutUsItem.photo]).then(() => {
       setImagesLoaded(true)
     })
-  }, [isInitialized, aboutUsItem.photo])
+  }, [aboutUsItem.photo])
 
   useEffect(() => {
     if (isInitialized && imagesLoaded) {
@@ -38,10 +38,13 @@ export default ({ location, transitionStatus, exit, entry }) => {
       entry={entry}
     >
       <S.Container>
-        <S.MobileBackButton isAnimationActive={isAnimationActive}>
+        <S.MobileBackButton
+          isAnimationActive={isAnimationActive}
+          animationDelay={(aboutUsItem.paragraphs.length + 1) * 150}
+        >
           <TransitionLink
             to="/o-nas"
-            exit={{ length: 0.5 }}
+            exit={{ length: 0.8 }}
             entry={{
               length: 0,
               state: {
@@ -55,10 +58,13 @@ export default ({ location, transitionStatus, exit, entry }) => {
           </TransitionLink>
         </S.MobileBackButton>
 
-        <S.DesktopBackButton isAnimationActive={isAnimationActive}>
+        <S.DesktopBackButton
+          isAnimationActive={isAnimationActive}
+          animationDelay={(aboutUsItem.paragraphs.length + 1) * 150}
+        >
           <TransitionLink
             to="/o-nas"
-            exit={{ length: 0.5 }}
+            exit={{ length: 0.8 }}
             entry={{
               length: 0,
               state: {

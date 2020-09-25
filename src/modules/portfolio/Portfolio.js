@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import * as S from "./Portfolio.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
@@ -6,9 +6,29 @@ import portfolioImage1 from "../../images/portfolio_1.png"
 import portfolioImage2 from "../../images/portfolio_2.png"
 import portfolioImage3 from "../../images/portfolio_3.png"
 import { IsInitializedContext } from "../../context"
+import { INTRO_ANIMATION_DELAY } from "../../components/IntroAnimation/IntroAnimation.styled"
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
+  const [isAnimationActive, setIsAnimationActive] = useState(false)
+
+  useEffect(() => {
+    if (isInitialized) {
+      if (!entry.state.disableIntroAnimation) {
+        const animationTimeout = setTimeout(() => {
+          setIsAnimationActive(true)
+        }, INTRO_ANIMATION_DELAY)
+
+        return () => {
+          clearTimeout(animationTimeout)
+        }
+      }
+
+      requestAnimationFrame(() => {
+        setIsAnimationActive(true)
+      })
+    }
+  }, [isInitialized, entry.state.disableIntroAnimation])
 
   return (
     <PageAnimation
@@ -23,14 +43,25 @@ export default ({ transitionStatus, exit, entry }) => {
       >
         <S.Container>
           <S.HeaderContainer>
-            <S.Header>KATALOG ZMIAN</S.Header>
+            <S.Header isAnimationActive={isAnimationActive}>
+              KATALOG ZMIAN
+            </S.Header>
+            <S.HeaderBackground isAnimationActive={isAnimationActive} />
           </S.HeaderContainer>
 
           <S.Sections>
             <S.Section reversed>
               <S.SectionText center>
-                <S.SectionParagraph>Analiza:</S.SectionParagraph>
-                <S.SectionParagraph>
+                <S.SectionParagraph
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={0}
+                >
+                  Analiza:
+                </S.SectionParagraph>
+                <S.SectionParagraph
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={200}
+                >
                   Wszystkie nasze działania projektujemy <strong>po</strong>{" "}
                   wykonaniu analizy danych, grup docelowych, trendów. Każde
                   proponowane przez nas rozwiązanie z czegoś wynika. Katalog
@@ -41,13 +72,27 @@ export default ({ transitionStatus, exit, entry }) => {
                   obszarach zmiana jest niezbędna.
                 </S.SectionParagraph>
               </S.SectionText>
-              <S.SectionImage src={portfolioImage1} />
+              <S.SectionImageWrapper>
+                <S.SectionImage
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={200}
+                  src={portfolioImage1}
+                />
+              </S.SectionImageWrapper>
             </S.Section>
 
             <S.Section withOffset>
               <S.SectionText bottom>
-                <S.SectionParagraph>Trendy:</S.SectionParagraph>
-                <S.SectionParagraph>
+                <S.SectionParagraph
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={1000}
+                >
+                  Trendy:
+                </S.SectionParagraph>
+                <S.SectionParagraph
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={1200}
+                >
                   Projektując zmianę przyglądamy się światowym trendom,
                   docieramy do raportów największych agencji i studiujemy
                   najnowsze badania rynku. Bierzemy pod uwagę lokalne i globalne
@@ -56,13 +101,28 @@ export default ({ transitionStatus, exit, entry }) => {
                   szybko zmieniającą się rzeczywistość.
                 </S.SectionParagraph>
               </S.SectionText>
-              <S.SectionImage src={portfolioImage2} wide />
+              <S.SectionImageWrapper>
+                <S.SectionImage
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={1200}
+                  src={portfolioImage2}
+                  wide
+                />
+              </S.SectionImageWrapper>
             </S.Section>
 
             <S.Section reversed>
               <S.SectionText top>
-                <S.SectionParagraph>Katalog zmian:</S.SectionParagraph>
-                <S.SectionParagraph>
+                <S.SectionParagraph
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={2000}
+                >
+                  Katalog zmian:
+                </S.SectionParagraph>
+                <S.SectionParagraph
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={2200}
+                >
                   Katalog zmian to 3 częściowy przewodnik po zaprojektowanych
                   dla Ciebie działaniach. Jego pierwsza część zawiera analizę.
                   Zawsze możesz do niej wrócić, jeśli, któreś z działań wyda Ci
@@ -75,16 +135,26 @@ export default ({ transitionStatus, exit, entry }) => {
                   wdrażania każdej ze zmian, niezależnie od jej wielkości.
                   Możesz liczyć na naszą pomoc.
                 </S.SectionParagraph>
-                <S.SectionParagraph>
+                <S.SectionParagraph
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={2400}
+                >
                   Jeśli chcesz żebyśmy zaprojektowały zmianę dla Twojego
                   biznesu, mówimy <strong>dobrze.</strong>
                 </S.SectionParagraph>
               </S.SectionText>
-              <S.SectionImage src={portfolioImage3} wide />
+              <S.SectionImageWrapper>
+                <S.SectionImage
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={2200}
+                  src={portfolioImage3}
+                  wide
+                />
+              </S.SectionImageWrapper>
             </S.Section>
           </S.Sections>
 
-          <S.Footer>
+          <S.Footer isAnimationActive={isAnimationActive} animationDelay={3000}>
             <S.Logo>
               <S.LogoBackground />
               <S.LogoLetters>

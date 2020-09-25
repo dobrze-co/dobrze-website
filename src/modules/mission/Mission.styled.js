@@ -1,6 +1,9 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
+import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
+
+export const TEXT_ANIMATION_DURATION = 1000
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -93,6 +96,19 @@ export const ContentText = styled.div`
   letter-spacing: 6px;
   font-family: "Times New Roman";
   padding-right: 30px;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 28px;
@@ -152,6 +168,20 @@ export const Footer = styled.div`
   align-items: center;
   justify-content: center;
 
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION + TEXT_ANIMATION_DURATION}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION + TEXT_ANIMATION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
+
   ${mediaQueries.laptopM} {
     padding: 30px 0;
   }
@@ -162,6 +192,20 @@ export const ArrowContainer = styled.div`
   bottom: 15px;
   left: 50%;
   margin-left: -15px;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION + 2 * TEXT_ANIMATION_DURATION}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${Transitions.PAGE_TRANSITION_DURATION + 2 * TEXT_ANIMATION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   ${mediaQueries.mobileM} {
     bottom: 20px;
