@@ -6,22 +6,30 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import Arrow from "../../components/Arrow/Arrow"
 import { IsInitializedContext } from "../../context"
+import { preloadImages } from "../../utils"
 
 export default ({ location, transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
   const [isAnimationActive, setIsAnimationActive] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
   const aboutUsItem = aboutUsData.find(aboutUs =>
     location.pathname.includes(`/o-nas/${aboutUs.path}`)
   )
 
   useEffect(() => {
-    if (isInitialized) {
+    preloadImages([aboutUsItem.photo]).then(() => {
+      setImagesLoaded(true)
+    })
+  }, [isInitialized, aboutUsItem.photo])
+
+  useEffect(() => {
+    if (isInitialized && imagesLoaded) {
       requestAnimationFrame(() => {
         setIsAnimationActive(true)
       })
     }
-  }, [isInitialized])
+  }, [isInitialized, imagesLoaded])
 
   return (
     <PageAnimation

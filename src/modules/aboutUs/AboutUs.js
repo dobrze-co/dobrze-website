@@ -8,13 +8,25 @@ import { IsInitializedContext } from "../../context"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import heroImage1 from "../../images/hero_1.png"
+import { preloadImages } from "../../utils"
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
   const [isAnimationActive, setIsAnimationActive] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
   useEffect(() => {
-    if (isInitialized) {
+    preloadImages([
+      heroImage1,
+      aboutUsData[0].photo,
+      aboutUsData[1].photo,
+    ]).then(() => {
+      setImagesLoaded(true)
+    })
+  }, [isInitialized])
+
+  useEffect(() => {
+    if (isInitialized && imagesLoaded) {
       if (!entry.state.disableIntroAnimation) {
         const animationTimeout = setTimeout(() => {
           setIsAnimationActive(true)
@@ -29,7 +41,7 @@ export default ({ transitionStatus, exit, entry }) => {
         setIsAnimationActive(true)
       })
     }
-  }, [isInitialized, entry.state.disableIntroAnimation])
+  }, [isInitialized, imagesLoaded, entry.state.disableIntroAnimation])
 
   return (
     <PageAnimation
