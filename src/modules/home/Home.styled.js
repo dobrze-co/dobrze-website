@@ -160,9 +160,9 @@ export const Footer = styled.div`
     right: 22%;
     height: 14%;
     bottom: 0;
-    font-size: 2.75vw;
-    letter-spacing: 0.7vw;
-    padding-left: 0.7vw;
+    font-size: 2.1vw;
+    letter-spacing: 0.6vw;
+    padding-left: 0.6vw;
     margin-bottom: 0;
   }
 
@@ -173,9 +173,9 @@ export const Footer = styled.div`
     right: 22%;
     height: 14%;
     bottom: 0;
-    font-size: 2.75vw;
-    letter-spacing: 0.7vw;
-    padding-left: 0.7vw;
+    font-size: 2.1vw;
+    letter-spacing: 0.6vw;
+    padding-left: 0.6vw;
     margin-bottom: 0;
   }
 `

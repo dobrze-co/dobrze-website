@@ -87,7 +87,7 @@ export default ({ transitionStatus, exit, entry }) => {
             >
               BRANDING
             </TransitionLink>
-            &#8226;
+            &nbsp;&#8226;&nbsp;
             <TransitionLink
               to={"/co-robimy/marketing"}
               exit={{ length: 0.5 }}
@@ -100,7 +100,7 @@ export default ({ transitionStatus, exit, entry }) => {
             >
               MARKETING
             </TransitionLink>
-            &#8226;
+            &nbsp;&#8226;&nbsp;
             <TransitionLink
               to={"/co-robimy/sprzedaz"}
               exit={{ length: 0.5 }}
