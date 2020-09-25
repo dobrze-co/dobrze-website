@@ -1,30 +1,15 @@
 import styled, { css } from "styled-components"
 import * as Transitions from "../../theme/transitions"
 
-export const Container = styled.div``
-
-export const Letter = styled.span`
-  display: inline-block;
+export const Container = styled.div`
   opacity: 0;
-  transform: translateY(50%);
-  transition: ${Transitions.LogoTransition};
-  
-      
-  ${({ last }) =>
-    last &&
-    css`
-      transform: translateY(-50%);
-    `}
+  transform: translateY(40%);
+  transition: ${Transitions.HomeTransition};
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
     css`
       opacity: 1;
       transform: translateY(0);
-    `}
-
-  ${({ position }) =>
-    css`
-      transition-delay: ${Transitions.LOGO_TRANSITION_DURATION * position}ms;
     `}
 `

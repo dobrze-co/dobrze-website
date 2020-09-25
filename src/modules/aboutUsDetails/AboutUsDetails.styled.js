@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
 import { mediaQueries } from "../../theme/responsive"
+import * as Transitions from "../../theme/transitions"
 
-export const BACKGROUND_ANIMATION_DURATION = 400
-export const BACKGROUND_ANIMATION_DELAY = 300
-export const TEXT_ANIMATION_DURATION = 300
+export const BACKGROUND_ANIMATION_DURATION = 800
+export const IMAGE_ANIMATION_DURATION = 1000
+export const TEXT_ANIMATION_DURATION = 500
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -29,7 +30,7 @@ const getBackButtonDelay = ({ isAnimationActive }) => {
     return 0
   }
   return (
-    BACKGROUND_ANIMATION_DELAY +
+    Transitions.PAGE_TRANSITION_DURATION +
     BACKGROUND_ANIMATION_DURATION +
     TEXT_ANIMATION_DURATION
   )
@@ -37,11 +38,10 @@ const getBackButtonDelay = ({ isAnimationActive }) => {
 
 export const MobileBackButton = styled.div`
   opacity: 0;
-  transform: translateY(70%);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getBackButtonDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getBackButtonDelay}ms;
+  transform: translateY(30%);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getBackButtonDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getBackButtonDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -90,11 +90,10 @@ export const DesktopBackButton = styled.div`
   left: 38px;
   top: 560px;
   opacity: 0;
-  transform: translateX(200px);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getBackButtonDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getBackButtonDelay}ms;
+  transform: translateX(100px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getBackButtonDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getBackButtonDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -138,10 +137,15 @@ export const ContentBackground = styled.div`
   height: 100px;
   left: 0;
   background: ${Colors.Secondary};
+  opacity: 0;
+  transition: opacity ${BACKGROUND_ANIMATION_DURATION}ms ease-out
+    ${Transitions.PAGE_TRANSITION_DURATION}ms;
 
-  transform: translateX(150%);
-  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
-    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+    `}
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -181,7 +185,7 @@ const getTitleDelay = ({ isAnimationActive }) => {
   if (!isAnimationActive) {
     return 0
   }
-  return BACKGROUND_ANIMATION_DELAY + BACKGROUND_ANIMATION_DURATION
+  return Transitions.PAGE_TRANSITION_DURATION + BACKGROUND_ANIMATION_DURATION
 }
 
 export const ContentMobileTitle = styled.div`
@@ -196,10 +200,8 @@ export const ContentMobileTitle = styled.div`
   color: ${Colors.Primary};
   opacity: 0;
   transform: translateY(70%);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getTitleDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getTitleDelay}ms;
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -238,10 +240,8 @@ export const ContentDesktopTitle = styled.div`
   color: ${Colors.Primary};
   opacity: 0;
   transform: translateY(50%);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getTitleDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getTitleDelay}ms;
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getTitleDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -259,27 +259,15 @@ export const ContentDesktopTitle = styled.div`
   }
 `
 
-export const ContentPhoto = styled.div`
+export const ContentPhotoWrapper = styled.div`
+  overflow: hidden;
   position: relative;
   z-index: 2;
   width: 100vw;
   height: 100vw;
   margin-left: -25px;
   margin-right: -25px;
-  background-image: url(${({ image }) => image});
-  background-size: cover;
-  background-position: center;
   margin-bottom: 30px;
-
-  transform: translateX(-150%);
-  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
-    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
-
-  ${({ isAnimationActive }) =>
-    isAnimationActive &&
-    css`
-      transform: translateX(0);
-    `}
 
   ${mediaQueries.tablet} {
     width: 60vw;
@@ -296,13 +284,31 @@ export const ContentPhoto = styled.div`
     flex: 1;
     min-width: 30vw;
     max-width: 30vw;
-    min-height: 40vw;
-    max-height: 40vw;
+    height: 40vw;
   }
 
   ${mediaQueries.laptopM} {
     margin-bottom: -30vw;
   }
+`
+
+export const ContentPhoto = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url(${({ image }) => image});
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+
+  transform: translateY(-100%);
+  transition: transform ${IMAGE_ANIMATION_DURATION}ms ease-in-out
+    ${Transitions.PAGE_TRANSITION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      transform: translateY(0);
+    `}
 `
 
 export const ContentText = styled.div`
@@ -341,7 +347,7 @@ const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
     return 0
   }
   return (
-    BACKGROUND_ANIMATION_DELAY +
+    Transitions.PAGE_TRANSITION_DURATION +
     BACKGROUND_ANIMATION_DURATION +
     TEXT_ANIMATION_DURATION +
     animationDelay
@@ -350,11 +356,10 @@ const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
 
 export const ContentTextParagraph = styled.p`
   opacity: 0;
-  transform: translateY(100px);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getParagraphDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getParagraphDelay}ms;
+  transform: translateY(50px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getParagraphDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -376,10 +381,9 @@ export const Features = styled.div`
   padding: 24px 50px 0;
   opacity: 0;
   transform: translateY(100px);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getParagraphDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getParagraphDelay}ms;
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getParagraphDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&

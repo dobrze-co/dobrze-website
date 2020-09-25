@@ -11,21 +11,25 @@ import heroImage1 from "../../images/hero_1.png"
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
-  const [isAnimationActive, setIsAnimationActive] = useState(
-    entry.state.disableIntroAnimation
-  )
+  const [isAnimationActive, setIsAnimationActive] = useState(false)
 
   useEffect(() => {
     if (isInitialized) {
-      const animationTimeout = setTimeout(() => {
-        setIsAnimationActive(true)
-      }, INTRO_ANIMATION_DELAY)
+      if (!entry.state.disableIntroAnimation) {
+        const animationTimeout = setTimeout(() => {
+          setIsAnimationActive(true)
+        }, INTRO_ANIMATION_DELAY)
 
-      return () => {
-        clearTimeout(animationTimeout)
+        return () => {
+          clearTimeout(animationTimeout)
+        }
       }
+
+      requestAnimationFrame(() => {
+        setIsAnimationActive(true)
+      })
     }
-  }, [isInitialized])
+  }, [isInitialized, entry.state.disableIntroAnimation])
 
   return (
     <PageAnimation
@@ -40,10 +44,12 @@ export default ({ transitionStatus, exit, entry }) => {
       >
         <S.Container>
           <S.Content>
-            <S.ContentImage
-              image={heroImage1}
-              isAnimationActive={isAnimationActive}
-            />
+            <S.ContentImageWrapper>
+              <S.ContentImage
+                image={heroImage1}
+                isAnimationActive={isAnimationActive}
+              />
+            </S.ContentImageWrapper>
 
             <S.ContentText>
               <S.ContentParagraph
@@ -60,7 +66,7 @@ export default ({ transitionStatus, exit, entry }) => {
               </S.ContentParagraph>
               <S.ContentParagraph
                 isAnimationActive={isAnimationActive}
-                animationDelay={50}
+                animationDelay={150}
               >
                 Misja od początku była dla nas jasna - chcemy pomagać, tam gdzie
                 inni mówią, że bez milionowych nakładów finansowych się nie da.
@@ -83,13 +89,13 @@ export default ({ transitionStatus, exit, entry }) => {
               entry={{
                 length: 0,
                 state: {
-                  animation: PAGE_ANIMATION.SLIDE_TOP,
+                  animation: PAGE_ANIMATION.FADE,
                 },
               }}
             >
               <S.NavigationItem
                 isAnimationActive={isAnimationActive}
-                animationDelay={200}
+                animationDelay={500}
                 left
               >
                 <S.NavigationPhoto image={aboutUsData[0].photo} />
@@ -99,7 +105,7 @@ export default ({ transitionStatus, exit, entry }) => {
 
             <S.NavigationSeparator
               isAnimationActive={isAnimationActive}
-              animationDelay={200}
+              animationDelay={500}
             >
               &#8226;
             </S.NavigationSeparator>
@@ -110,13 +116,13 @@ export default ({ transitionStatus, exit, entry }) => {
               entry={{
                 length: 0,
                 state: {
-                  animation: PAGE_ANIMATION.SLIDE_TOP,
+                  animation: PAGE_ANIMATION.FADE,
                 },
               }}
             >
               <S.NavigationItem
                 isAnimationActive={isAnimationActive}
-                animationDelay={200}
+                animationDelay={500}
                 right
               >
                 <S.NavigationPhoto image={aboutUsData[1].photo} />

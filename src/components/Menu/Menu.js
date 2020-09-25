@@ -4,13 +4,7 @@ import * as S from "./Menu.styled"
 import TransitionLink from "gatsby-plugin-transition-link"
 import heroImage1 from "../../images/hero_1.png"
 
-export default ({
-  location,
-  animationDirection,
-  isTransitionEnabled,
-  isOpen,
-  onLinkClick,
-}) => {
+export default ({ location, isOpen, onLinkClick }) => {
   useEffect(() => {
     if (isOpen) {
       disableBodyScroll(document.documentElement)
@@ -20,11 +14,7 @@ export default ({
   }, [isOpen])
 
   return (
-    <S.Container
-      animationDirection={animationDirection}
-      isTransitionEnabled={isTransitionEnabled}
-      isOpen={isOpen}
-    >
+    <S.Container isOpen={isOpen}>
       <S.Content>
         <S.MenuItems>
           <S.MenuItem isAnimationActive={isOpen} animationDelay={0}>
@@ -38,7 +28,7 @@ export default ({
               O nas
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem isAnimationActive={isOpen} animationDelay={100}>
+          <S.MenuItem isAnimationActive={isOpen} animationDelay={150}>
             <TransitionLink
               className={location.pathname.match(/co-robimy/) ? "active" : ""}
               to="/co-robimy"
@@ -49,7 +39,7 @@ export default ({
               Co robimy
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem isAnimationActive={isOpen} animationDelay={200}>
+          <S.MenuItem isAnimationActive={isOpen} animationDelay={300}>
             <TransitionLink
               className={
                 location.pathname.match(/katalog-zmian/) ? "active" : ""
@@ -62,7 +52,7 @@ export default ({
               katalog zmian
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem isAnimationActive={isOpen} animationDelay={300}>
+          <S.MenuItem isAnimationActive={isOpen} animationDelay={450}>
             <TransitionLink
               className={location.pathname.match(/kontakt/) ? "active" : ""}
               to="/kontakt"
@@ -75,7 +65,9 @@ export default ({
           </S.MenuItem>
         </S.MenuItems>
 
-        <S.Image src={heroImage1} isAnimationActive={isOpen} />
+        <S.ImageWrapper>
+          <S.Image src={heroImage1} isAnimationActive={isOpen} />
+        </S.ImageWrapper>
       </S.Content>
     </S.Container>
   )

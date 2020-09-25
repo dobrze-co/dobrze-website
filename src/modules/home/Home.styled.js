@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
 import * as Variables from "../../theme/variables"
+import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
 
 export const Container = styled.div`
@@ -76,6 +77,18 @@ export const Slider = styled.div`
   height: 55%;
   width: 100%;
   position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform-origin: center bottom;
+  transform: scale(0);
+  transition: ${Transitions.HomeTransition};
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: scale(1);
+    `}
 
   ${mediaQueries.mobileLandscape} {
     height: auto;
@@ -100,15 +113,6 @@ export const Slider = styled.div`
   }
 `
 
-export const ImagePlaceholder = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: ${Colors.Secondary};
-`
-
 export const Image = styled.div`
   position: absolute;
   left: 0;
@@ -124,7 +128,7 @@ export const Image = styled.div`
     active &&
     css`
       opacity: 1;
-    `}
+    `};
 `
 
 export const Footer = styled.div`
@@ -178,4 +182,18 @@ export const Footer = styled.div`
     padding-left: 0.6vw;
     margin-bottom: 0;
   }
+`
+
+export const FooterContainer = styled.div`
+  opacity: 0;
+  transform: translateY(75%);
+  transition: ${Transitions.HomeTransition};
+  transition-delay: 1500ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 `

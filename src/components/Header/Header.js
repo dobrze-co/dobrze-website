@@ -70,7 +70,7 @@ export default ({
       <TransitionLink
         to="/"
         exit={{ length: 0.5 }}
-        entry={{ length: 0, state: { animation: PAGE_ANIMATION.SLIDE_BOTTOM } }}
+        entry={{ length: 0, state: { animation: PAGE_ANIMATION.FADE } }}
       >
         <LogoAnimation isAnimationActive={!isOnHomepage}>dobrze.</LogoAnimation>
       </TransitionLink>

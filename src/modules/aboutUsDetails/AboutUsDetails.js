@@ -37,7 +37,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
             entry={{
               length: 0,
               state: {
-                animation: PAGE_ANIMATION.SLIDE_RIGHT,
+                animation: PAGE_ANIMATION.FADE,
                 disableIntroAnimation: true,
               },
             }}
@@ -54,7 +54,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
             entry={{
               length: 0,
               state: {
-                animation: PAGE_ANIMATION.SLIDE_RIGHT,
+                animation: PAGE_ANIMATION.FADE,
                 disableIntroAnimation: true,
               },
             }}
@@ -69,10 +69,13 @@ export default ({ location, transitionStatus, exit, entry }) => {
           <S.ContentMobileTitle isAnimationActive={isAnimationActive}>
             {aboutUsItem.name}
           </S.ContentMobileTitle>
-          <S.ContentPhoto
-            image={aboutUsItem.photo}
-            isAnimationActive={isAnimationActive}
-          />
+
+          <S.ContentPhotoWrapper>
+            <S.ContentPhoto
+              image={aboutUsItem.photo}
+              isAnimationActive={isAnimationActive}
+            />
+          </S.ContentPhotoWrapper>
 
           <S.ContentTextWrapper>
             <S.ContentDesktopTitle isAnimationActive={isAnimationActive}>
@@ -84,7 +87,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
                 <S.ContentTextParagraph
                   key={index}
                   isAnimationActive={isAnimationActive}
-                  animationDelay={index * 50}
+                  animationDelay={index * 150}
                   dangerouslySetInnerHTML={{ __html: paragraph }}
                 />
               ))}
@@ -94,7 +97,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
 
         <S.Features
           isAnimationActive={isAnimationActive}
-          animationDelay={aboutUsItem.paragraphs.length * 50}
+          animationDelay={aboutUsItem.paragraphs.length * 150}
         >
           {aboutUsItem.skills.map((skill, index) => {
             return (

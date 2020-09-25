@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
+import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
 
-export const BACKGROUND_ANIMATION_DURATION = 400
-export const BACKGROUND_ANIMATION_DELAY = 300
-export const TEXT_ANIMATION_DURATION = 300
+export const BACKGROUND_ANIMATION_DURATION = 800
+export const IMAGE_ANIMATION_DURATION = 1000
+export const TEXT_ANIMATION_DURATION = 500
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -49,14 +50,14 @@ export const ContentBackground = styled.div`
   width: 55%;
   background: ${Colors.Secondary};
 
-  transform: translateX(150%);
-  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
-    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
+  opacity: 0;
+  transition: opacity ${BACKGROUND_ANIMATION_DURATION}ms ease-out
+    ${Transitions.PAGE_TRANSITION_DURATION}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
     css`
-      transform: translateX(0);
+      opacity: 1;
     `}
 
   ${mediaQueries.tablet} {
@@ -76,22 +77,11 @@ export const ContentBackground = styled.div`
   }
 `
 
-export const ContentImage = styled.div`
+export const ContentImageWrapper = styled.div`
+  overflow: hidden;
   display: none;
   position: relative;
   z-index: 2;
-  background-image: url(${({ image }) => image});
-  background-size: cover;
-  background-position: center;
-  transform: translateX(-100%);
-  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
-    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
-
-  ${({ isAnimationActive }) =>
-    isAnimationActive &&
-    css`
-      transform: translateX(0);
-    `}
 
   ${mediaQueries.tablet} {
     display: block;
@@ -115,6 +105,23 @@ export const ContentImage = styled.div`
     margin-bottom: -86px;
     margin-top: 86px;
   }
+`
+
+export const ContentImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url(${({ image }) => image});
+  background-size: cover;
+  background-position: center;
+  transform: translateY(-100%);
+  transition: transform ${IMAGE_ANIMATION_DURATION}ms ease-in-out
+    ${Transitions.PAGE_TRANSITION_DURATION}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      transform: translateY(0);
+    `}
 `
 
 export const ContentText = styled.div`
@@ -157,17 +164,18 @@ const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
     return 0
   }
   return (
-    BACKGROUND_ANIMATION_DELAY + BACKGROUND_ANIMATION_DURATION + animationDelay
+    Transitions.PAGE_TRANSITION_DURATION +
+    BACKGROUND_ANIMATION_DURATION +
+    animationDelay
   )
 }
 
 export const ContentParagraph = styled.p`
   opacity: 0;
-  transform: translateY(100px);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getParagraphDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getParagraphDelay}ms;
+  transform: translateY(50px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getParagraphDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -203,6 +211,7 @@ export const Navigation = styled.div`
   ${mediaQueries.laptopM} {
     justify-content: flex-end;
     margin-right: 150px;
+    margin-left: auto;
   }
 `
 
@@ -211,7 +220,9 @@ const getNavigationItemDelay = ({ isAnimationActive, animationDelay }) => {
     return 0
   }
   return (
-    BACKGROUND_ANIMATION_DELAY + BACKGROUND_ANIMATION_DURATION + animationDelay
+    Transitions.PAGE_TRANSITION_DURATION +
+    BACKGROUND_ANIMATION_DURATION +
+    animationDelay
   )
 }
 
@@ -221,8 +232,8 @@ export const NavigationItem = styled.div`
   position: relative;
   opacity: 0;
   transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getNavigationItemDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ease-out ${getNavigationItemDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out
       ${getNavigationItemDelay}ms;
       
           
@@ -281,10 +292,9 @@ export const NavigationSeparator = styled.div`
   color: ${Colors.Primary};
   opacity: 0;
   transform: translateY(100%);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms
-      cubic-bezier(0.32, 0.83, 0.69, 1) ${getNavigationItemDelay}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getNavigationItemDelay}ms;
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getNavigationItemDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getNavigationItemDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&

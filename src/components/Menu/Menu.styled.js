@@ -3,21 +3,6 @@ import * as Colors from "../../theme/colors"
 import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
 
-const getTransform = ({ animationDirection, isOpen }) => {
-  if (animationDirection === "horizontal" && !isOpen) {
-    return "translateX(-110%)"
-  }
-  if (animationDirection === "horizontal" && isOpen) {
-    return "translateX(0)"
-  }
-  if (animationDirection === "vertical" && !isOpen) {
-    return "translateY(-110%)"
-  }
-  if (animationDirection === "vertical" && isOpen) {
-    return "translateY(0)"
-  }
-}
-
 export const Container = styled.div`
   position: fixed;
   z-index: 10;
@@ -25,9 +10,18 @@ export const Container = styled.div`
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  transform: ${getTransform};
+  opacity: 0;
   background-color: ${Colors.Accent};
   display: flex;
+  transition: ${Transitions.PageTransition};
+  pointer-events: none;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      pointer-events: auto;
+      opacity: 1;
+    `}
 
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 
@@ -38,12 +32,6 @@ export const Container = styled.div`
   ${mediaQueries.laptop} {
     align-items: center;
   }
-
-  ${({ isTransitionEnabled }) =>
-    isTransitionEnabled &&
-    css`
-      transition: ${Transitions.PageTransition};
-    `}
 `
 
 export const Content = styled.div`
@@ -69,7 +57,7 @@ export const MenuItems = styled.div`
 
 const getMenuItemDelay = ({ isAnimationActive, animationDelay }) => {
   if (!isAnimationActive) {
-    return 0
+    return `0ms`
   }
   return `${Transitions.PAGE_TRANSITION_DURATION - 200 + animationDelay}`
 }
@@ -83,9 +71,8 @@ export const MenuItem = styled.div`
   color: ${Colors.Primary};
   opacity: 0;
   transform: translateY(100%);
-  transition: transform 300ms cubic-bezier(0.32, 0.83, 0.69, 1)
-      ${getMenuItemDelay}ms,
-    opacity 300ms cubic-bezier(0.32, 0.83, 0.69, 1) ${getMenuItemDelay}ms;
+  transition: transform 400ms ease-out ${getMenuItemDelay}ms,
+    opacity 400ms ease-out ${getMenuItemDelay}ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -126,7 +113,8 @@ export const MenuItem = styled.div`
   }
 `
 
-export const Image = styled.img`
+export const ImageWrapper = styled.div`
+  overflow: hidden;
   position: absolute;
   bottom: 10vh;
   left: 38px;
@@ -155,4 +143,28 @@ export const Image = styled.img`
     width: 35%;
     height: auto;
   }
+`
+
+const getImageTransition = ({ isAnimationActive }) => {
+  if (!isAnimationActive) {
+    return `none`
+  }
+  const delay = Transitions.PAGE_TRANSITION_DURATION
+  return `transform 800ms ease-out ${delay}ms, opacity 800ms ease-out ${delay}ms`
+}
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(-100%);
+  transform-origin: top;
+  transition: ${getImageTransition};
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `

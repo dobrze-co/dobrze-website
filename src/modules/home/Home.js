@@ -17,34 +17,42 @@ export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
 
   const [activeImage, setActiveImage] = useState(0)
-  const [isLogoAnimationActive, setIsLogoAnimationActive] = useState(false)
-  const [isLogoAnimationFinished, setIsLogoAnimationFinished] = useState(false)
+  const [isAnimationActive, setIsAnimationActive] = useState(false)
+  const [isAnimationFinished, setIsAnimationFinished] = useState(false)
+  const [isPageAnimationFinished, setIsPageAnimationFinished] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
-  // start logo animation when page transition is finished
+  // wait until page transition is finished
   useEffect(() => {
     if (isInitialized) {
       const timeout = setTimeout(() => {
-        setIsLogoAnimationActive(true)
+        setIsPageAnimationFinished(true)
       }, exit.length * 1000)
       return () => clearTimeout(timeout)
     }
   }, [isInitialized, exit.length])
 
+  // start animation after page transition and when images are fetched
+  useEffect(() => {
+    if (isPageAnimationFinished && imagesLoaded) {
+      setIsAnimationActive(true)
+    }
+  }, [isPageAnimationFinished, imagesLoaded])
+
   // set variable indicating that logo transition is finished
   useEffect(() => {
-    if (!isInitialized) {
+    if (!isAnimationActive) {
       return
     }
     const timeout = setTimeout(() => {
-      setIsLogoAnimationFinished(true)
-    }, 7 * Transitions.LOGO_TRANSITION_DURATION)
+      setIsAnimationFinished(true)
+    }, Transitions.HOME_TRANSITION_DURATION)
     return () => clearTimeout(timeout)
-  }, [isInitialized, isLogoAnimationActive])
+  }, [isAnimationActive])
 
   // start slides animation when logo animation is finished
   useEffect(() => {
-    if (!isLogoAnimationFinished) {
+    if (!isAnimationFinished) {
       return
     }
     const interval = setInterval(() => {
@@ -53,7 +61,7 @@ export default ({ transitionStatus, exit, entry }) => {
       )
     }, 500)
     return () => clearInterval(interval)
-  }, [isLogoAnimationFinished])
+  }, [isAnimationFinished])
 
   useEffect(() => {
     preloadImages(sliderImages).then(() => {
@@ -70,62 +78,58 @@ export default ({ transitionStatus, exit, entry }) => {
       <S.Container>
         <S.Content>
           <S.Title>
-            <LogoAnimation isAnimationActive={isLogoAnimationActive}>
+            <LogoAnimation isAnimationActive={isAnimationActive}>
               dobrze.
             </LogoAnimation>
           </S.Title>
           <S.Footer>
-            <TransitionLink
-              to={"/co-robimy/branding"}
-              exit={{ length: 0.5 }}
-              entry={{
-                length: 0,
-                state: {
-                  animation: PAGE_ANIMATION.SLIDE_TOP,
-                },
-              }}
-            >
-              BRANDING
-            </TransitionLink>
-            &nbsp;&#8226;&nbsp;
-            <TransitionLink
-              to={"/co-robimy/marketing"}
-              exit={{ length: 0.5 }}
-              entry={{
-                length: 0,
-                state: {
-                  animation: PAGE_ANIMATION.SLIDE_TOP,
-                },
-              }}
-            >
-              MARKETING
-            </TransitionLink>
-            &nbsp;&#8226;&nbsp;
-            <TransitionLink
-              to={"/co-robimy/sprzedaz"}
-              exit={{ length: 0.5 }}
-              entry={{
-                length: 0,
-                state: {
-                  animation: PAGE_ANIMATION.SLIDE_TOP,
-                },
-              }}
-            >
-              SPRZEDAŻ
-            </TransitionLink>
+            <S.FooterContainer isAnimationActive={isAnimationActive}>
+              <TransitionLink
+                to={"/co-robimy/branding"}
+                exit={{ length: 0.5 }}
+                entry={{
+                  length: 0,
+                  state: {
+                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                  },
+                }}
+              >
+                BRANDING
+              </TransitionLink>
+              &nbsp;&#8226;&nbsp;
+              <TransitionLink
+                to={"/co-robimy/marketing"}
+                exit={{ length: 0.5 }}
+                entry={{
+                  length: 0,
+                  state: {
+                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                  },
+                }}
+              >
+                MARKETING
+              </TransitionLink>
+              &nbsp;&#8226;&nbsp;
+              <TransitionLink
+                to={"/co-robimy/sprzedaz"}
+                exit={{ length: 0.5 }}
+                entry={{
+                  length: 0,
+                  state: {
+                    animation: PAGE_ANIMATION.SLIDE_TOP,
+                  },
+                }}
+              >
+                SPRZEDAŻ
+              </TransitionLink>
+            </S.FooterContainer>
           </S.Footer>
         </S.Content>
 
-        <S.Slider>
-          {!imagesLoaded && <S.ImagePlaceholder />}
-          {imagesLoaded &&
-            sliderImages.map((image, index) => (
-              <S.Image
-                key={image}
-                active={index === activeImage}
-                image={image}
-              />
-            ))}
+        <S.Slider isAnimationActive={isAnimationActive}>
+          {sliderImages.map((image, index) => (
+            <S.Image key={image} active={index === activeImage} image={image} />
+          ))}
         </S.Slider>
       </S.Container>
     </PageAnimation>

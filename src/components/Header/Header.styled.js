@@ -78,7 +78,7 @@ export const Hamburger = styled.div`
   height: 30px;
   position: relative;
   transform: rotate(0deg);
-  transition: 500ms ease-in-out;
+  transition: 500ms ease-out;
   cursor: pointer;
 
   ${mediaQueries.tablet} {
@@ -96,7 +96,7 @@ export const HamburgerBar = styled.span`
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
-  transition: 0.25s ease-in-out;
+  transition: 0.35s ease-out;
 
   ${mediaQueries.tablet} {
     height: 3px;

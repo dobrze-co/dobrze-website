@@ -3,7 +3,7 @@ import * as Colors from "../../theme/colors"
 import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
 
-export const INTRO_ANIMATION_DELAY = 2300
+export const INTRO_ANIMATION_DELAY = 2000
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -21,7 +21,7 @@ export const Content = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: ${Colors.Secondary};
   z-index: 2;
@@ -76,9 +76,8 @@ export const Content = styled.div`
 
 export const ContentWrapper = styled.div`
   opacity: 0;
-  transform: translateY(100%);
-  transition: transform 300ms cubic-bezier(0.32, 0.83, 0.69, 1) 0ms,
-    opacity 300ms cubic-bezier(0.32, 0.83, 0.69, 1) 0ms;
+  transform: translateY(50%);
+  transition: transform 1000ms ease-out 0ms, opacity 1000ms ease-out 0ms;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&

@@ -164,7 +164,7 @@ export const InputLoader = styled.div`
   height: 3px;
   transform-origin: center;
   animation: ${bounceAnimation} 3s infinite;
-  animation-timing-function: cubic-bezier(0.32, 0.83, 0.69, 1);
+  animation-timing-function: ease-out;
 
   ${mediaQueries.laptopM} {
     height: 5px;

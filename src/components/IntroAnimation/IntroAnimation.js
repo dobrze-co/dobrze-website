@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import * as S from "./IntroAnimation.styled"
 import * as Transitions from "../../theme/transitions"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 
 export default ({ content, active, started, children }) => {
   const [displayChildren, setDisplayChildren] = useState(!active)
@@ -14,11 +15,13 @@ export default ({ content, active, started, children }) => {
       return
     }
 
+    disableBodyScroll(document.documentElement)
     const animationTimeout = setTimeout(() => {
       setDisplayChildren(true)
     }, S.INTRO_ANIMATION_DELAY)
 
     const clearAnimationTimeout = setTimeout(() => {
+      enableBodyScroll(document.documentElement)
       setIsAnimationFinished(true)
     }, S.INTRO_ANIMATION_DELAY + Transitions.PAGE_TRANSITION_DURATION)
 

@@ -6,6 +6,7 @@ export const PAGE_ANIMATION = {
   SLIDE_BOTTOM: "SLIDE_BOTTOM",
   SLIDE_LEFT: "SLIDE_LEFT",
   SLIDE_RIGHT: "SLIDE_RIGHT",
+  FADE: "FADE",
 }
 
 export const Container = styled.div`
@@ -13,6 +14,20 @@ export const Container = styled.div`
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
 
   ${({ transitionStatus, exit, entry }) => {
+    if (entry.state.animation === PAGE_ANIMATION.FADE) {
+      if (transitionStatus === "entering") {
+        return css`
+          opacity: 0;
+        `
+      }
+
+      if (transitionStatus === "entered") {
+        return css`
+          opacity: 1;
+        `
+      }
+    }
+
     if (entry.state.animation === PAGE_ANIMATION.SLIDE_BOTTOM) {
       if (transitionStatus === "entering") {
         return css`

@@ -3,7 +3,6 @@ import Header from "../components/Header/Header"
 import Menu from "../components/Menu/Menu"
 import GlobalStyle from "../theme/globalStyle"
 import { FontFutura, FontLato } from "../theme/fonts"
-import { waitFormDOMUpdate } from "../utils"
 import { IsInitializedContext } from "../context"
 import FontFaceObserver from "fontfaceobserver"
 import * as S from "./styled"
@@ -19,10 +18,6 @@ const latoBoldObserver = new FontFaceObserver("Lato", {
 export default ({ children, location, pageContext }) => {
   const [isInitialized, setIsInitialized] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isMenuTransitionEnabled, setIsMenuTransitionEnabled] = useState(true)
-  const [meuAnimationDirection, setMeuAnimationDirection] = useState(
-    "horizontal"
-  )
   const isOn404Page = pageContext.is404
 
   useEffect(() => {
@@ -36,28 +31,10 @@ export default ({ children, location, pageContext }) => {
   }, [])
 
   const handleHamburgerClick = async () => {
-    setIsMenuTransitionEnabled(false)
-
-    await waitFormDOMUpdate()
-    setMeuAnimationDirection("horizontal")
-
-    await waitFormDOMUpdate()
-    setIsMenuTransitionEnabled(true)
-
-    await waitFormDOMUpdate()
     setIsMenuOpen(isOpen => !isOpen)
   }
 
   const handleLinkClick = async () => {
-    setIsMenuTransitionEnabled(false)
-
-    await waitFormDOMUpdate()
-    setMeuAnimationDirection("vertical")
-
-    await waitFormDOMUpdate()
-    setIsMenuTransitionEnabled(true)
-
-    await waitFormDOMUpdate()
     setIsMenuOpen(false)
   }
 
@@ -76,8 +53,6 @@ export default ({ children, location, pageContext }) => {
       {!isOn404Page && (
         <Menu
           location={location}
-          animationDirection={meuAnimationDirection}
-          isTransitionEnabled={isMenuTransitionEnabled}
           isOpen={isMenuOpen}
           onLinkClick={handleLinkClick}
         />
