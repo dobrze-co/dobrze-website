@@ -232,27 +232,23 @@ export const Submit = styled.button`
 `
 
 export const SubmitMessage = styled.div`
-  font-family: "Times New Roman";
+  font-family: "Lato";
   font-size: 15px;
   line-height: 30px;
-  letter-spacing: 3.6px;
 
   ${mediaQueries.tablet} {
     font-size: 22px;
     line-height: 28px;
-    letter-spacing: 4.5px;
   }
 
   ${mediaQueries.laptopM} {
     font-size: 28px;
     line-height: 32px;
-    letter-spacing: 6px;
   }
 
   ${mediaQueries.desktop} {
     font-size: 31px;
     line-height: 36px;
-    letter-spacing: 7.5px;
   }
 `
 
