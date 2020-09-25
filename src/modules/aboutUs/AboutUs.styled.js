@@ -195,10 +195,14 @@ export const Navigation = styled.div`
 
   ${mediaQueries.tablet} {
     flex: 1;
+    margin-left: 35%;
+    max-width: 55%;
+    min-width: 55%;
   }
 
   ${mediaQueries.laptopM} {
-    margin-left: 40%;
+    justify-content: flex-end;
+    margin-right: 150px;
   }
 `
 
@@ -294,18 +298,21 @@ export const NavigationSeparator = styled.div`
     font-size: 50px;
     line-height: 58px;
     letter-spacing: 12px;
+    padding: 0 12px;
   }
 
   ${mediaQueries.laptopM} {
     font-size: 70px;
     line-height: 80px;
     letter-spacing: 17px;
+    padding: 0 17px;
   }
 
   ${mediaQueries.desktop} {
     font-size: 100px;
     line-height: 115px;
     letter-spacing: 24px;
+    padding: 0 24px;
   }
 `
 

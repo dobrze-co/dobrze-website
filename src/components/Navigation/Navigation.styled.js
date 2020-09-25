@@ -15,9 +15,9 @@ export const Container = styled.div`
   letter-spacing: 2.5px;
 
   ${mediaQueries.mobileM} {
-    font-size: 15px;
-    line-height: 30px;
-    letter-spacing: 3.6px;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 3px;
   }
 
   ${mediaQueries.tablet} {
@@ -58,7 +58,7 @@ export const Item = styled.div`
     `}
 
   ${mediaQueries.mobileM} {
-    padding-left: 3.6px;
+    padding-left: 3px;
   }
 
   ${mediaQueries.tablet} {
@@ -78,7 +78,7 @@ export const Separator = styled.div`
   padding-left: 2.5px;
 
   ${mediaQueries.mobileM} {
-    padding-left: 3.6px;
+    padding-left: 3px;
   }
 
   ${mediaQueries.tablet} {
