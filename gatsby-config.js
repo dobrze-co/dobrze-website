@@ -17,5 +17,12 @@ module.exports = {
         logo: "./src/images/favicon.png",
       },
     },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-NBHMXM4",
+        routeChangeEventName: "route-change",
+      },
+    },
   ],
 }
