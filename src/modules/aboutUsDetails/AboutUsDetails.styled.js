@@ -1,6 +1,10 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
 import { mediaQueries } from "../../theme/responsive"
+
+export const BACKGROUND_ANIMATION_DURATION = 400
+export const BACKGROUND_ANIMATION_DELAY = 300
+export const TEXT_ANIMATION_DURATION = 300
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -20,7 +24,32 @@ export const Container = styled.div`
   }
 `
 
+const getBackButtonDelay = ({ isAnimationActive }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    BACKGROUND_ANIMATION_DELAY +
+    BACKGROUND_ANIMATION_DURATION +
+    TEXT_ANIMATION_DURATION
+  )
+}
+
 export const MobileBackButton = styled.div`
+  opacity: 0;
+  transform: translateY(70%);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getBackButtonDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getBackButtonDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(-30%);
+    `}
+
   a {
     display: flex;
     align-items: center;
@@ -60,6 +89,19 @@ export const DesktopBackButton = styled.div`
   position: absolute;
   left: 38px;
   top: 560px;
+  opacity: 0;
+  transform: translateX(200px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getBackButtonDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getBackButtonDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.laptopM} {
     display: block;
@@ -97,6 +139,16 @@ export const ContentBackground = styled.div`
   left: 0;
   background: ${Colors.Secondary};
 
+  transform: translateX(150%);
+  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
+    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      transform: translateX(0);
+    `}
+
   ${mediaQueries.tablet} {
     height: 60vw;
     right: -38px;
@@ -125,6 +177,13 @@ export const ContentTextWrapper = styled.div`
   }
 `
 
+const getTitleDelay = ({ isAnimationActive }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return BACKGROUND_ANIMATION_DELAY + BACKGROUND_ANIMATION_DURATION
+}
+
 export const ContentMobileTitle = styled.div`
   position: relative;
   height: 60px;
@@ -135,6 +194,19 @@ export const ContentMobileTitle = styled.div`
   line-height: 50px;
   letter-spacing: 12px;
   color: ${Colors.Primary};
+  opacity: 0;
+  transform: translateY(70%);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getTitleDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getTitleDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(-30%);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 60px;
@@ -159,12 +231,24 @@ export const ContentDesktopTitle = styled.div`
   display: none;
   position: relative;
   z-index: 2;
-  transform: translateY(-50%);
   font-family: "Times New Roman";
   font-size: 50px;
   line-height: 50px;
   letter-spacing: 12px;
   color: ${Colors.Primary};
+  opacity: 0;
+  transform: translateY(50%);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getTitleDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getTitleDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(-50%);
+    `}
 
   ${mediaQueries.laptopM} {
     display: block;
@@ -186,6 +270,16 @@ export const ContentPhoto = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 30px;
+
+  transform: translateX(-150%);
+  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
+    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.tablet} {
     width: 60vw;
@@ -242,7 +336,33 @@ export const ContentText = styled.div`
   }
 `
 
-export const ContentTextParagraph = styled.p``
+const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    BACKGROUND_ANIMATION_DELAY +
+    BACKGROUND_ANIMATION_DURATION +
+    TEXT_ANIMATION_DURATION +
+    animationDelay
+  )
+}
+
+export const ContentTextParagraph = styled.p`
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getParagraphDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
+`
 
 export const Features = styled.div`
   display: none;
@@ -254,6 +374,19 @@ export const Features = styled.div`
   font-family: "Times New Roman";
   white-space: nowrap;
   padding: 24px 50px 0;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getParagraphDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   ${mediaQueries.laptopM} {
     display: flex;

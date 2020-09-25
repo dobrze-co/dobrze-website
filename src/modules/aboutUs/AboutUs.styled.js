@@ -2,6 +2,10 @@ import styled, { css } from "styled-components"
 import * as Colors from "../../theme/colors"
 import { mediaQueries } from "../../theme/responsive"
 
+export const BACKGROUND_ANIMATION_DURATION = 400
+export const BACKGROUND_ANIMATION_DELAY = 300
+export const TEXT_ANIMATION_DURATION = 300
+
 export const Container = styled.div`
   min-height: 100vh;
   background: ${Colors.White};
@@ -45,6 +49,16 @@ export const ContentBackground = styled.div`
   width: 55%;
   background: ${Colors.Secondary};
 
+  transform: translateX(150%);
+  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
+    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      transform: translateX(0);
+    `}
+
   ${mediaQueries.tablet} {
     width: auto;
     left: 80px;
@@ -69,6 +83,15 @@ export const ContentImage = styled.div`
   background-image: url(${({ image }) => image});
   background-size: cover;
   background-position: center;
+  transform: translateX(-100%);
+  transition: transform ${BACKGROUND_ANIMATION_DURATION}ms
+    cubic-bezier(0.32, 0.83, 0.69, 1) ${BACKGROUND_ANIMATION_DELAY}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      transform: translateX(0);
+    `}
 
   ${mediaQueries.tablet} {
     display: block;
@@ -129,7 +152,30 @@ export const ContentText = styled.div`
   }
 `
 
-export const ContentParagraph = styled.p``
+const getParagraphDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    BACKGROUND_ANIMATION_DELAY + BACKGROUND_ANIMATION_DURATION + animationDelay
+  )
+}
+
+export const ContentParagraph = styled.p`
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getParagraphDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
+`
 
 export const Navigation = styled.div`
   display: flex;
@@ -156,10 +202,56 @@ export const Navigation = styled.div`
   }
 `
 
+const getNavigationItemDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return (
+    BACKGROUND_ANIMATION_DELAY + BACKGROUND_ANIMATION_DURATION + animationDelay
+  )
+}
+
 export const NavigationItem = styled.div`
   width: 50vw;
   height: 50vw;
   position: relative;
+  opacity: 0;
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getNavigationItemDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getNavigationItemDelay}ms;
+      
+          
+  ${({ left }) =>
+    left &&
+    css`
+      transform: translateX(-100%);
+
+      ${mediaQueries.tablet} {
+        transform: translateY(100%);
+      }
+    `}
+    
+  ${({ right }) =>
+    right &&
+    css`
+      transform: translateX(100%);
+
+      ${mediaQueries.tablet} {
+        transform: translateY(100%);
+      }
+    `}
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateX(0);
+
+      ${mediaQueries.tablet} {
+        transform: translateY(0);
+      }
+    `}
 
   ${mediaQueries.tablet} {
     width: auto;
@@ -183,6 +275,19 @@ export const NavigationSeparator = styled.div`
   display: none;
   font-family: "Times New Roman";
   color: ${Colors.Primary};
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms
+      cubic-bezier(0.32, 0.83, 0.69, 1) ${getNavigationItemDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getNavigationItemDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   ${mediaQueries.tablet} {
     display: block;

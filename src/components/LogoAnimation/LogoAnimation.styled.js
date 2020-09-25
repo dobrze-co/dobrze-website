@@ -16,8 +16,8 @@ export const Letter = styled.span`
       transform: translateY(-50%);
     `}
 
-  ${({ active }) =>
-    active &&
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
     css`
       opacity: 1;
       transform: translateY(0);

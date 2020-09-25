@@ -1,15 +1,27 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useContext, useEffect, useState } from "react"
 import * as S from "./AboutUsDetails.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import aboutUsData from "../../data/aboutUs.js"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import Arrow from "../../components/Arrow/Arrow"
+import { IsInitializedContext } from "../../context"
 
 export default ({ location, transitionStatus, exit, entry }) => {
+  const isInitialized = useContext(IsInitializedContext)
+  const [isAnimationActive, setIsAnimationActive] = useState(false)
+
   const aboutUsItem = aboutUsData.find(aboutUs =>
     location.pathname.includes(`/o-nas/${aboutUs.path}`)
   )
+
+  useEffect(() => {
+    if (isInitialized) {
+      requestAnimationFrame(() => {
+        setIsAnimationActive(true)
+      })
+    }
+  }, [isInitialized])
 
   return (
     <PageAnimation
@@ -18,7 +30,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
       entry={entry}
     >
       <S.Container>
-        <S.MobileBackButton>
+        <S.MobileBackButton isAnimationActive={isAnimationActive}>
           <TransitionLink
             to="/o-nas"
             exit={{ length: 0.5 }}
@@ -35,7 +47,7 @@ export default ({ location, transitionStatus, exit, entry }) => {
           </TransitionLink>
         </S.MobileBackButton>
 
-        <S.DesktopBackButton>
+        <S.DesktopBackButton isAnimationActive={isAnimationActive}>
           <TransitionLink
             to="/o-nas"
             exit={{ length: 0.5 }}
@@ -52,18 +64,27 @@ export default ({ location, transitionStatus, exit, entry }) => {
         </S.DesktopBackButton>
 
         <S.Content>
-          <S.ContentBackground />
+          <S.ContentBackground isAnimationActive={isAnimationActive} />
 
-          <S.ContentMobileTitle>{aboutUsItem.name}</S.ContentMobileTitle>
-          <S.ContentPhoto image={aboutUsItem.photo} />
+          <S.ContentMobileTitle isAnimationActive={isAnimationActive}>
+            {aboutUsItem.name}
+          </S.ContentMobileTitle>
+          <S.ContentPhoto
+            image={aboutUsItem.photo}
+            isAnimationActive={isAnimationActive}
+          />
 
           <S.ContentTextWrapper>
-            <S.ContentDesktopTitle>{aboutUsItem.name}</S.ContentDesktopTitle>
+            <S.ContentDesktopTitle isAnimationActive={isAnimationActive}>
+              {aboutUsItem.name}
+            </S.ContentDesktopTitle>
 
             <S.ContentText>
               {aboutUsItem.paragraphs.map((paragraph, index) => (
                 <S.ContentTextParagraph
                   key={index}
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={index * 50}
                   dangerouslySetInnerHTML={{ __html: paragraph }}
                 />
               ))}
@@ -71,7 +92,10 @@ export default ({ location, transitionStatus, exit, entry }) => {
           </S.ContentTextWrapper>
         </S.Content>
 
-        <S.Features>
+        <S.Features
+          isAnimationActive={isAnimationActive}
+          animationDelay={aboutUsItem.paragraphs.length * 50}
+        >
           {aboutUsItem.skills.map((skill, index) => {
             return (
               <Fragment key={index}>

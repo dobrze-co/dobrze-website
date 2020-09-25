@@ -67,6 +67,13 @@ export const MenuItems = styled.div`
   }
 `
 
+const getMenuItemDelay = ({ isAnimationActive, animationDelay }) => {
+  if (!isAnimationActive) {
+    return 0
+  }
+  return `${Transitions.PAGE_TRANSITION_DURATION - 200 + animationDelay}`
+}
+
 export const MenuItem = styled.div`
   font-size: 20px;
   line-height: 40px;
@@ -74,6 +81,18 @@ export const MenuItem = styled.div`
   font-family: "Times New Roman";
   text-transform: uppercase;
   color: ${Colors.Primary};
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 300ms cubic-bezier(0.32, 0.83, 0.69, 1)
+      ${getMenuItemDelay}ms,
+    opacity 300ms cubic-bezier(0.32, 0.83, 0.69, 1) ${getMenuItemDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 
   ${mediaQueries.mobileM} {
     font-size: 25px;

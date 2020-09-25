@@ -1,7 +1,8 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import * as S from "./AboutUs.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
+import { INTRO_ANIMATION_DELAY } from "../../components/IntroAnimation/IntroAnimation.styled"
 import aboutUsData from "../../data/aboutUs"
 import { IsInitializedContext } from "../../context"
 import TransitionLink from "gatsby-plugin-transition-link"
@@ -10,6 +11,21 @@ import heroImage1 from "../../images/hero_1.png"
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
+  const [isAnimationActive, setIsAnimationActive] = useState(
+    entry.state.disableIntroAnimation
+  )
+
+  useEffect(() => {
+    if (isInitialized) {
+      const animationTimeout = setTimeout(() => {
+        setIsAnimationActive(true)
+      }, INTRO_ANIMATION_DELAY)
+
+      return () => {
+        clearTimeout(animationTimeout)
+      }
+    }
+  }, [isInitialized])
 
   return (
     <PageAnimation
@@ -24,10 +40,16 @@ export default ({ transitionStatus, exit, entry }) => {
       >
         <S.Container>
           <S.Content>
-            <S.ContentImage image={heroImage1} />
+            <S.ContentImage
+              image={heroImage1}
+              isAnimationActive={isAnimationActive}
+            />
 
             <S.ContentText>
-              <S.ContentParagraph>
+              <S.ContentParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={0}
+              >
                 Stworzyłyśmy <strong>dobrze. </strong> bo wiemy jak trudno jest
                 coś zmienić. W wielu firmach są obszary, których zwyczajnie się
                 nie dotyka. Nie dlatego, że są tak dobre. Dlatego, że wymagają
@@ -36,7 +58,10 @@ export default ({ transitionStatus, exit, entry }) => {
                 sposób ignorować. Branding, marketing i sprzedaż to obszary
                 naszego działania.
               </S.ContentParagraph>
-              <S.ContentParagraph>
+              <S.ContentParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={50}
+              >
                 Misja od początku była dla nas jasna - chcemy pomagać, tam gdzie
                 inni mówią, że bez milionowych nakładów finansowych się nie da.
                 Chcemy oswajać ze zmianami i zachęcać do ich wprowadzania.
@@ -48,7 +73,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 klientami, tworzyć piękne kampanie i spójne przekazy.
               </S.ContentParagraph>
             </S.ContentText>
-            <S.ContentBackground />
+            <S.ContentBackground isAnimationActive={isAnimationActive} />
           </S.Content>
 
           <S.Navigation>
@@ -62,13 +87,22 @@ export default ({ transitionStatus, exit, entry }) => {
                 },
               }}
             >
-              <S.NavigationItem>
+              <S.NavigationItem
+                isAnimationActive={isAnimationActive}
+                animationDelay={200}
+                left
+              >
                 <S.NavigationPhoto image={aboutUsData[0].photo} />
                 <S.NavigationText left>ADA</S.NavigationText>
               </S.NavigationItem>
             </TransitionLink>
 
-            <S.NavigationSeparator>&#8226;</S.NavigationSeparator>
+            <S.NavigationSeparator
+              isAnimationActive={isAnimationActive}
+              animationDelay={200}
+            >
+              &#8226;
+            </S.NavigationSeparator>
 
             <TransitionLink
               to={`/o-nas/${aboutUsData[1].path}`}
@@ -80,7 +114,11 @@ export default ({ transitionStatus, exit, entry }) => {
                 },
               }}
             >
-              <S.NavigationItem>
+              <S.NavigationItem
+                isAnimationActive={isAnimationActive}
+                animationDelay={200}
+                right
+              >
                 <S.NavigationPhoto image={aboutUsData[1].photo} />
                 <S.NavigationText right>ASIA</S.NavigationText>
               </S.NavigationItem>

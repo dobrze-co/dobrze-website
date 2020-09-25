@@ -59,7 +59,9 @@ export default ({
           exit={{ length: 0 }}
           entry={{ length: 0 }}
         >
-          <LogoAnimation active={!isOnHomepage}>dobrze.</LogoAnimation>
+          <LogoAnimation isAnimationActive={!isOnHomepage}>
+            dobrze.
+          </LogoAnimation>
         </TransitionLink>
       )
     }
@@ -70,7 +72,7 @@ export default ({
         exit={{ length: 0.5 }}
         entry={{ length: 0, state: { animation: PAGE_ANIMATION.SLIDE_BOTTOM } }}
       >
-        <LogoAnimation active={!isOnHomepage}>dobrze.</LogoAnimation>
+        <LogoAnimation isAnimationActive={!isOnHomepage}>dobrze.</LogoAnimation>
       </TransitionLink>
     )
   }

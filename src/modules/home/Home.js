@@ -70,7 +70,7 @@ export default ({ transitionStatus, exit, entry }) => {
       <S.Container>
         <S.Content>
           <S.Title>
-            <LogoAnimation active={isLogoAnimationActive}>
+            <LogoAnimation isAnimationActive={isLogoAnimationActive}>
               dobrze.
             </LogoAnimation>
           </S.Title>

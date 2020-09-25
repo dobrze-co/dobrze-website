@@ -27,7 +27,7 @@ export default ({
     >
       <S.Content>
         <S.MenuItems>
-          <S.MenuItem>
+          <S.MenuItem isAnimationActive={isOpen} animationDelay={0}>
             <TransitionLink
               className={location.pathname.match(/o-nas/) ? "active" : ""}
               to="/o-nas"
@@ -38,7 +38,7 @@ export default ({
               O nas
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem>
+          <S.MenuItem isAnimationActive={isOpen} animationDelay={100}>
             <TransitionLink
               className={location.pathname.match(/co-robimy/) ? "active" : ""}
               to="/co-robimy"
@@ -49,7 +49,7 @@ export default ({
               Co robimy
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem>
+          <S.MenuItem isAnimationActive={isOpen} animationDelay={200}>
             <TransitionLink
               className={
                 location.pathname.match(/katalog-zmian/) ? "active" : ""
@@ -62,7 +62,7 @@ export default ({
               katalog zmian
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem>
+          <S.MenuItem isAnimationActive={isOpen} animationDelay={300}>
             <TransitionLink
               className={location.pathname.match(/kontakt/) ? "active" : ""}
               to="/kontakt"
@@ -75,7 +75,7 @@ export default ({
           </S.MenuItem>
         </S.MenuItems>
 
-        <S.Image src={heroImage1} />
+        <S.Image src={heroImage1} isAnimationActive={isOpen} />
       </S.Content>
     </S.Container>
   )
