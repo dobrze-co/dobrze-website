@@ -18,7 +18,11 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    padding: 160px 120px 120px;
+    padding: 140px 100px 80px;
+  }
+
+  ${mediaQueries.laptopL} {
+    padding: 140px 120px 100px;
   }
 
   ${mediaQueries.desktop} {
@@ -53,11 +57,12 @@ export const MobileBackButton = styled.div`
     `}
 
   a {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
     font-family: "Times New Roman";
     font-size: 12px;
-    line-height: 26px;
+    line-height: 18px;
     letter-spacing: 2.5px;
     color: ${Colors.Primary};
     margin-bottom: 25px;
@@ -65,20 +70,35 @@ export const MobileBackButton = styled.div`
 
     ${mediaQueries.mobileM} {
       font-size: 15px;
-      line-height: 30px;
+      line-height: 26px;
       letter-spacing: 3.6px;
       margin-bottom: 32px;
     }
 
     ${mediaQueries.tablet} {
       font-size: 28px;
-      line-height: 80px;
+      line-height: 40px;
       letter-spacing: 8px;
     }
   }
 
-  a:hover {
-    text-decoration: underline;
+  a:hover:after {
+    content: "";
+    position: absolute;
+    bottom: 5%;
+    left 0;
+    right: 2.5px;
+    height: 1px;
+    background: ${Colors.Primary};
+    
+    ${mediaQueries.mobileM} {
+      right: 3.6px;
+    }
+
+    ${mediaQueries.tablet} {
+      height: 2px;
+      right: 8px;
+    }
   }
 
   ${mediaQueries.laptopM} {
@@ -257,9 +277,17 @@ export const ContentDesktopTitle = styled.div`
   ${mediaQueries.laptopM} {
     display: block;
     margin-left: -110px;
-    font-size: 80px;
-    line-height: 92px;
-    letter-spacing: 24px;
+    font-size: 70px;
+    line-height: 80px;
+    letter-spacing: 20px;
+  }
+
+  ${mediaQueries.laptopL} {
+    display: block;
+    margin-left: -110px;
+    font-size: 78px;
+    line-height: 86px;
+    letter-spacing: 22px;
   }
 `
 
@@ -334,6 +362,11 @@ export const ContentText = styled.div`
   }
 
   ${mediaQueries.laptopM} {
+    padding-right: 40px;
+    margin-top: -40px;
+  }
+
+  ${mediaQueries.laptopL} {
     font-size: 16px;
     line-height: 32px;
     padding-right: 50px;

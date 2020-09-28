@@ -8,25 +8,29 @@ export const TEXT_ANIMATION_DURATION = 1000
 export const Container = styled.div`
   min-height: 100vh;
   background: ${Colors.White};
-  padding: 100px 30px 45px;
+  padding: 100px 30px 0;
   position: relative;
   display: flex;
   flex-direction: column;
 
   ${mediaQueries.mobileM} {
-    padding: 120px 38px 50px;
+    padding: 120px 38px 0;
   }
 
   ${mediaQueries.tablet} {
-    padding: 160px 100px 100px;
+    padding: 120px 100px 0;
   }
 
   ${mediaQueries.laptopM} {
-    padding: 160px 160px 100px;
+    padding: 120px 160px 0;
+  }
+
+  ${mediaQueries.laptopL} {
+    padding: 160px 160px 0;
   }
 
   ${mediaQueries.desktop} {
-    padding: 210px 210px 120px;
+    padding: 210px 210px 0;
   }
 `
 
@@ -63,7 +67,7 @@ export const IntroLogo = styled.span`
 
 export const Content = styled.div`
   position: relative;
-  padding: 15px 0;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,12 +76,11 @@ export const Content = styled.div`
     min-height: 400px;
   }
 
-  ${mediaQueries.tablet} {
-    padding: 30px 0;
-  }
-
   ${mediaQueries.laptopM} {
     padding: 40px 0;
+  }
+
+  ${mediaQueries.laptopL} {
     min-height: 450px;
   }
 
@@ -91,10 +94,9 @@ export const ContentText = styled.div`
   position: relative;
   z-index: 2;
   color: ${Colors.Primary};
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: 6px;
-  font-family: "Times New Roman";
+  font-size: 28px;
+  line-height: 40px;
+  font-family: "Futura";
   padding-right: 30px;
   opacity: 0;
   transform: translateY(100px);
@@ -111,16 +113,13 @@ export const ContentText = styled.div`
     `}
 
   ${mediaQueries.mobileM} {
-    font-size: 28px;
-    line-height: 36px;
-    letter-spacing: 8px;
-    padding-right: 38px;
+    font-size: 32px;
+    line-height: 46px;
   }
 
   ${mediaQueries.tablet} {
     font-size: 50px;
-    line-height: 58px;
-    letter-spacing: 12px;
+    line-height: 64px;
     margin-left: -40px;
     padding-right: 40px;
   }
@@ -128,15 +127,13 @@ export const ContentText = styled.div`
   ${mediaQueries.laptopM} {
     font-size: 58px;
     line-height: 76px;
-    letter-spacing: 15px;
     margin-left: -55px;
     padding-right: 55px;
   }
 
   ${mediaQueries.desktop} {
     font-size: 90px;
-    line-height: 110px;
-    letter-spacing: 24px;
+    line-height: 130px;
     margin-left: -70px;
     padding-right: 70px;
   }
@@ -162,7 +159,6 @@ export const ContentBackground = styled.div`
 
 export const Footer = styled.div`
   margin: 0 -10px;
-  padding: 15px 0;
   flex: 1;
   display: flex;
   align-items: center;
@@ -181,47 +177,4 @@ export const Footer = styled.div`
       opacity: 1;
       transform: translateY(0);
     `}
-
-  ${mediaQueries.laptopM} {
-    padding: 30px 0;
-  }
-`
-
-export const ArrowContainer = styled.div`
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  margin-left: -15px;
-
-  opacity: 0;
-  transform: translateY(50px);
-  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
-      ${Transitions.PAGE_TRANSITION_DURATION + 2 * TEXT_ANIMATION_DURATION}ms,
-    opacity ${TEXT_ANIMATION_DURATION}ms ease-out
-      ${Transitions.PAGE_TRANSITION_DURATION + 2 * TEXT_ANIMATION_DURATION}ms;
-
-  ${({ isAnimationActive }) =>
-    isAnimationActive &&
-    css`
-      opacity: 1;
-      transform: translateY(0);
-    `}
-
-  ${mediaQueries.mobileM} {
-    bottom: 20px;
-  }
-
-  ${mediaQueries.tablet} {
-    margin-left: -30px;
-    bottom: 40px;
-  }
-
-  ${mediaQueries.laptopM} {
-    margin-left: -30px;
-    bottom: 40px;
-  }
-
-  ${mediaQueries.desktop} {
-    bottom: 60px;
-  }
 `

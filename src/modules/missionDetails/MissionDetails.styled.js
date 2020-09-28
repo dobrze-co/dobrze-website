@@ -18,11 +18,11 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.tablet} {
-    padding: 160px 38px 120px;
+    padding: 120px 38px 80px;
   }
 
   ${mediaQueries.laptopM} {
-    padding: 160px 120px 120px;
+    padding: 120px 120px 80px;
   }
 
   ${mediaQueries.desktop} {
@@ -67,11 +67,12 @@ export const MobileBackButton = styled.div`
     `}
 
   a {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
     font-family: "Times New Roman";
     font-size: 12px;
-    line-height: 26px;
+    line-height: 18px;
     letter-spacing: 2.5px;
     color: ${Colors.Primary};
     margin-bottom: 10px;
@@ -79,14 +80,14 @@ export const MobileBackButton = styled.div`
 
     ${mediaQueries.mobileM} {
       font-size: 15px;
-      line-height: 30px;
+      line-height: 24px;
       letter-spacing: 3.6px;
       margin-bottom: 15px;
     }
 
     ${mediaQueries.tablet} {
       font-size: 28px;
-      line-height: 80px;
+      line-height: 40px;
       letter-spacing: 8px;
     }
   }
@@ -95,8 +96,23 @@ export const MobileBackButton = styled.div`
     display: none;
   }
 
-  a:hover {
-    text-decoration: underline;
+  a:hover:after {
+    content: "";
+    position: absolute;
+    bottom: 5%;
+    left 0;
+    right: 2.5px;
+    height: 1px;
+    background: ${Colors.Primary};
+    
+    ${mediaQueries.mobileM} {
+      right: 3.6px;
+    }
+
+    ${mediaQueries.tablet} {
+      height: 2px;
+      right: 8px;
+    }
   }
 `
 
@@ -120,6 +136,10 @@ export const DesktopBackButton = styled.div`
 
   ${mediaQueries.laptopM} {
     display: block;
+    top: 440px;
+  }
+
+  ${mediaQueries.laptopL} {
     top: 460px;
   }
 
@@ -156,10 +176,17 @@ export const TitleContainer = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    max-width: 350px;
-    min-width: 350px;
-    height: 350px;
-    margin-right: 55px;
+    max-width: 300px;
+    min-width: 300px;
+    height: 300px;
+    margin-right: 40px;
+  }
+
+  ${mediaQueries.laptopL} {
+    max-width: 330px;
+    min-width: 330px;
+    height: 330px;
+    margin-right: 50px;
   }
 
   ${mediaQueries.desktop} {
@@ -222,8 +249,14 @@ export const Title = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 70px;
-    line-height: 80px;
+    font-size: 60px;
+    line-height: 70px;
+    letter-spacing: 15px;
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 68px;
+    line-height: 76px;
     letter-spacing: 17px;
   }
 
@@ -236,6 +269,11 @@ export const Title = styled.div`
 
 export const Paragraphs = styled.div`
   ${mediaQueries.laptopM} {
+    padding-top: 70px;
+    padding-right: 10vw;
+  }
+
+  ${mediaQueries.laptopL} {
     padding-top: 80px;
     padding-right: 10vw;
   }
@@ -308,7 +346,7 @@ export const Paragraph = styled.div`
     line-height: 30px;
   }
 
-  ${mediaQueries.laptopM} {
+  ${mediaQueries.laptopL} {
     font-size: 16px;
     line-height: 32px;
   }

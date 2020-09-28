@@ -15,6 +15,11 @@ export const Container = styled.div`
   align-items: center;
 
   ${mediaQueries.tablet} {
+    height: 100px;
+    padding: 20px 42px 20px 38px;
+  }
+
+  ${mediaQueries.laptopL} {
     height: 120px;
     padding: 30px 42px 30px 38px;
   }
@@ -37,6 +42,10 @@ export const Background = styled.div`
   display: none;
 
   ${mediaQueries.tablet} {
+    height: 100px;
+  }
+
+  ${mediaQueries.laptopL} {
     height: 120px;
   }
 
@@ -81,7 +90,7 @@ export const Hamburger = styled.div`
   transition: 500ms ease-out;
   cursor: pointer;
 
-  ${mediaQueries.tablet} {
+  ${mediaQueries.laptopL} {
     width: 50px;
     height: 42px;
   }
@@ -98,7 +107,7 @@ export const HamburgerBar = styled.span`
   transform: rotate(0deg);
   transition: 0.35s ease-out;
 
-  ${mediaQueries.tablet} {
+  ${mediaQueries.laptopL} {
     height: 3px;
   }
 
@@ -112,7 +121,7 @@ export const HamburgerBar = styled.span`
         transform: rotate(45deg);
         left: 8px;
 
-        ${mediaQueries.tablet} {
+        ${mediaQueries.laptopL} {
           left: 6px;
         }
       `}
@@ -122,7 +131,7 @@ export const HamburgerBar = styled.span`
     top: 14px;
     transform-origin: left center;
 
-    ${mediaQueries.tablet} {
+    ${mediaQueries.laptopL} {
       top: 18px;
     }
 
@@ -138,7 +147,7 @@ export const HamburgerBar = styled.span`
     top: 28px;
     transform-origin: left center;
 
-    ${mediaQueries.tablet} {
+    ${mediaQueries.laptopL} {
       top: 36px;
     }
 
@@ -148,7 +157,7 @@ export const HamburgerBar = styled.span`
         transform: rotate(-45deg);
         left: 8px;
 
-        ${mediaQueries.tablet} {
+        ${mediaQueries.laptopL} {
           left: 6px;
         }
       `}

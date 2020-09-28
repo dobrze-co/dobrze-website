@@ -52,12 +52,12 @@ export default ({ transitionStatus, exit, entry }) => {
           <S.Sections>
             <S.Section reversed>
               <S.SectionText center>
-                <S.SectionParagraph
+                <S.SectionTitle
                   isAnimationActive={isAnimationActive}
                   animationDelay={0}
                 >
-                  Analiza:
-                </S.SectionParagraph>
+                  ANALIZA
+                </S.SectionTitle>
                 <S.SectionParagraph
                   isAnimationActive={isAnimationActive}
                   animationDelay={200}
@@ -83,12 +83,12 @@ export default ({ transitionStatus, exit, entry }) => {
 
             <S.Section withOffset>
               <S.SectionText bottom>
-                <S.SectionParagraph
+                <S.SectionTitle
                   isAnimationActive={isAnimationActive}
                   animationDelay={1000}
                 >
-                  Trendy:
-                </S.SectionParagraph>
+                  TRENDY
+                </S.SectionTitle>
                 <S.SectionParagraph
                   isAnimationActive={isAnimationActive}
                   animationDelay={1200}
@@ -113,12 +113,12 @@ export default ({ transitionStatus, exit, entry }) => {
 
             <S.Section reversed>
               <S.SectionText top>
-                <S.SectionParagraph
+                <S.SectionTitle
                   isAnimationActive={isAnimationActive}
                   animationDelay={2000}
                 >
-                  Katalog zmian:
-                </S.SectionParagraph>
+                  KATALOG ZMIAN
+                </S.SectionTitle>
                 <S.SectionParagraph
                   isAnimationActive={isAnimationActive}
                   animationDelay={2200}

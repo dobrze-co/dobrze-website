@@ -95,10 +95,10 @@ export const Slider = styled.div`
     width: auto;
     position: absolute;
     z-index: 1;
-    left: 22%;
-    right: 22%;
-    top: 14%;
-    bottom: 14%;
+    left: 25%;
+    right: 25%;
+    top: 16%;
+    bottom: 16%;
   }
 
   ${mediaQueries.tablet} {
@@ -106,10 +106,10 @@ export const Slider = styled.div`
     width: auto;
     position: absolute;
     z-index: 1;
-    left: 22%;
-    right: 22%;
-    top: 14%;
-    bottom: 14%;
+    left: 25%;
+    right: 25%;
+    top: 16%;
+    bottom: 16%;
   }
 `
 
@@ -143,15 +143,6 @@ export const Footer = styled.div`
   padding-left: 1.6px;
   margin-bottom: 30px;
 
-  a {
-    color: ${Colors.Primary};
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
   ${mediaQueries.mobileM} {
     letter-spacing: 2.6px;
     padding-left: 2.6px;
@@ -160,11 +151,11 @@ export const Footer = styled.div`
   ${mediaQueries.mobileLandscape} {
     position: absolute;
     z-index: 3;
-    left: 22%;
-    right: 22%;
-    height: 14%;
+    left: 25%;
+    right: 25%;
+    height: 16%;
     bottom: 0;
-    font-size: 2.1vw;
+    font-size: 1.95vw;
     letter-spacing: 0.6vw;
     padding-left: 0.6vw;
     margin-bottom: 0;
@@ -173,14 +164,48 @@ export const Footer = styled.div`
   ${mediaQueries.tablet} {
     position: absolute;
     z-index: 3;
-    left: 22%;
-    right: 22%;
-    height: 14%;
+    left: 25%;
+    right: 25%;
+    height: 16%;
     bottom: 0;
-    font-size: 2.1vw;
-    letter-spacing: 0.6vw;
-    padding-left: 0.6vw;
+    font-size: 1.95vw;
+    letter-spacing: 0.5vw;
+    padding-left: 0.5vw;
     margin-bottom: 0;
+  }
+  
+  
+  a {
+    position: relative;
+    color: ${Colors.Primary};
+    text-decoration: none;
+  }
+
+  a:hover:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left 0;
+    right: 1.6px;
+    height: 1px;
+    background: ${Colors.Primary};
+    
+    ${mediaQueries.mobileM} {
+      right: 2.6px;
+    }
+    
+    ${mediaQueries.mobileLandscape} {
+      right: 0.6vw;
+    }
+
+    ${mediaQueries.tablet} {
+      right: 0.5vw;
+      height: 2px;
+    }
+    
+    ${mediaQueries.laptopM} {
+      height: 3px;
+    }
   }
 `
 

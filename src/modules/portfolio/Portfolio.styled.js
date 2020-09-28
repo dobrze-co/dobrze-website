@@ -326,6 +326,48 @@ export const SectionParagraph = styled.p`
   }
 `
 
+export const SectionTitle = styled.h2`
+  color: ${Colors.Primary};
+  font-family: "Times New Roman";
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  margin: 0 0 1em;
+  padding: 0;
+  font-weight: normal;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
+      ${getParagraphDelay}ms,
+    opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getParagraphDelay}ms;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
+
+  ${mediaQueries.mobileM} {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  ${mediaQueries.tablet} {
+    font-size: 28px;
+    letter-spacing: 8px;
+  }
+
+  ${mediaQueries.laptopM} {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+
+  ${mediaQueries.desktop} {
+    font-size: 50px;
+    letter-spacing: 12px;
+  }
+`
+
 const getFooterDelay = ({ isAnimationActive, animationDelay }) => {
   if (!isAnimationActive) {
     return 0

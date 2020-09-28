@@ -76,21 +76,6 @@ export default ({ location, transitionStatus, exit, entry }) => {
               }}
             />
           </S.Footer>
-
-          <TransitionLink
-            to={`/co-robimy/${missionsData[0].path}`}
-            exit={{ length: 0.8 }}
-            entry={{
-              length: 0,
-              state: {
-                animation: PAGE_ANIMATION.FADE,
-              },
-            }}
-          >
-            <S.ArrowContainer isAnimationActive={isAnimationActive}>
-              <Arrow direction="bottom" />
-            </S.ArrowContainer>
-          </TransitionLink>
         </S.Container>
       </IntroAnimation>
     </PageAnimation>

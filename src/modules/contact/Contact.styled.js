@@ -24,11 +24,15 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.tablet} {
-    padding: 160px 60px;
+    padding: 120px 60px 60px;
   }
 
   ${mediaQueries.laptopM} {
-    padding: 160px 100px 80px;
+    padding: 120px 60px 80px;
+  }
+
+  ${mediaQueries.laptopL} {
+    padding: 130px 100px 80px;
   }
 
   ${mediaQueries.desktop} {
@@ -69,19 +73,27 @@ export const Header = styled.h1`
     line-height: 60px;
     letter-spacing: 12px;
     margin-bottom: 35px;
+    max-width: 90%;
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 80px;
-    line-height: 92px;
+    font-size: 60px;
+    line-height: 72px;
+    letter-spacing: 15px;
+    margin-bottom: 35px;
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 68px;
+    line-height: 78px;
     letter-spacing: 24px;
-    margin-bottom: 40px;
   }
 
   ${mediaQueries.desktop} {
     font-size: 100px;
     line-height: 115px;
     letter-spacing: 24px;
+    margin-bottom: 40px;
   }
 `
 
@@ -99,7 +111,11 @@ export const HeaderLogo = styled.span`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 95px;
+    font-size: 72px;
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 80px;
   }
 
   ${mediaQueries.desktop} {
@@ -172,10 +188,17 @@ export const Input = styled.input`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 10px;
+    padding: 10px 0;
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 44px;
+    line-height: 52px;
     letter-spacing: 12px;
-    padding: 16px 0;
+    padding: 12px 0;
     border-bottom: 5px solid ${Colors.Secondary};
   }
 
@@ -198,7 +221,7 @@ export const InputLoader = styled.div`
   animation: ${bounceAnimation} 3s infinite;
   animation-timing-function: ease-out;
 
-  ${mediaQueries.laptopM} {
+  ${mediaQueries.laptopL} {
     height: 5px;
   }
 `
@@ -251,8 +274,14 @@ export const Submit = styled.button`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 5px;
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 26px;
+    line-height: 30px;
     letter-spacing: 6px;
   }
 
@@ -274,8 +303,13 @@ export const SubmitMessage = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 26px;
+    line-height: 30px;
   }
 
   ${mediaQueries.desktop} {
@@ -334,8 +368,15 @@ export const FooterDesktopHeader = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 48px;
-    line-height: 60px;
+    font-size: 38px;
+    line-height: 48px;
+    letter-spacing: 9px;
+    margin-bottom: 25px;
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 44px;
+    line-height: 56px;
     letter-spacing: 10px;
     margin-bottom: 30px;
   }
@@ -415,8 +456,19 @@ export const FooterItem = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 24px;
+    line-height: 28px;
+
+    ${({ withDesktopSpacing }) =>
+      withDesktopSpacing &&
+      css`
+        margin-bottom: 25px;
+      `}
+  }
+
+  ${mediaQueries.laptopL} {
+    font-size: 26px;
+    line-height: 30px;
 
     ${({ withDesktopSpacing }) =>
       withDesktopSpacing &&

@@ -80,7 +80,6 @@ export const MenuItem = styled.div`
       opacity: 1;
       transform: translateY(0);
     `}
-
   ${mediaQueries.mobileM} {
     font-size: 25px;
     line-height: 50px;
@@ -102,14 +101,39 @@ export const MenuItem = styled.div`
   a {
     color: ${Colors.Primary};
     text-decoration: none;
+    position: relative;
   }
 
   a.active {
     color: ${Colors.Secondary};
   }
 
-  a:hover {
-    text-decoration: underline;
+  a:hover:after {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left 0;
+    right: 5px;
+    height: 2px;
+    background: ${Colors.Primary};
+    
+    ${mediaQueries.mobileM} {
+      right: 6px;
+    }
+
+    ${mediaQueries.tablet} {
+      right: 10px;
+      height: 3px;
+    }
+
+    ${mediaQueries.laptopM} {
+      right: 12px;
+      height: 4px;
+    }
+  }
+  
+  a.active:hover:after {
+    background: ${Colors.Secondary};
   }
 `
 

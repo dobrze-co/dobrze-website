@@ -80,7 +80,7 @@ export default ({ transitionStatus, exit, entry }) => {
       >
         <S.Container>
           <S.Header isAnimationActive={isAnimationActive}>
-            ZRÓBMY RAZEM RZECZY <S.HeaderLogo>dobrze.</S.HeaderLogo>
+            ZRÓBMY RAZEM RZECZY, <S.HeaderLogo>dobrze.</S.HeaderLogo>
           </S.Header>
 
           <S.Form isAnimationActive={isAnimationActive} onSubmit={handleSubmit}>
