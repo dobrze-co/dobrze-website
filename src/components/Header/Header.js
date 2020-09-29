@@ -14,7 +14,7 @@ export default ({
   const [isBackgroundActive, setIsBackgroundActive] = useState(false)
 
   const isOnHomepage = location.pathname === "/"
-  const isOnContactPage = location.pathname === "/kontakt"
+  const isOnContactPage = location.pathname.includes("/kontakt")
 
   const getHeaderBackground = useCallback(() => {
     if (isOnContactPage) {
