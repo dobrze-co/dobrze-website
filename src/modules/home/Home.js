@@ -6,7 +6,7 @@ import heroImage2 from "../../images/hero_2.jpg"
 import heroImage3 from "../../images/hero_3.jpg"
 import heroImage4 from "../../images/hero_4.jpg"
 import heroImage5 from "../../images/hero_5.jpg"
-import { preloadImages } from "../../utils"
+import { preloadImage, preloadImages } from "../../utils"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import LogoAnimation from "../../components/LogoAnimation/LogoAnimation"
 import TransitionLink from "gatsby-plugin-transition-link"
@@ -30,6 +30,7 @@ export default ({ transitionStatus, exit, entry }) => {
   const [isAnimationActive, setIsAnimationActive] = useState(false)
   const [isAnimationFinished, setIsAnimationFinished] = useState(false)
   const [isPageAnimationFinished, setIsPageAnimationFinished] = useState(false)
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
   // wait until page transition is finished
@@ -42,12 +43,12 @@ export default ({ transitionStatus, exit, entry }) => {
     }
   }, [isInitialized, exit.length])
 
-  // start animation after page transition and when images are fetched
+  // start animation after page transition and when first image is fetched
   useEffect(() => {
-    if (isPageAnimationFinished && imagesLoaded) {
+    if (isPageAnimationFinished && heroImageLoaded) {
       setIsAnimationActive(true)
     }
-  }, [isPageAnimationFinished, imagesLoaded])
+  }, [isPageAnimationFinished, heroImageLoaded])
 
   // set variable indicating that logo transition is finished
   useEffect(() => {
@@ -60,9 +61,9 @@ export default ({ transitionStatus, exit, entry }) => {
     return () => clearTimeout(timeout)
   }, [isAnimationActive])
 
-  // start slides animation when logo animation is finished
+  // start slides animation when logo animation is finished and all images are loaded
   useEffect(() => {
-    if (!isAnimationFinished) {
+    if (!isAnimationFinished || !imagesLoaded) {
       return
     }
     const interval = setInterval(() => {
@@ -71,9 +72,12 @@ export default ({ transitionStatus, exit, entry }) => {
       )
     }, 500)
     return () => clearInterval(interval)
-  }, [isAnimationFinished])
+  }, [isAnimationFinished, imagesLoaded])
 
   useEffect(() => {
+    preloadImage(sliderImages[0]).then(() => {
+      setHeroImageLoaded(true)
+    })
     preloadImages(sliderImages).then(() => {
       setImagesLoaded(true)
     })

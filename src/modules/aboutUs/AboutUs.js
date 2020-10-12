@@ -39,12 +39,14 @@ export default ({ transitionStatus, exit, entry }) => {
     >
       <S.Container>
         <S.Content>
-          <S.ContentImageWrapper>
-            <S.ContentImage
-              image={aboutUsImage}
-              isAnimationActive={isAnimationActive}
-            />
-          </S.ContentImageWrapper>
+          <S.ContentImageContainer>
+            <S.ContentImageWrapper>
+              <S.ContentImage
+                image={aboutUsImage}
+                isAnimationActive={isAnimationActive}
+              />
+            </S.ContentImageWrapper>
+          </S.ContentImageContainer>
 
           <S.ContentText>
             <S.ContentParagraph

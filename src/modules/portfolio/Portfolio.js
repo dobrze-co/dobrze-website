@@ -5,18 +5,28 @@ import portfolioImage1 from "../../images/portfolio_1.jpg"
 import portfolioImage2 from "../../images/portfolio_2.jpg"
 import portfolioImage3 from "../../images/portfolio_3.jpg"
 import { IsInitializedContext } from "../../context"
+import { preloadImages } from "../../utils"
+
+const portfolioImages = [portfolioImage1, portfolioImage2, [portfolioImage3]]
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
   const [isAnimationActive, setIsAnimationActive] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
   useEffect(() => {
-    if (isInitialized) {
+    if (isInitialized && imagesLoaded) {
       requestAnimationFrame(() => {
         setIsAnimationActive(true)
       })
     }
-  }, [isInitialized, entry.state.disableIntroAnimation])
+  }, [isInitialized, imagesLoaded])
+
+  useEffect(() => {
+    preloadImages(portfolioImages).then(() => {
+      setImagesLoaded(true)
+    })
+  }, [])
 
   return (
     <PageAnimation

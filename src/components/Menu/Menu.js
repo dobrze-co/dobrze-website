@@ -48,7 +48,7 @@ export default ({ location, isOpen, onLinkClick }) => {
               exit={{ length: 0 }}
               entry={{ length: 0 }}
             >
-              katalog zmian
+              jak pracujemy
             </TransitionLink>
           </S.MenuItem>
           <S.MenuItem isAnimationActive={isOpen} animationDelay={450}>

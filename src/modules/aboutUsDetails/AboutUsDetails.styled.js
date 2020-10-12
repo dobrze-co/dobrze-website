@@ -332,7 +332,7 @@ export const ContentPhoto = styled.div`
   background-position: center;
   margin-bottom: 30px;
 
-  transform: translateY(-100%);
+  transform: translateY(-101%);
   transition: transform ${IMAGE_ANIMATION_DURATION}ms ease-in-out
     ${Transitions.PAGE_TRANSITION_DURATION}ms;
 

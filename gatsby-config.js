@@ -12,6 +12,7 @@ module.exports = {
     "gatsby-plugin-netlify",
     "gatsby-plugin-layout",
     "gatsby-plugin-preload-fonts",
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-favicon`,
       options: {

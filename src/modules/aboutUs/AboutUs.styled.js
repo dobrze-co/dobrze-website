@@ -82,54 +82,54 @@ export const ContentBackground = styled.div`
   }
 `
 
-export const ContentImageWrapper = styled.div`
-  overflow: hidden;
+export const ContentImageContainer = styled.div`
   display: none;
   position: relative;
   z-index: 2;
 
   ${mediaQueries.tablet} {
     display: block;
-    flex: 1;
-    min-width: 35%;
-    max-width: 35%;
-    margin-top: 66px;
-    margin-bottom: 66px;
+    min-width: 30%;
+    max-width: 30%;
+    margin-top: 37px;
   }
 
   ${mediaQueries.laptopM} {
-    min-width: 35%;
-    max-width: 35%;
-    min-height: 100%;
-    max-height: 100%;
-    margin-bottom: -66px;
-    margin-top: 66px;
+    flex: 1;
+    min-width: 25%;
+    max-width: 25%;
+    margin-top: 32px;
   }
 
   ${mediaQueries.laptopL} {
-    min-width: 35%;
-    max-width: 35%;
-    min-height: 100%;
-    max-height: 100%;
-    margin-bottom: -66px;
-    margin-top: 66px;
+    margin-top: 46px;
   }
 
   ${mediaQueries.desktop} {
-    min-width: 40%;
-    max-width: 40%;
-    margin-bottom: -86px;
-    margin-top: 86px;
+    margin-top: 58px;
   }
 `
 
+export const ContentImageWrapper = styled.div`
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  padding-bottom: 133%;
+`
+
 export const ContentImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-image: url(${({ image }) => image});
   background-size: cover;
   background-position: center;
-  transform: translateY(-100%);
+  transform: translateY(-101%);
   transition: transform ${IMAGE_ANIMATION_DURATION}ms ease-in-out
     ${Transitions.PAGE_TRANSITION_DURATION}ms;
 
@@ -173,7 +173,6 @@ export const ContentText = styled.div`
   }
 
   ${mediaQueries.desktop} {
-    padding: 60px;
     font-size: 18px;
     line-height: 35px;
     padding: 40px;
@@ -222,12 +221,16 @@ export const Navigation = styled.div`
 
   ${mediaQueries.laptopM} {
     justify-content: flex-end;
-    margin-right: 120px;
+    margin-right: 106px;
     margin-left: auto;
   }
 
   ${mediaQueries.laptopL} {
-    margin-right: 140px;
+    margin-right: 124px;
+  }
+
+  ${mediaQueries.desktop} {
+    margin-right: 186px;
   }
 
   a {
