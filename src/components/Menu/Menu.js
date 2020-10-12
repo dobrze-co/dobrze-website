@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import * as S from "./Menu.styled"
 import TransitionLink from "gatsby-plugin-transition-link"
-import heroImage1 from "../../images/hero_1.png"
 
 export default ({ location, isOpen, onLinkClick }) => {
   useEffect(() => {
@@ -64,10 +63,6 @@ export default ({ location, isOpen, onLinkClick }) => {
             </TransitionLink>
           </S.MenuItem>
         </S.MenuItems>
-
-        <S.ImageWrapper>
-          <S.Image src={heroImage1} isAnimationActive={isOpen} />
-        </S.ImageWrapper>
       </S.Content>
     </S.Container>
   )
