@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
 import * as S from "./Portfolio.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
-import portfolioImage1 from "../../images/portfolio_1.png"
-import portfolioImage2 from "../../images/portfolio_2.png"
-import portfolioImage3 from "../../images/portfolio_3.png"
+import portfolioImage1 from "../../images/portfolio_1.jpg"
+import portfolioImage2 from "../../images/portfolio_2.jpg"
+import portfolioImage3 from "../../images/portfolio_3.jpg"
 import { IsInitializedContext } from "../../context"
 
 export default ({ transitionStatus, exit, entry }) => {

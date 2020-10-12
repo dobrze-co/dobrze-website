@@ -8,6 +8,7 @@ export const FontFutura = createGlobalStyle`
   @font-face {
     font-family: "Futura";
     src: url(${FuturaBook}) format('opentype');
+    font-display: swap;
   }
 `
 
@@ -15,11 +16,13 @@ export const FontLato = createGlobalStyle`
   @font-face {
     font-family: "Lato";
     src: url(${Lato}) format('opentype');
+    font-display: swap;
   }
   
   @font-face {
     font-family: "Lato";
     font-weight: bold;
     src: url(${LatoBold}) format('opentype');
+    font-display: swap;
   }
 `

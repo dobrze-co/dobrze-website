@@ -11,6 +11,7 @@ module.exports = {
     "gatsby-plugin-transition-link",
     "gatsby-plugin-netlify",
     "gatsby-plugin-layout",
+    "gatsby-plugin-preload-fonts",
     {
       resolve: `gatsby-plugin-favicon`,
       options: {

@@ -5,7 +5,7 @@ import aboutUsData from "../../data/aboutUs"
 import { IsInitializedContext } from "../../context"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
-import heroImage1 from "../../images/hero_1.png"
+import aboutUsImage from "../../images/aboutUs.jpg"
 import { preloadImages } from "../../utils"
 
 export default ({ transitionStatus, exit, entry }) => {
@@ -15,7 +15,7 @@ export default ({ transitionStatus, exit, entry }) => {
 
   useEffect(() => {
     preloadImages([
-      heroImage1,
+      aboutUsImage,
       aboutUsData[0].photo,
       aboutUsData[1].photo,
     ]).then(() => {
@@ -41,7 +41,7 @@ export default ({ transitionStatus, exit, entry }) => {
         <S.Content>
           <S.ContentImageWrapper>
             <S.ContentImage
-              image={heroImage1}
+              image={aboutUsImage}
               isAnimationActive={isAnimationActive}
             />
           </S.ContentImageWrapper>

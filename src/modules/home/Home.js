@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext } from "react"
 import * as S from "./Home.styled"
-import heroImage1 from "../../images/hero_1.png"
-import heroImage2 from "../../images/hero_2.png"
-import heroImage3 from "../../images/hero_3.png"
+import heroImage0 from "../../images/hero_0.jpg"
+import heroImage1 from "../../images/hero_1.jpg"
+import heroImage2 from "../../images/hero_2.jpg"
+import heroImage3 from "../../images/hero_3.jpg"
+import heroImage4 from "../../images/hero_4.jpg"
+import heroImage5 from "../../images/hero_5.jpg"
 import { preloadImages } from "../../utils"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import LogoAnimation from "../../components/LogoAnimation/LogoAnimation"
@@ -11,7 +14,14 @@ import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.sty
 import * as Transitions from "../../theme/transitions"
 import { IsInitializedContext } from "../../context"
 
-const sliderImages = [heroImage1, heroImage2, heroImage3]
+const sliderImages = [
+  heroImage0,
+  heroImage1,
+  heroImage2,
+  heroImage3,
+  heroImage4,
+  heroImage5,
+]
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)

@@ -1,5 +1,5 @@
-import adaImage from "../images/ada.png"
-import asiaImage from "../images/asia.png"
+import adaImage from "../images/ada.jpg"
+import asiaImage from "../images/asia.jpg"
 
 export default [
   {
