@@ -47,7 +47,16 @@ export default ({ children, location, pageContext }) => {
 
   return (
     <S.Container isInitialized={isInitialized}>
-      <Helmet>
+      <Helmet
+        title="dobrze."
+        meta={[
+          {
+            name: "description",
+            content:
+              "Branding, marketing, procesy sprzedaży zrobione dobrze. Audyt komunikacji, optymalizacja procesów sprzedaży w IT.",
+          },
+        ]}
+      >
         <link rel="preload" href={heroImage0} as="image" />
         <link rel="preload" href={aboutUsImage} as="image" />
         <link rel="preload" href={aboutUsData[0].photo} as="image" />
@@ -55,6 +64,7 @@ export default ({ children, location, pageContext }) => {
         <link rel="preload" href={portfolioImage1} as="image" />
         <link rel="preload" href={portfolioImage2} as="image" />
         <link rel="preload" href={portfolioImage3} as="image" />
+        <html lang="pl" />
       </Helmet>
       {!isOn404Page && (
         <Header

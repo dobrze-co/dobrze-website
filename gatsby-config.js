@@ -5,7 +5,14 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "dobrze.",
+    titleTemplate: "dobrze. · %s",
+    description:
+      "Branding, marketing, procesy sprzedaży zrobione dobrze. Audyt komunikacji, optymalizacja procesów sprzedaży w IT.",
+    url: "https://dobrze.co",
+    image: "/images/share.jpg",
+  },
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-transition-link",
