@@ -430,9 +430,7 @@ export const Features = styled.div`
     `}
 
   ${mediaQueries.laptopM} {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    display: block;
     margin-left: 30vw;
   }
 
@@ -444,7 +442,9 @@ export const Features = styled.div`
   }
 `
 
-export const Feature = styled.div``
+export const Feature = styled.div`
+  display: flex;
+`
 
 export const Separator = styled.div`
   padding-left: 6px;

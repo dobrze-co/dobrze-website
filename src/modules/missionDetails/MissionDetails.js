@@ -59,7 +59,9 @@ export default ({ location, transitionStatus, exit, entry }) => {
           )
         }
 
-        return <Fragment key={index}>{element}</Fragment>
+        return (
+          <span dangerouslySetInnerHTML={{ __html: element }} key={index} />
+        )
       })
   }
 

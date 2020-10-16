@@ -55,8 +55,8 @@ export default ({ location, transitionStatus, exit, entry }) => {
         <S.Container>
           <S.Content>
             <S.ContentText isAnimationActive={isAnimationActive}>
-              Każda marka może być dobra, niezależnie od budżetu. Projektujemy
-              zmiany, które przynoszą wymierne korzyści.
+              Każda marka może odnieść sukces, niezależnie od budżetu.
+              Projektujemy procesy, które przynoszą wymierne korzyści.
             </S.ContentText>
             <S.ContentBackground />
           </S.Content>

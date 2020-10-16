@@ -53,27 +53,26 @@ export default ({ transitionStatus, exit, entry }) => {
               isAnimationActive={isAnimationActive}
               animationDelay={0}
             >
-              Stworzyłyśmy <strong>dobrze. </strong> bo wiemy jak trudno jest
-              coś zmienić. W wielu firmach są obszary, których zwyczajnie się
-              nie dotyka. Nie dlatego, że są tak dobre. Dlatego, że wymagają
-              zmian, których z natury się boimy. To, czego boisz się dotknąć,
-              prędzej czy później urośnie do rangi problemu, którego nie sposób
-              ignorować. Branding, marketing i sprzedaż to obszary naszego
-              działania.
+              Stworzyłyśmy <strong>dobrze.</strong> bo wiemy jak trudno jest coś
+              zmienić. W wielu firmach są obszary, których zwyczajnie się nie
+              dotyka. Nie dlatego, że są tak dobre. Dlatego, że wymagają zmian,
+              których z natury się boimy. Branding, marketing i sprzedaż - tym
+              się zajmujemy. Zaplanujemy dla Ciebie skuteczne działania
+              marketingowe, zaprojektujemy procesy sprzedaży, które przyniosą
+              wymierne korzyści i stworzymy spójną identyfikację wizualną i
+              językową Twojej marki.
             </S.ContentParagraph>
             <S.ContentParagraph
               isAnimationActive={isAnimationActive}
               animationDelay={150}
             >
               Misja od początku była dla nas jasna - chcemy pomagać, tam gdzie
-              inni mówią, że bez milionowych nakładów finansowych się nie da.
-              Chcemy oswajać ze zmianami i zachęcać do ich wprowadzania.
+              inni mówią, że bez milionowych nakładów finansowych się nie da.{" "}
               <strong>
-                {" "}
-                Każda marka ma szansę być dobra, niezależnie od budżetu.{" "}
-              </strong>
-              Chcemy pomagać budować szczere i długotrwałe relacje z klientami,
-              tworzyć piękne kampanie i spójne przekazy.
+                Każda marka ma szansę być dobra, niezależnie od budżetu.
+              </strong>{" "}
+              Wszystkie nasze działania są wynikiem analizy. Nie projektujemy
+              zdając się na intuicję, projektujemy kierując się wiedzą.
             </S.ContentParagraph>
           </S.ContentText>
           <S.ContentBackground isAnimationActive={isAnimationActive} />

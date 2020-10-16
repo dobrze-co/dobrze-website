@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import * as S from "./AboutUsDetails.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import aboutUsData from "../../data/aboutUs.js"
@@ -113,16 +113,12 @@ export default ({ location, transitionStatus, exit, entry }) => {
           isAnimationActive={isAnimationActive}
           animationDelay={aboutUsItem.paragraphs.length * 150}
         >
-          {aboutUsItem.skills.map((skill, index) => {
-            return (
-              <Fragment key={index}>
-                <S.Feature>{skill}</S.Feature>
-                {index < aboutUsItem.skills.length - 1 && (
-                  <S.Separator>&#8226;</S.Separator>
-                )}
-              </Fragment>
-            )
-          })}
+          {aboutUsItem.skills.map((skill, index) => (
+            <S.Feature>
+              <S.Separator>&#8226;</S.Separator>
+              {skill}
+            </S.Feature>
+          ))}
         </S.Features>
       </S.Container>
     </PageAnimation>

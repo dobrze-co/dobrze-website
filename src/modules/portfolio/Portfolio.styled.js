@@ -27,11 +27,11 @@ export const Container = styled.div`
   }
 
   ${mediaQueries.laptopM} {
-    padding: 160px 0 0 0;
+    padding: 200px 0 0 0;
   }
 
   ${mediaQueries.desktop} {
-    padding: 160px 0 0 0;
+    padding: 260px 0 0 0;
   }
 `
 
@@ -52,7 +52,7 @@ export const HeaderContainer = styled.div`
   }
   
   ${mediaQueries.laptopM} {
-    top: 160px;
+    top: 140px;
   }
   
   ${mediaQueries.desktop} {
@@ -150,7 +150,7 @@ export const Sections = styled.div``
 export const Section = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 35px;
+  margin-bottom: 50px;
 
   ${mediaQueries.laptop} {
     flex-direction: row;
@@ -161,24 +161,6 @@ export const Section = styled.div`
         flex-direction: row-reverse;
       `}
   }
-
-  ${mediaQueries.laptopM} {
-    ${({ withOffset }) =>
-      withOffset &&
-      css`
-        margin-top: -50px;
-        padding-bottom: 50px;
-      `}
-  }
-
-  ${mediaQueries.desktop} {
-    ${({ withOffset }) =>
-      withOffset &&
-      css`
-        margin-top: -150px;
-        padding-bottom: 150px;
-      `}
-  }
 `
 
 export const SectionImageWrapper = styled.div`
@@ -186,7 +168,7 @@ export const SectionImageWrapper = styled.div`
   width: 100%;
   max-width: 500px;
   height: auto;
-  align-self: center;
+  align-self: flex-start;
   margin-top: 25px;
 
   ${mediaQueries.laptop} {
@@ -230,6 +212,7 @@ const getImageDelay = ({ isAnimationActive, animationDelay }) => {
 export const SectionImage = styled.img`
   width: 100%;
   height: 100%;
+  vertical-align: top;
 
   opacity: 0;
   transform: translateY(-100%);
@@ -262,7 +245,7 @@ export const SectionText = styled.div`
   
   ${mediaQueries.tablet} {
     font-size: 15px;
-    line-height: 32px;
+    line-height: 30px;
   }  
 
   ${mediaQueries.laptop} {
@@ -331,7 +314,7 @@ export const SectionTitle = styled.h2`
   font-family: "Times New Roman";
   font-size: 12px;
   letter-spacing: 2.5px;
-  margin: 0 0 1em;
+  margin: 0 0 0.5em;
   padding: 0;
   font-weight: normal;
   opacity: 0;
@@ -366,106 +349,4 @@ export const SectionTitle = styled.h2`
     font-size: 50px;
     letter-spacing: 12px;
   }
-`
-
-const getFooterDelay = ({ isAnimationActive, animationDelay }) => {
-  if (!isAnimationActive) {
-    return 0
-  }
-  return (
-    Transitions.PAGE_TRANSITION_DURATION +
-    HEADER_ANIMATION_DURATION +
-    animationDelay
-  )
-}
-
-export const Footer = styled.div`
-  justify-content: flex-end;
-  display: none;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: transform ${IMAGE_ANIMATION_DURATION}ms ease-out
-      ${getFooterDelay}ms,
-    opacity ${IMAGE_ANIMATION_DURATION}ms ease-out ${getFooterDelay}ms;
-
-  ${({ isAnimationActive }) =>
-    isAnimationActive &&
-    css`
-      opacity: 1;
-      transform: translateY(0);
-    `}
-
-  ${mediaQueries.laptop} {
-    display: flex;
-    margin-top: -150px;
-  }
-
-  ${mediaQueries.laptopM} {
-    margin-top: -180px;
-  }
-
-  ${mediaQueries.desktop} {
-    margin-top: -30 0px;
-  }
-`
-
-export const Logo = styled.div`
-  position: relative;
-  font-family: "Futura";
-  display: flex;
-
-  ${mediaQueries.laptop} {
-    letter-spacing: -60px;
-    font-size: 600px;
-    padding: 0 40px 0 20px;
-  }
-
-  ${mediaQueries.laptopM} {
-    letter-spacing: -80px;
-    font-size: 800px;
-    padding: 0 60px 0 30px;
-  }
-
-  ${mediaQueries.desktop} {
-    letter-spacing: -80px;
-    font-size: 1000px;
-    padding: 0 80px 0 40px;
-  }
-`
-
-export const LogoBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 25%;
-  background: ${Colors.Secondary};
-`
-
-export const LogoLetters = styled.div`
-  position: relative;
-  z-index: 1;
-
-  ${mediaQueries.laptop} {
-    height: 480px;
-    top: -45px;
-  }
-
-  ${mediaQueries.laptopM} {
-    height: 650px;
-    top: -60px;
-  }
-
-  ${mediaQueries.desktop} {
-    height: 800px;
-    top: -80px;
-  }
-`
-
-export const LogoLetter = styled.span`
-  color: ${Colors.Accent};
-`
-
-export const LogoDot = styled.span`
-  color: ${Colors.Primary};
 `
