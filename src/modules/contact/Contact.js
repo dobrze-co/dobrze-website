@@ -130,14 +130,14 @@ export default ({ transitionStatus, exit, entry }) => {
               isAnimationActive={isAnimationActive}
               animationDelay={200}
             >
-              Asia <S.FooterLink href="tel:777777777">777777777</S.FooterLink>
+              Asia <S.FooterLink href="tel:737880980">737 880 980</S.FooterLink>
             </S.FooterItem>
             <S.FooterItem
               isAnimationActive={isAnimationActive}
               animationDelay={200}
               withDesktopSpacing
             >
-              Ada <S.FooterLink href="tel:777777777">777777777</S.FooterLink>
+              Ada <S.FooterLink href="tel:606740925">606 740 925</S.FooterLink>
             </S.FooterItem>
             <S.FooterMobileHeader
               isAnimationActive={isAnimationActive}
