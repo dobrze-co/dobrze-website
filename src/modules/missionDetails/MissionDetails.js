@@ -7,6 +7,9 @@ import missionsData from "../../data/missions.js"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import { IsInitializedContext } from "../../context"
+import { Helmet } from "react-helmet"
+import startCase from "lodash/startCase"
+import toLower from "lodash/toLower"
 
 const navigationItems = missionsData.map(({ path, name }) => ({
   path: `/co-robimy/${path}`,
@@ -71,6 +74,8 @@ export default ({ location, transitionStatus, exit, entry }) => {
       exit={exit}
       entry={entry}
     >
+      <Helmet title={`${startCase(toLower(missionData.name))} - Co robimy`} />
+
       <S.Container>
         <S.MobileBackButton
           isAnimationActive={isAnimationActive}

@@ -210,7 +210,7 @@ const getTitleDelay = ({ isAnimationActive }) => {
   return Transitions.PAGE_TRANSITION_DURATION + BACKGROUND_ANIMATION_DURATION
 }
 
-export const ContentMobileTitle = styled.div`
+export const ContentMobileTitle = styled.h1`
   position: relative;
   height: 60px;
   z-index: 2;
@@ -221,6 +221,9 @@ export const ContentMobileTitle = styled.div`
   letter-spacing: 12px;
   color: ${Colors.Primary};
   opacity: 0;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
   transform: translateY(70%);
   transition: transform ${TITLE_ANIMATION_DURATION}ms ease-out
       ${getTitleDelay}ms,
@@ -252,7 +255,7 @@ export const ContentMobileTitle = styled.div`
   }
 `
 
-export const ContentDesktopTitle = styled.div`
+export const ContentDesktopTitle = styled.h1`
   display: none;
   position: relative;
   z-index: 2;
@@ -260,6 +263,9 @@ export const ContentDesktopTitle = styled.div`
   font-size: 50px;
   line-height: 50px;
   letter-spacing: 12px;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
   color: ${Colors.Primary};
   opacity: 0;
   transform: translateY(50%);

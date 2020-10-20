@@ -212,7 +212,7 @@ export const TitleBackground = styled.div`
     `}
 `
 
-export const Title = styled.div`
+export const Title = styled.h1`
   position: absolute;
   left: 50%;
   transform: translateY(-38%);
@@ -222,7 +222,9 @@ export const Title = styled.div`
   letter-spacing: 6px;
   color: ${Colors.Primary};
   z-index: 1;
-
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
   opacity: 0;
   transform: translateY(50px);
   transition: transform ${TITLE_ANIMATION_DURATION}ms ease-out

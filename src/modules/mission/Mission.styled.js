@@ -90,7 +90,7 @@ export const Content = styled.div`
   }
 `
 
-export const ContentText = styled.div`
+export const ContentText = styled.h2`
   position: relative;
   z-index: 2;
   color: ${Colors.Primary};
@@ -99,6 +99,9 @@ export const ContentText = styled.div`
   font-family: "Futura";
   padding-right: 30px;
   opacity: 0;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
   transform: translateY(100px);
   transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out
       ${Transitions.PAGE_TRANSITION_DURATION}ms,

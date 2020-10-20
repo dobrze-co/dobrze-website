@@ -7,6 +7,7 @@ import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.sty
 import Navigation from "../../components/Navigation/Navigation"
 import { IsInitializedContext } from "../../context"
 import { INTRO_ANIMATION_DELAY } from "../../components/IntroAnimation/IntroAnimation.styled"
+import { Helmet } from "react-helmet"
 
 const navigationItems = missionsData.map(({ path, name }) => ({
   path: `/co-robimy/${path}`,
@@ -47,6 +48,8 @@ export default ({ location, transitionStatus, exit, entry }) => {
       exit={exit}
       entry={entry}
     >
+      <Helmet title="Co robimy" />
+
       <IntroAnimation
         content={renderIntroContent()}
         started={isInitialized}

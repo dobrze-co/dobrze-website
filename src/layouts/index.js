@@ -48,7 +48,7 @@ export default ({ children, location, pageContext }) => {
   return (
     <S.Container isInitialized={isInitialized}>
       <Helmet
-        title="dobrze."
+        titleTemplate="%s - dobrze."
         meta={[
           {
             name: "description",
@@ -65,6 +65,22 @@ export default ({ children, location, pageContext }) => {
         <link rel="preload" href={portfolioImage2} as="image" />
         <link rel="preload" href={portfolioImage3} as="image" />
         <html lang="pl" />
+
+        <meta property="og:title" content="dobrze." />
+        <meta
+          property="og:description"
+          content="Branding, marketing, procesy sprzedaży zrobione dobrze. Audyt komunikacji, optymalizacja procesów sprzedaży w IT."
+        />
+        <meta property="og:image" content="/images/share.jpg" />
+        <meta property="og:url" content="http://dobrze.co" />
+
+        <meta name="twitter:title" content="dobrze." />
+        <meta
+          name="twitter:description"
+          content="Branding, marketing, procesy sprzedaży zrobione dobrze. Audyt komunikacji, optymalizacja procesów sprzedaży w IT."
+        />
+        <meta name="twitter:image" content="/images/share.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       {!isOn404Page && (
         <Header

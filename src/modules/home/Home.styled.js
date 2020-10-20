@@ -24,12 +24,15 @@ export const Container = styled.div`
   }
 `
 
-export const Title = styled.div`
+export const Title = styled.h1`
   font-size: 83px;
   white-space: nowrap;
   font-family: "Futura";
   color: ${Colors.Primary};
   display: flex;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
   justify-content: center;
   align-items: center;
   user-select: none;

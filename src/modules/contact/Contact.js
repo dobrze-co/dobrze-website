@@ -5,6 +5,7 @@ import PageAnimation from "../../components/PageAnimation/PageAnimation"
 import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
 import { IsInitializedContext } from "../../context"
 import { INTRO_ANIMATION_DELAY } from "../../components/IntroAnimation/IntroAnimation.styled"
+import { Helmet } from "react-helmet"
 
 const mailchimpUserId = "9e3b208a0a0c8cfd81b2654f2"
 const mailchimpListId = "20847587b0"
@@ -73,6 +74,8 @@ export default ({ transitionStatus, exit, entry }) => {
       exit={exit}
       entry={entry}
     >
+      <Helmet title="Kontakt" />
+
       <IntroAnimation
         content="CZEŚĆ!"
         started={isInitialized}

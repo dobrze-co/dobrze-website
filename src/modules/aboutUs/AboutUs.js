@@ -7,6 +7,7 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import aboutUsImage from "../../images/aboutUs.jpg"
 import { preloadImages } from "../../utils"
+import { Helmet } from "react-helmet"
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
@@ -37,6 +38,8 @@ export default ({ transitionStatus, exit, entry }) => {
       exit={exit}
       entry={entry}
     >
+      <Helmet title="O nas" />
+
       <S.Container>
         <S.Content>
           <S.ContentImageContainer>

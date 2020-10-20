@@ -6,6 +6,7 @@ import portfolioImage2 from "../../images/portfolio_2.jpg"
 import portfolioImage3 from "../../images/portfolio_3.jpg"
 import { IsInitializedContext } from "../../context"
 import { preloadImages } from "../../utils"
+import { Helmet } from "react-helmet"
 
 const portfolioImages = [portfolioImage1, portfolioImage2, [portfolioImage3]]
 
@@ -34,6 +35,8 @@ export default ({ transitionStatus, exit, entry }) => {
       exit={exit}
       entry={entry}
     >
+      <Helmet title="Jak pracujemy" />
+
       <S.Container>
         <S.HeaderContainer>
           <S.Header isAnimationActive={isAnimationActive}>

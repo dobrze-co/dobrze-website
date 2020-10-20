@@ -7,6 +7,9 @@ import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.sty
 import Arrow from "../../components/Arrow/Arrow"
 import { IsInitializedContext } from "../../context"
 import { preloadImages } from "../../utils"
+import { Helmet } from "react-helmet"
+import startCase from "lodash/startCase"
+import toLower from "lodash/toLower"
 
 export default ({ location, transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
@@ -37,6 +40,8 @@ export default ({ location, transitionStatus, exit, entry }) => {
       exit={exit}
       entry={entry}
     >
+      <Helmet title={`${startCase(toLower(aboutUsItem.name))} - O nas`} />
+
       <S.Container>
         <S.MobileBackButton
           isAnimationActive={isAnimationActive}

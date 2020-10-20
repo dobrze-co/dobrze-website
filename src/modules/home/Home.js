@@ -13,6 +13,7 @@ import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import * as Transitions from "../../theme/transitions"
 import { IsInitializedContext } from "../../context"
+import { Helmet } from "react-helmet"
 
 const sliderImages = [
   heroImage0,
@@ -89,6 +90,8 @@ export default ({ transitionStatus, exit, entry }) => {
       exit={exit}
       entry={entry}
     >
+      <Helmet titleTemplate="" title="dobrze." />
+
       <S.Container>
         <S.Content>
           <S.Title>
