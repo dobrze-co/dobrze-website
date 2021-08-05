@@ -7,9 +7,10 @@ import { FontFutura, FontLato } from "../theme/fonts"
 import { IsInitializedContext } from "../context"
 import FontFaceObserver from "fontfaceobserver"
 import * as S from "./styled"
-import aboutUsData from "../data/aboutUs"
 import heroImage0 from "../images/hero_0.jpg"
 import aboutUsImage from "../images/aboutUs.jpg"
+import adaImage from "../images/ada.jpg"
+import asiaImage from "../images/asia.jpg"
 import portfolioImage1 from "../images/portfolio_1.jpg"
 import portfolioImage2 from "../images/portfolio_2.jpg"
 import portfolioImage3 from "../images/portfolio_3.jpg"
@@ -59,8 +60,8 @@ export default ({ children, location, pageContext }) => {
       >
         <link rel="preload" href={heroImage0} as="image" />
         <link rel="preload" href={aboutUsImage} as="image" />
-        <link rel="preload" href={aboutUsData[0].photo} as="image" />
-        <link rel="preload" href={aboutUsData[1].photo} as="image" />
+        <link rel="preload" href={adaImage} as="image" />
+        <link rel="preload" href={asiaImage} as="image" />
         <link rel="preload" href={portfolioImage1} as="image" />
         <link rel="preload" href={portfolioImage2} as="image" />
         <link rel="preload" href={portfolioImage3} as="image" />

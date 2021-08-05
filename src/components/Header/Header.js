@@ -3,6 +3,7 @@ import * as S from "./Header.styled"
 import TransitionLink from "gatsby-plugin-transition-link"
 import { PAGE_ANIMATION } from "../PageAnimation/PageAnimation.styled"
 import LogoAnimation from "../LogoAnimation/LogoAnimation"
+import Dot from "../Dot/Dot"
 import * as Colors from "../../theme/colors"
 
 export default ({
@@ -60,7 +61,8 @@ export default ({
           entry={{ length: 0 }}
         >
           <LogoAnimation isAnimationActive={!isOnHomepage}>
-            dobrze.
+            dobrze
+            <Dot />
           </LogoAnimation>
         </TransitionLink>
       )
@@ -72,7 +74,10 @@ export default ({
         exit={{ length: 0.8 }}
         entry={{ length: 0, state: { animation: PAGE_ANIMATION.FADE } }}
       >
-        <LogoAnimation isAnimationActive={!isOnHomepage}>dobrze.</LogoAnimation>
+        <LogoAnimation isAnimationActive={!isOnHomepage}>
+          dobrze
+          <Dot />
+        </LogoAnimation>
       </TransitionLink>
     )
   }

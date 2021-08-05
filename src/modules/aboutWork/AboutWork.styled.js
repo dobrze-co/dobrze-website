@@ -13,7 +13,7 @@ export const Container = styled.div`
   background: ${Colors.White};
   justify-content: center;
   font-size: 100px;
-  font-family: "Times New Roman";
+  font-family: "Times New Roma";
   position: relative;
   padding: 105px 25px 50px;
   overflow: hidden;
@@ -38,7 +38,7 @@ export const Container = styled.div`
 export const HeaderContainer = styled.div`
   margin: 0 -25px 25px 15px;
   position: relative;
-
+  
   ${mediaQueries.tablet} {
     margin: 0 0 50px 50px;
   }
@@ -48,13 +48,13 @@ export const HeaderContainer = styled.div`
     position: absolute;
     top: 140px;
     left: 0;
-    right: 0;
+    right 0;
   }
-
+  
   ${mediaQueries.laptopM} {
     top: 140px;
   }
-
+  
   ${mediaQueries.desktop} {
     top: 200px;
   }

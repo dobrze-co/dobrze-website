@@ -8,25 +8,25 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
-  padding: 20px 25px;
+  height: 90px;
+  padding: 30px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   ${mediaQueries.tablet} {
-    height: 100px;
-    padding: 20px 42px 20px 38px;
+    height: 102px;
+    padding: 30px 42px;
   }
 
   ${mediaQueries.laptopL} {
-    height: 120px;
-    padding: 30px 42px 30px 38px;
+    height: 142px;
+    padding: 50px 72px;
   }
 
   ${mediaQueries.desktop} {
-    height: 160px;
-    padding: 50px 42px 50px 38px;
+    height: 192px;
+    padding: 75px 112px;
   }
 `
 
@@ -36,20 +36,20 @@ export const Background = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 90px;
   background: ${({ color }) => color};
   display: none;
 
   ${mediaQueries.tablet} {
-    height: 100px;
+    height: 102px;
   }
 
   ${mediaQueries.laptopL} {
-    height: 120px;
+    height: 142px;
   }
 
   ${mediaQueries.desktop} {
-    height: 160px;
+    height: 192px;
   }
 
   ${({ active }) =>
@@ -89,7 +89,7 @@ export const Hamburger = styled.div`
   transition: 500ms ease-out;
   cursor: pointer;
 
-  ${mediaQueries.laptopL} {
+  ${mediaQueries.tablet} {
     width: 50px;
     height: 42px;
   }
@@ -106,7 +106,7 @@ export const HamburgerBar = styled.span`
   transform: rotate(0deg);
   transition: 0.35s ease-out;
 
-  ${mediaQueries.laptopL} {
+  ${mediaQueries.tablet} {
     height: 3px;
   }
 
@@ -120,7 +120,7 @@ export const HamburgerBar = styled.span`
         transform: rotate(45deg);
         left: 8px;
 
-        ${mediaQueries.laptopL} {
+        ${mediaQueries.tablet} {
           left: 6px;
         }
       `}
@@ -130,7 +130,7 @@ export const HamburgerBar = styled.span`
     top: 14px;
     transform-origin: left center;
 
-    ${mediaQueries.laptopL} {
+    ${mediaQueries.tablet} {
       top: 18px;
     }
 
@@ -146,7 +146,7 @@ export const HamburgerBar = styled.span`
     top: 28px;
     transform-origin: left center;
 
-    ${mediaQueries.laptopL} {
+    ${mediaQueries.tablet} {
       top: 36px;
     }
 
@@ -156,7 +156,7 @@ export const HamburgerBar = styled.span`
         transform: rotate(-45deg);
         left: 8px;
 
-        ${mediaQueries.laptopL} {
+        ${mediaQueries.tablet} {
           left: 6px;
         }
       `}

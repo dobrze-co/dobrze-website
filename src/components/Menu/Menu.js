@@ -16,20 +16,26 @@ export default ({ location, isOpen, onLinkClick }) => {
     <S.Container isOpen={isOpen}>
       <S.Content>
         <S.MenuItems>
-          <S.MenuItem isAnimationActive={isOpen} animationDelay={0}>
+          <S.MenuItem
+            isAnimationActive={isOpen}
+            animationDelay={0}
+            active={location.pathname.match(/o-nas/)}
+          >
             <TransitionLink
-              className={location.pathname.match(/o-nas/) ? "active" : ""}
               to="/o-nas"
               onClick={onLinkClick}
               exit={{ length: 0 }}
               entry={{ length: 0 }}
             >
-              O nas
+              Poznaj nas
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem isAnimationActive={isOpen} animationDelay={150}>
+          <S.MenuItem
+            isAnimationActive={isOpen}
+            animationDelay={100}
+            active={location.pathname.match(/co-robimy/)}
+          >
             <TransitionLink
-              className={location.pathname.match(/co-robimy/) ? "active" : ""}
               to="/co-robimy"
               onClick={onLinkClick}
               exit={{ length: 0 }}
@@ -38,22 +44,40 @@ export default ({ location, isOpen, onLinkClick }) => {
               Co robimy
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem isAnimationActive={isOpen} animationDelay={300}>
+          <S.MenuItem
+            isAnimationActive={isOpen}
+            animationDelay={200}
+            active={location.pathname.match(/jak-pracujemy/)}
+          >
             <TransitionLink
-              className={
-                location.pathname.match(/katalog-zmian/) ? "active" : ""
-              }
-              to="/katalog-zmian"
+              to="/jak-pracujemy"
               onClick={onLinkClick}
               exit={{ length: 0 }}
               entry={{ length: 0 }}
             >
-              jak pracujemy
+              Jak pracujemy
             </TransitionLink>
           </S.MenuItem>
-          <S.MenuItem isAnimationActive={isOpen} animationDelay={450}>
+          <S.MenuItem
+            isAnimationActive={isOpen}
+            animationDelay={300}
+            active={location.pathname.match(/projekty/)}
+          >
             <TransitionLink
-              className={location.pathname.match(/kontakt/) ? "active" : ""}
+              to="/projekty"
+              onClick={onLinkClick}
+              exit={{ length: 0 }}
+              entry={{ length: 0 }}
+            >
+              Projekty
+            </TransitionLink>
+          </S.MenuItem>
+          <S.MenuItem
+            isAnimationActive={isOpen}
+            animationDelay={400}
+            active={location.pathname.match(/kontakt/)}
+          >
+            <TransitionLink
               to="/kontakt"
               onClick={onLinkClick}
               exit={{ length: 0 }}
