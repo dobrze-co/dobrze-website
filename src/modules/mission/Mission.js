@@ -52,7 +52,7 @@ export default ({ transitionStatus, exit, entry }) => {
         scrollTo(`#${activeTab}`)
       }, 1500)
     }
-  }, [isAnimationActive])
+  }, [isAnimationActive, activeTab])
 
   useEffect(() => {
     // disable mobile section navigation if navigating to main page
@@ -314,6 +314,9 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 <Button to="/kontakt">umów się na spotkanie</Button>
               </S.SectionButton>
+
+              <S.SectionBackgroundCircle1 />
+              <S.SectionBackgroundCircle2 />
             </S.Section>
 
             <S.Section>
@@ -395,6 +398,10 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 <Button to="/kontakt">zamów audyt</Button>
               </S.SectionButton>
+
+              <S.SectionBackgroundCircle3 />
+              <S.SectionBackgroundCircle4 />
+              <S.SectionBackgroundCircle5 />
             </S.Section>
 
             <S.Section>
@@ -475,6 +482,8 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 <Button to="/kontakt">skontaktuj sięz nami</Button>
               </S.SectionButton>
+
+              <S.SectionBackgroundCircle6 />
             </S.Section>
           </Media.TabletAndBigger>
         </PageContent>

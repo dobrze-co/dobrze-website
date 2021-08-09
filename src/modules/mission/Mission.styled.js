@@ -223,7 +223,7 @@ export const HeroCircle3 = styled(HeroCircle)`
 
 export const Navigation = styled.div`
   font-family: "Times New Roman";
-  font-size: 12px;
+  font-size: 13px;
   color: ${Colors.Black};
   letter-spacing: 2px;
   text-align: center;
@@ -331,7 +331,7 @@ const getSectionDelay = ({ isAnimationActive, animationDelay }) => {
 }
 
 export const Section = styled.div`
-  width: 700px;
+  width: 720px;
   margin: 0 auto 60px;
   position: relative;
 
@@ -495,4 +495,46 @@ export const SectionButton = styled.div`
       opacity: 1;
       transform: translateY(0);
     `}
+`
+
+export const SectionBackgroundCircle = styled.div`
+  border: 1px solid ${Colors.Secondary};
+  border-radius: 50%;
+  position: absolute;
+`
+export const SectionBackgroundCircle1 = styled(SectionBackgroundCircle)`
+  width: 820px;
+  height: 820px;
+  top: 10%;
+  right: -100%;
+`
+export const SectionBackgroundCircle2 = styled(SectionBackgroundCircle)`
+  width: 560px;
+  height: 560px;
+  bottom: -80%;
+  left: -100%;
+`
+export const SectionBackgroundCircle3 = styled(SectionBackgroundCircle)`
+  width: 435px;
+  height: 435px;
+  top: 30%;
+  right: -60%;
+`
+export const SectionBackgroundCircle4 = styled(SectionBackgroundCircle)`
+  width: 435px;
+  height: 435px;
+  top: 35%;
+  right: -95%;
+`
+export const SectionBackgroundCircle5 = styled(SectionBackgroundCircle)`
+  width: 435px;
+  height: 435px;
+  top: 60%;
+  right: -72%;
+`
+export const SectionBackgroundCircle6 = styled(SectionBackgroundCircle)`
+  width: 900px;
+  height: 900px;
+  top: 0%;
+  left: -150%;
 `

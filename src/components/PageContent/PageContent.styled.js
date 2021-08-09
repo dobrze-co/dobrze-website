@@ -7,6 +7,7 @@ export const Container = styled.div`
   background: ${Colors.White};
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   padding: 90px 32px 40px;
 
