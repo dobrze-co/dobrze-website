@@ -8,17 +8,17 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin: 90px 32px 40px;
+  padding: 90px 32px 40px;
 
   ${mediaQueries.tablet} {
-    margin: 102px 42px 50px;
+    padding: 102px 42px 50px;
   }
 
   ${mediaQueries.laptopL} {
-    margin: 142px 72px 60px;
+    padding: 142px 72px 60px;
   }
 
   ${mediaQueries.desktop} {
-    margin: 192px 112px 80px;
+    padding: 192px 112px 80px;
   }
 `

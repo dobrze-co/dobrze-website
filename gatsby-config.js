@@ -12,6 +12,8 @@ module.exports = {
     "gatsby-plugin-layout",
     "gatsby-plugin-preload-fonts",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-use-query-params",
+    "gatsby-plugin-smoothscroll",
     {
       resolve: `gatsby-plugin-favicon`,
       options: {

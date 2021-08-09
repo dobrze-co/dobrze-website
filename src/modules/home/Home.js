@@ -104,7 +104,7 @@ export default ({ transitionStatus, exit, entry }) => {
           <S.Footer>
             <S.FooterContainer isAnimationActive={isAnimationActive}>
               <TransitionLink
-                to={"/co-robimy#branding"}
+                to={"/co-robimy?activeTab=branding"}
                 exit={{ length: 0.8 }}
                 entry={{
                   length: 0,
@@ -117,7 +117,7 @@ export default ({ transitionStatus, exit, entry }) => {
               </TransitionLink>
               &nbsp;&#8226;&nbsp;
               <TransitionLink
-                to={"/co-robimy#analiza"}
+                to={"/co-robimy?activeTab=analiza"}
                 exit={{ length: 0.8 }}
                 entry={{
                   length: 0,
@@ -130,7 +130,7 @@ export default ({ transitionStatus, exit, entry }) => {
               </TransitionLink>
               &nbsp;&#8226;&nbsp;
               <TransitionLink
-                to={"/co-robimy#sprzedaz"}
+                to={"/co-robimy?activeTab=sprzedaz"}
                 exit={{ length: 0.8 }}
                 entry={{
                   length: 0,
