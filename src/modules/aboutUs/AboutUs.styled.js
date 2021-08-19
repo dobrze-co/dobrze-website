@@ -24,7 +24,9 @@ export const Section = styled.div`
 
   ${mediaQueries.tablet} {
     flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 120px;
+    padding: 0 50px;
 
     ${({ reversed }) =>
       reversed &&
@@ -39,10 +41,9 @@ export const SectionLeftColumn = styled.div`
   text-align: center;
 
   ${mediaQueries.tablet} {
-    min-width: 40%;
-    max-width: 40%;
+    min-width: 42%;
+    max-width: 42%;
     margin-bottom: 0px;
-    margin-right: 10%;
   }
 
   ${({ reversed }) =>
@@ -50,7 +51,6 @@ export const SectionLeftColumn = styled.div`
     css`
       ${mediaQueries.tablet} {
         margin-right: 0;
-        margin-left: 10%;
       }
     `}
 
@@ -132,15 +132,13 @@ export const SectionTitle = styled.div`
 
 export const SectionContent = styled.div`
   ${mediaQueries.tablet} {
-    margin-left: 10%;
-    width: 40%;
+    width: 42%;
 
     ${({ reversed }) =>
       reversed &&
       css`
         margin-left: 0;
-        margin-right: 10%;
-        width: 40%;
+        width: 42%;
       `}
   }
 

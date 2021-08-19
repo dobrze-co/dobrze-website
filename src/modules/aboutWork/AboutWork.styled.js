@@ -24,9 +24,11 @@ export const Section = styled.div`
   }
 
   ${mediaQueries.tablet} {
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: row-reverse;
     margin-bottom: 120px;
+    padding: 0 50px;
 
     ${({ reversed }) =>
       reversed &&
@@ -42,9 +44,8 @@ export const SectionLeftColumn = styled.div`
 
   ${mediaQueries.tablet} {
     margin-top: 0;
-    min-width: 40%;
-    max-width: 40%;
-    margin-right: 10%;
+    min-width: 42%;
+    max-width: 42%;
   }
 
   ${({ reversed }) =>
@@ -52,7 +53,6 @@ export const SectionLeftColumn = styled.div`
     css`
       ${mediaQueries.tablet} {
         margin-right: 0;
-        margin-left: 10%;
       }
     `}
 `
@@ -128,15 +128,13 @@ export const SectionContent = styled.div`
 
   ${mediaQueries.tablet} {
     max-width: none;
-    margin-left: 10%;
-    width: 40%;
+    width: 42%;
 
     ${({ reversed }) =>
       reversed &&
       css`
         margin-left: 0;
-        margin-right: 10%;
-        width: 40%;
+        width: 42%;
       `}
   }
 

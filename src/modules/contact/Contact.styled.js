@@ -19,6 +19,7 @@ export const CenterWrapper = styled.div`
 
   ${mediaQueries.tablet} {
     align-items: center;
+    padding: 0 50px;
   }
 `
 export const CenterContainer = styled.div`

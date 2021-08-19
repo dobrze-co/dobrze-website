@@ -334,6 +334,7 @@ export const Section = styled.div`
   width: 720px;
   margin: 0 auto 60px;
   position: relative;
+  padding: 0 50px;
 
   &:last-child {
     margin-bottom: 0;
