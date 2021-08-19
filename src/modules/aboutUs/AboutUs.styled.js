@@ -131,6 +131,19 @@ export const SectionTitle = styled.div`
 `
 
 export const SectionContent = styled.div`
+  ${mediaQueries.tablet} {
+    margin-left: 10%;
+    width: 40%;
+
+    ${({ reversed }) =>
+      reversed &&
+      css`
+        margin-left: 0;
+        margin-right: 10%;
+        width: 40%;
+      `}
+  }
+
   ${({ noTitle }) =>
     noTitle &&
     css`

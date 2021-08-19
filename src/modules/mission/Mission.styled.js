@@ -470,7 +470,7 @@ export const SectionParagraph = styled.p`
   }
 
   ${mediaQueries.laptopM} {
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 55px;
   }
 

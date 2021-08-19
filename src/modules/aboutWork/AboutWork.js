@@ -1,19 +1,28 @@
 import React, { useContext, useEffect, useState } from "react"
-import * as S from "./Portfolio.styled"
+import * as S from "./AboutWork.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
-import portfolioImage1 from "../../images/portfolio_1.jpg"
-import portfolioImage2 from "../../images/portfolio_2.jpg"
-import portfolioImage3 from "../../images/portfolio_3.jpg"
+import PageContent from "../../components/PageContent/PageContent"
+import Button from "../../components/Button/Button"
+import Media from "../../components/Media/Media"
 import { IsInitializedContext } from "../../context"
+import aboutWorkImage1 from "../../images/aboutWork_1.jpg"
+import aboutWorkImage2 from "../../images/aboutWork_2.jpg"
+import aboutWorkImage3 from "../../images/aboutWork_3.jpg"
 import { preloadImages } from "../../utils"
 import { Helmet } from "react-helmet"
-
-const portfolioImages = [portfolioImage1, portfolioImage2, [portfolioImage3]]
 
 export default ({ transitionStatus, exit, entry }) => {
   const isInitialized = useContext(IsInitializedContext)
   const [isAnimationActive, setIsAnimationActive] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
+
+  useEffect(() => {
+    preloadImages([aboutWorkImage1, aboutWorkImage2, aboutWorkImage3]).then(
+      () => {
+        setImagesLoaded(true)
+      }
+    )
+  }, [])
 
   useEffect(() => {
     if (isInitialized && imagesLoaded) {
@@ -23,12 +32,6 @@ export default ({ transitionStatus, exit, entry }) => {
     }
   }, [isInitialized, imagesLoaded])
 
-  useEffect(() => {
-    preloadImages(portfolioImages).then(() => {
-      setImagesLoaded(true)
-    })
-  }, [])
-
   return (
     <PageAnimation
       transitionStatus={transitionStatus}
@@ -37,120 +40,211 @@ export default ({ transitionStatus, exit, entry }) => {
     >
       <Helmet title="Jak pracujemy" />
 
-      <S.Container>
-        <S.HeaderContainer>
-          <S.Header isAnimationActive={isAnimationActive}>
-            JAK PRACUJEMY
-          </S.Header>
-          <S.HeaderBackground isAnimationActive={isAnimationActive} />
-        </S.HeaderContainer>
+      <PageContent>
+        <S.Section>
+          <S.SectionContent>
+            <S.SectionTitle
+              isAnimationActive={isAnimationActive}
+              animationDelay={0}
+            >
+              Analiza
+            </S.SectionTitle>
 
-        <S.Sections>
-          <S.Section reversed>
-            <S.SectionText center>
-              <S.SectionTitle
-                isAnimationActive={isAnimationActive}
-                animationDelay={0}
-              >
-                ANALIZA
-              </S.SectionTitle>
+            <Media.MobileOnly>
               <S.SectionParagraph
                 isAnimationActive={isAnimationActive}
                 animationDelay={200}
               >
-                Strategia marketingowa, lejek sprzedażowy, identyfikacja
-                wizualna i reszta naszych działań to wynik dokładnej analizy
-                danych, grup docelowych, trendów. Każde proponowane przez nas
-                rozwiązanie z czegoś wynika. Dostarczamy kompletny audyt
-                komunikacji wizualnej, językowej i udostępnionych przez Ciebie
-                materiałów oraz analizę Twojej konkurencji. Dzięki temu dowiesz
-                z czego wynikają zaprojektowane przez nas działania i zrozumiesz
-                w jakich obszarach nasza pomoc jest niezbędna.
+                Wszystkie działania rozpoczynamy od analizy. Przyglądamy się
+                danym, żeby wiedzieć gdzie realnie leży problem, który chcesz
+                rozwiązać.
               </S.SectionParagraph>
-            </S.SectionText>
-            <S.SectionImageWrapper>
-              <S.SectionImage
+            </Media.MobileOnly>
+
+            <Media.TabletAndBigger>
+              <S.SectionParagraph
                 isAnimationActive={isAnimationActive}
                 animationDelay={200}
-                src={portfolioImage1}
-              />
-            </S.SectionImageWrapper>
-          </S.Section>
+              >
+                Nasze działania opieramy na analizie czynników biznesowych
+                zależnych i niezależnych od Ciebie. Audyt komunikacji językowej
+                i wizualnej marki przeprowadzamy przed spotkaniem. Dzięki temu
+                możemy obiektywnie zbadać ścieżkę klienta. Pozwoli nam to
+                wskazać jego prawdziwe problemy. Analiza konkurencji i trendów
+                długoterminowych daje nam kontekst, który pozwala rozpocząć
+                proces projektowy.
+              </S.SectionParagraph>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={300}
+              >
+                Uzbrojone w wiedzę jaką zdobyłyśmy na podstawie badań i analizy
+                danych, zabieramy się do dalszej pracy. Takie solidne
+                przygotowanie jest dla Ciebie gwarancją, że proponowane przez
+                nas rozwiązania odpowiadają na realne problemy.
+              </S.SectionParagraph>
 
-          <S.Section>
-            <S.SectionText center>
-              <S.SectionTitle
+              <S.SectionButton
+                isAnimationActive={isAnimationActive}
+                animationDelay={400}
+              >
+                <Button to="/kontakt">zamów audyt</Button>
+              </S.SectionButton>
+            </Media.TabletAndBigger>
+          </S.SectionContent>
+
+          <S.SectionLeftColumn>
+            <S.SectionImage
+              isAnimationActive={isAnimationActive}
+              animationDelay={0}
+              src={aboutWorkImage1}
+            />
+          </S.SectionLeftColumn>
+        </S.Section>
+
+        <S.Section reversed>
+          <S.SectionContent reversed>
+            <S.SectionTitle
+              isAnimationActive={isAnimationActive}
+              animationDelay={500}
+            >
+              Proces
+            </S.SectionTitle>
+
+            <Media.MobileOnly>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={700}
+              >
+                Projektowane przez nas działania opierają się na procesach,
+                które rozwijają się wraz z rozwojem biznesu. Dzięki schematom
+                wiesz kiedy podjąć działanie, jaki ma dać wynik i ile czasu
+                musisz poświęcić na realizację zadania.
+              </S.SectionParagraph>
+            </Media.MobileOnly>
+
+            <Media.TabletAndBigger>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={700}
+              >
+                Jesteśmy fankami spójności, porządku i działań, które mają sens.
+                Dobrze zaprojektowany proces prowadzi do jasno wyznaczonego
+                celu, ma konkretne kroki, które muszą zostać wykonane w
+                odpowiednim czasie. Można go przedstawić w formie schematów,
+                które wskazują odpowiednie działanie. Wiemy, że przez chaos
+                można stracić pieniędze i czas. Procesy porządkują pracę w
+                firmie, a dla firm jednoosobowych są ratunkiem przed lawiną
+                zadań „na już”.
+              </S.SectionParagraph>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={800}
+              >
+                Każde, nawet najmniejsze działanie, zamykamy w procesie. Zaletą
+                tej metody jest to, że nigdy nie zgubisz się w tym na jakim
+                etapie pracy, komunikacji czy sprzedaży jesteś. Jeśli Twoja
+                firma rośnie, proces można rozbudować o dodatkowe zadania czy
+                role.
+              </S.SectionParagraph>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={900}
+              >
+                Instrukcja działań “krok po kroku” przydaje się nowym markom,
+                wchodzącym na rynek i tym, które „sprzedają od zawsze”. Proces
+                pozwala szybko naprawić elementy, które zawodzą. Jest
+                odpowiedzią na szybko zmieniającą się rzeczywistość. Zamiast
+                budować strategię działań od zera, lepiej tylko wymieniać
+                elementy, które przestały się sprawdzać.
+              </S.SectionParagraph>
+
+              <S.SectionButton
                 isAnimationActive={isAnimationActive}
                 animationDelay={1000}
               >
-                TRENDY
-              </S.SectionTitle>
-              <S.SectionParagraph
-                isAnimationActive={isAnimationActive}
-                animationDelay={1200}
-              >
-                Projektując kampanie marketingowe przyglądamy się światowym
-                trendom, docieramy do raportów największych agencji i studiujemy
-                najnowsze badania rynku. Bierzemy pod uwagę lokalne i globalne
-                trendy długoterminowe i zachowania poszczególnych grup
-                konsumenckich. Projektowane przez nas działania są odpowiedzią
-                na szybko zmieniającą się rzeczywistość.
-              </S.SectionParagraph>
-            </S.SectionText>
-            <S.SectionImageWrapper>
-              <S.SectionImage
-                isAnimationActive={isAnimationActive}
-                animationDelay={1200}
-                src={portfolioImage2}
-                wide
-              />
-            </S.SectionImageWrapper>
-          </S.Section>
+                <Button to="/kontakt">stwórz proces dla swojej firmy</Button>
+              </S.SectionButton>
+            </Media.TabletAndBigger>
+          </S.SectionContent>
 
-          <S.Section reversed>
-            <S.SectionText center>
-              <S.SectionTitle
-                isAnimationActive={isAnimationActive}
-                animationDelay={2000}
-              >
-                KATALOG ZMIAN
-              </S.SectionTitle>
+          <S.SectionLeftColumn reversed>
+            <S.SectionImage
+              src={aboutWorkImage2}
+              isAnimationActive={isAnimationActive}
+              animationDelay={500}
+              reversed
+            />
+          </S.SectionLeftColumn>
+        </S.Section>
+
+        <S.Section>
+          <S.SectionContent>
+            <S.SectionTitle
+              isAnimationActive={isAnimationActive}
+              animationDelay={1000}
+            >
+              Katalog <S.NoWrap>zmian /</S.NoWrap> Brandbook
+            </S.SectionTitle>
+
+            <Media.MobileOnly>
               <S.SectionParagraph
                 isAnimationActive={isAnimationActive}
-                animationDelay={2200}
+                animationDelay={1200}
               >
-                Katalog zmian to 3 częściowy przewodnik po zaprojektowanych dla
-                Ciebie działaniach. Jego pierwsza część zawiera analizę. Zawsze
-                możesz do niej wrócić, jeśli, któreś z działań wyda Ci się
-                niejasne. Druga część poświęcona trendom pomoże Ci samodzielnie
-                kreować kolejne kampanie marketingowe. Nie chcemy uzależniać
-                Ciebie od naszej pomocy, zależy nam na Twojej samodzielności w
-                świecie marketingu. Ostatnia część to proponowane przez nas
-                zmiany w 3 wariantach. Każda z nich zakłada inny nakład
-                finansowy. Czuwamy nad wdrażaniem nowych procesów, optymalizacją
-                już istniejących, niezależnie od skali zmian. Możesz liczyć na
-                naszą pomoc.
+                Wynikiem naszej pracy nad brandingiem jest brandbook, który
+                dostarczymy w formie papierowej i elektronicznej. Namacalna
+                forma to nie tylko podgląd tego jak kolory prezentują się w
+                druku. To też narzędzie warsztatowe. Katalog zmian to dokument,
+                który otrzymujesz w wyniku opracowanego przez nas rebrandingu.
+                Znajdują się w nim 3 propozycje zmiany - każda wymagająca innego
+                nakładu pracy. To Ty decydujesz, którą wybierasz. Z czasem
+                możesz zrealizować wszystkie proponowane przez nas zmiany.
+              </S.SectionParagraph>
+            </Media.MobileOnly>
+
+            <Media.TabletAndBigger>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={1200}
+              >
+                Wynikiem naszej pracy nad brandingiem jest brandbook, który
+                dostarczymy w formie papierowej i elektronicznej. Namacalna
+                forma to nie tylko podgląd tego jak kolory prezentują się w
+                druku. To też narzędzie warsztatowe. Powiększając swój zespół
+                zadbaj o to, żeby każdy mógł poczuć czym jest Twoja firma. To
+                również narzędzie przydatne podczas burzy mózgów, rekrutacji,
+                planowania kampanii reklamowych czy marketingowych.
               </S.SectionParagraph>
               <S.SectionParagraph
                 isAnimationActive={isAnimationActive}
-                animationDelay={2400}
+                animationDelay={1300}
               >
-                Jeśli chcesz żebyśmy zaprojektowały proces sprzedaży, strategię
-                marketingową lub identyfikację wizualną dla Twojego biznesu,
-                mówimy dobrze.
+                Katalog Zmian dostarczamy w wyniku pracy nad rebrandigiem. W
+                katalogu znajduje się analiza trendów, komunikacji językowej i
+                wizualnej oraz trzy propozycje zmian. Katalog w formie
+                papierowej jest dla nas narzędziem, które wykorzystujemy podczas
+                warsztatów, na których opracowujemy ostateczną formę działań.
               </S.SectionParagraph>
-            </S.SectionText>
-            <S.SectionImageWrapper>
-              <S.SectionImage
+
+              <S.SectionButton
                 isAnimationActive={isAnimationActive}
-                animationDelay={2200}
-                src={portfolioImage3}
-                wide
-              />
-            </S.SectionImageWrapper>
-          </S.Section>
-        </S.Sections>
-      </S.Container>
+                animationDelay={1400}
+              >
+                <Button to="/kontakt">zamów katalog zmian / brandbook</Button>
+              </S.SectionButton>
+            </Media.TabletAndBigger>
+          </S.SectionContent>
+
+          <S.SectionLeftColumn>
+            <S.SectionImage
+              src={aboutWorkImage3}
+              isAnimationActive={isAnimationActive}
+              animationDelay={1000}
+            />
+          </S.SectionLeftColumn>
+        </S.Section>
+      </PageContent>
     </PageAnimation>
   )
 }

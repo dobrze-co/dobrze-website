@@ -6,6 +6,8 @@ import IntroAnimation from "../../components/IntroAnimation/IntroAnimation"
 import { IsInitializedContext } from "../../context"
 import { INTRO_ANIMATION_DELAY } from "../../components/IntroAnimation/IntroAnimation.styled"
 import { Helmet } from "react-helmet"
+import PageContent from "../../components/PageContent/PageContent"
+import Media from "../../components/Media/Media"
 
 const mailchimpUserId = "9e3b208a0a0c8cfd81b2654f2"
 const mailchimpListId = "20847587b0"
@@ -77,84 +79,87 @@ export default ({ transitionStatus, exit, entry }) => {
       <Helmet title="Kontakt" />
 
       <IntroAnimation
+        withDot
         content="CZEŚĆ!"
         started={isInitialized}
         active={!entry.state.disableIntroAnimation}
       >
-        <S.Container>
-          <S.Header isAnimationActive={isAnimationActive}>
-            ZRÓBMY RAZEM RZECZY, <S.HeaderLogo>dobrze.</S.HeaderLogo>
-          </S.Header>
+        <PageContent>
+          <S.CenterWrapper>
+            <S.CenterContainer>
+              <S.Header isAnimationActive={isAnimationActive}>
+                ZRÓBMY RAZEM COŚ <S.HeaderLogo>dobrego</S.HeaderLogo> DLA
+                TWOJEGO BIZNESU
+              </S.Header>
 
-          <S.Form isAnimationActive={isAnimationActive} onSubmit={handleSubmit}>
-            <S.InputWrapper>
-              <S.Input
-                value={emailValue}
-                placeholder="WPISZ SWÓJ EMAIL"
-                onChange={handleEmailChange}
-              />
-              {isSubmitting && <S.InputLoader />}
-            </S.InputWrapper>
+              <S.Form
+                isAnimationActive={isAnimationActive}
+                onSubmit={handleSubmit}
+              >
+                <S.InputWrapper>
+                  <S.Input
+                    value={emailValue}
+                    placeholder="Wpisz swój email, odezwiemy się do Ciebie!"
+                    onChange={handleEmailChange}
+                  />
+                  {isSubmitting && <S.InputLoader />}
+                </S.InputWrapper>
 
-            <S.SubmitContainer>
-              <S.Submit type="submit" disabled={!isEmailValid()}>
-                WYŚLIJ
-              </S.Submit>
-              <S.SubmitMessage>
-                {submitSuccess && (
-                  <S.SubmitMessageSuccess>Dziękujemy!</S.SubmitMessageSuccess>
-                )}
-                {submitError && (
-                  <S.SubmitMessageError>
-                    Coś poszło nie tak.
-                  </S.SubmitMessageError>
-                )}
-              </S.SubmitMessage>
-            </S.SubmitContainer>
-          </S.Form>
+                <S.SubmitContainer>
+                  <Media.MobileOnly>
+                    <S.SubmitMessage>
+                      {submitSuccess && (
+                        <S.SubmitMessageSuccess>
+                          Dziękujemy!
+                        </S.SubmitMessageSuccess>
+                      )}
+                      {submitError && (
+                        <S.SubmitMessageError>
+                          Coś poszło nie tak.
+                        </S.SubmitMessageError>
+                      )}
+                    </S.SubmitMessage>
+                  </Media.MobileOnly>
 
-          <S.Footer>
-            <S.FooterDesktopHeader
-              isAnimationActive={isAnimationActive}
-              animationDelay={0}
-            >
-              ZADZWOŃ / NAPISZ
-            </S.FooterDesktopHeader>
-            <S.FooterMobileHeader
-              isAnimationActive={isAnimationActive}
-              animationDelay={200}
-            >
-              ZADZWOŃ
-            </S.FooterMobileHeader>
-            <S.FooterItem
-              isAnimationActive={isAnimationActive}
-              animationDelay={200}
-            >
-              Asia <S.FooterLink href="tel:737880980">737 880 980</S.FooterLink>
-            </S.FooterItem>
-            <S.FooterItem
-              isAnimationActive={isAnimationActive}
-              animationDelay={200}
-              withDesktopSpacing
-            >
-              Ada <S.FooterLink href="tel:606740925">606 740 925</S.FooterLink>
-            </S.FooterItem>
-            <S.FooterMobileHeader
-              isAnimationActive={isAnimationActive}
-              animationDelay={400}
-            >
-              NAPISZ
-            </S.FooterMobileHeader>
-            <S.FooterItem
-              isAnimationActive={isAnimationActive}
-              animationDelay={400}
-            >
-              <S.FooterLink href="mailto:kontakt@dobrze.co">
-                kontakt@dobrze.co
-              </S.FooterLink>
-            </S.FooterItem>
-          </S.Footer>
-        </S.Container>
+                  <S.Submit type="submit" disabled={!isEmailValid()}>
+                    wyślij
+                  </S.Submit>
+                </S.SubmitContainer>
+              </S.Form>
+
+              <Media.TabletAndBigger>
+                <S.SubmitMessage>
+                  {submitSuccess && (
+                    <S.SubmitMessageSuccess>Dziękujemy!</S.SubmitMessageSuccess>
+                  )}
+                  {submitError && (
+                    <S.SubmitMessageError>
+                      Coś poszło nie tak.
+                    </S.SubmitMessageError>
+                  )}
+                </S.SubmitMessage>
+              </Media.TabletAndBigger>
+
+              <S.Footer>
+                <S.FooterItem
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={0}
+                >
+                  <S.FooterLink href="mailto:kontakt@dobrze.co">
+                    kontakt@dobrze.co
+                  </S.FooterLink>
+                </S.FooterItem>
+
+                <S.FooterItem
+                  isAnimationActive={isAnimationActive}
+                  animationDelay={200}
+                >
+                  <S.FooterLink href="tel:737880980">737 880 980</S.FooterLink>
+                </S.FooterItem>
+              </S.Footer>
+            </S.CenterContainer>
+          </S.CenterWrapper>
+        </PageContent>
       </IntroAnimation>
     </PageAnimation>
   )

@@ -55,7 +55,7 @@ export default ({ transitionStatus, exit, entry }) => {
             >
               Założyłyśmy dobrze. bo lubimy rozwiązania solidne, etyczne i
               estetyczne. Uważamy, że w biznesie ważna jest spójność i
-              szczerość.  Projektując opieramy się na analizie danych, nie na
+              szczerość. Projektując opieramy się na analizie danych, nie na
               przeczuciach.
             </S.SectionParagraph>
             <S.SectionParagraph
@@ -95,7 +95,7 @@ export default ({ transitionStatus, exit, entry }) => {
             </S.SectionTitle>
           </Media.MobileOnly>
 
-          <S.SectionLeftColumn>
+          <S.SectionLeftColumn reversed>
             <S.SectionImage
               src={adaImage}
               isAnimationActive={isAnimationActive}
@@ -104,7 +104,7 @@ export default ({ transitionStatus, exit, entry }) => {
             />
           </S.SectionLeftColumn>
 
-          <S.SectionContent>
+          <S.SectionContent reversed>
             <Media.TabletAndBigger>
               <S.SectionTitle
                 isAnimationActive={isAnimationActive}

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import Header from "../components/Header/Header"
 import Menu from "../components/Menu/Menu"
 import GlobalStyle from "../theme/globalStyle"
-import { FontFutura, FontLato } from "../theme/fonts"
+import { FontFutura } from "../theme/fonts"
 import { IsInitializedContext } from "../context"
 import FontFaceObserver from "fontfaceobserver"
 import * as S from "./styled"
@@ -11,17 +11,14 @@ import heroImage0 from "../images/hero_0.jpg"
 import aboutUsImage from "../images/aboutUs.jpg"
 import adaImage from "../images/ada.jpg"
 import asiaImage from "../images/asia.jpg"
+import aboutWorkImage1 from "../images/aboutWork_1.jpg"
+import aboutWorkImage2 from "../images/aboutWork_2.jpg"
+import aboutWorkImage3 from "../images/aboutWork_3.jpg"
 import portfolioImage1 from "../images/portfolio_1.jpg"
 import portfolioImage2 from "../images/portfolio_2.jpg"
 import portfolioImage3 from "../images/portfolio_3.jpg"
 
 const futuraObserver = new FontFaceObserver("Futura")
-const latoNormalObserver = new FontFaceObserver("Lato", {
-  weight: "normal",
-})
-const latoBoldObserver = new FontFaceObserver("Lato", {
-  weight: "bold",
-})
 
 export default ({ children, location, pageContext }) => {
   const [isInitialized, setIsInitialized] = useState(false)
@@ -29,11 +26,7 @@ export default ({ children, location, pageContext }) => {
   const isOn404Page = pageContext.is404
 
   useEffect(() => {
-    Promise.all([
-      futuraObserver.load(),
-      latoNormalObserver.load(),
-      latoBoldObserver.load(),
-    ]).then(() => {
+    Promise.all([futuraObserver.load()]).then(() => {
       setIsInitialized(true)
     })
   }, [])
@@ -62,6 +55,9 @@ export default ({ children, location, pageContext }) => {
         <link rel="preload" href={aboutUsImage} as="image" />
         <link rel="preload" href={adaImage} as="image" />
         <link rel="preload" href={asiaImage} as="image" />
+        <link rel="preload" href={aboutWorkImage1} as="image" />
+        <link rel="preload" href={aboutWorkImage2} as="image" />
+        <link rel="preload" href={aboutWorkImage3} as="image" />
         <link rel="preload" href={portfolioImage1} as="image" />
         <link rel="preload" href={portfolioImage2} as="image" />
         <link rel="preload" href={portfolioImage3} as="image" />
@@ -106,7 +102,6 @@ export default ({ children, location, pageContext }) => {
       </IsInitializedContext.Provider>
 
       <FontFutura />
-      <FontLato />
       <GlobalStyle />
     </S.Container>
   )
