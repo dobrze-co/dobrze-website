@@ -119,8 +119,8 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={700}
               >
-                W dobrze. Zajmuję się analizą i tworzeniem wizerunku marki. Dbam
-                o spójność obrazów i słów. Badam kogo przyciąga Twoja strona
+                W dobrze. zajmuję się analizą i tworzeniem wizerunku marki. Dbam
+                o spójność obrazów i słów. Badam, kogo przyciąga Twoja strona
                 internetowa, czy docierasz tam gdzie chcesz dotrzeć. Wyznaczam
                 metryki, które pozwalają mierzyć skuteczność działań i zrozumieć
                 czego szukają klienci.
@@ -132,8 +132,8 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={700}
               >
-                W dobrze. Zajmuję się analizą i projektowaniem wizerunku marki.
-                Dbam o równowagę i spójność pomiędzy obrazem i słowem. Badam
+                W dobrze. zajmuję się analizą i projektowaniem wizerunku marki.
+                Dbam o równowagę i spójność pomiędzy obrazem i słowem. Badam,
                 kogo przyciąga Twoja strona internetowa, czy docierasz tam gdzie
                 chcesz dotrzeć. Wyznaczam metryki, które pozwalają mierzyć
                 skuteczność działań i zrozumieć czego szukają klienci.
@@ -194,7 +194,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={1200}
               >
-                W dobrze. zajmuje się analizą tego jak komunikujesz się z
+                W dobrze. zajmuję się analizą tego, jak komunikujesz się z
                 klientem. Kognitywne językoznawstwo i emocje w komunikacji to
                 moje specjalizacje. Od 5 lat zajmuję się sprzedażą - tworzę
                 lejki sprzedażowe i pomagam zrozumieć jak dbać o klienta.
@@ -207,7 +207,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={1200}
               >
-                W dobrze. zajmuje się analizą tego jak komunikujesz się z
+                W dobrze. zajmuję się analizą tego, jak komunikujesz się z
                 klientem. Językoznawstwo kognitywne i emocje w komunikacji to
                 moje specjalizacje. Projektuję grafiki i identyfikację wizualną.
                 Od 5 lat zajmuję się sprzedażą - tworzę lejki sprzedażowe i

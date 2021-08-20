@@ -78,7 +78,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={300}
               >
-                Uzbrojone w wiedzę jaką zdobyłyśmy na podstawie badań i analizy
+                Uzbrojone w wiedzę, jaką zdobyłyśmy na podstawie badań i analizy
                 danych, zabieramy się do dalszej pracy. Takie solidne
                 przygotowanie jest dla Ciebie gwarancją, że proponowane przez
                 nas rozwiązania odpowiadają na realne problemy.
@@ -133,7 +133,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 celu, ma konkretne kroki, które muszą zostać wykonane w
                 odpowiednim czasie. Można go przedstawić w formie schematów,
                 które wskazują odpowiednie działanie. Wiemy, że przez chaos
-                można stracić pieniędze i czas. Procesy porządkują pracę w
+                można stracić pieniądze i czas. Procesy porządkują pracę w
                 firmie, a dla firm jednoosobowych są ratunkiem przed lawiną
                 zadań „na już”.
               </S.SectionParagraph>
@@ -194,7 +194,7 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 Wynikiem naszej pracy nad brandingiem jest brandbook, który
                 dostarczymy w formie papierowej i elektronicznej. Namacalna
-                forma to nie tylko podgląd tego jak kolory prezentują się w
+                forma to nie tylko podgląd tego, jak kolory prezentują się w
                 druku. To też narzędzie warsztatowe. Katalog zmian to dokument,
                 który otrzymujesz w wyniku opracowanego przez nas rebrandingu.
                 Znajdują się w nim 3 propozycje zmiany - każda wymagająca innego
@@ -210,9 +210,9 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 Wynikiem naszej pracy nad brandingiem jest brandbook, który
                 dostarczymy w formie papierowej i elektronicznej. Namacalna
-                forma to nie tylko podgląd tego jak kolory prezentują się w
+                forma to nie tylko podgląd tego, jak kolory prezentują się w
                 druku. To też narzędzie warsztatowe. Powiększając swój zespół
-                zadbaj o to, żeby każdy mógł poczuć czym jest Twoja firma. To
+                zadbaj o to, żeby każdy mógł poczuć, czym jest Twoja firma. To
                 również narzędzie przydatne podczas burzy mózgów, rekrutacji,
                 planowania kampanii reklamowych czy marketingowych.
               </S.SectionParagraph>

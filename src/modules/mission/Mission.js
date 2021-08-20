@@ -177,7 +177,7 @@ export default ({ transitionStatus, exit, entry }) => {
                     exit={{ length: 0 }}
                     entry={{ length: 0 }}
                   >
-                    umów sięna spotkanie
+                    umów się na spotkanie
                   </TransitionLink>
                 </S.MobileSectionButton>
               </S.MobileSection>
@@ -212,7 +212,7 @@ export default ({ transitionStatus, exit, entry }) => {
                     exit={{ length: 0 }}
                     entry={{ length: 0 }}
                   >
-                    umów sięna spotkanie
+                    umów się na spotkanie
                   </TransitionLink>
                 </S.MobileSectionButton>
               </S.MobileSection>
@@ -246,7 +246,7 @@ export default ({ transitionStatus, exit, entry }) => {
                     exit={{ length: 0 }}
                     entry={{ length: 0 }}
                   >
-                    umów sięna spotkanie
+                    umów się na spotkanie
                   </TransitionLink>
                 </S.MobileSectionButton>
               </S.MobileSection>
@@ -280,7 +280,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={300}
               >
-                Zanim zaproponujemy zmiany przeanalizujemy to w jakim miejscu
+                Zanim zaproponujemy zmiany, przeanalizujemy to w jakim miejscu
                 jest Twoja firma i jak komunikowała się do tej pory.
                 Przygotujemy analizę rynku i trendów długoterminowych. Weźmiemy
                 pod uwagę opinie Twoich klientów. Znajdziemy mocne strony, na
@@ -351,7 +351,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 Twoi odbiorcy “odpadają” zamiast iść dalej. Zbadamy ruch na
                 Twojej stronie, dzięki temu dowiesz się, gdzie Twój potencjalny
                 klient spędza najwięcej czasu, a które strony są dla niego
-                nieistotne. Opierając się o metody językoznawsta kognitywnego
+                nieistotne. Opierając się o metody językoznawsta kognitywnego,
                 zbadamy język jakim mówisz do swoich odbiorców.
               </S.SectionParagraph>
 
@@ -367,7 +367,7 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 Jeśli dopiero zaczynasz budować własny biznes, przeprowadzimy
                 dla Ciebie analizę rynku. Dostarczamy pakiet zawierający audyt
-                działań konkurencyjnych firm. Wskażemy ich dobre praktyki, oraz
+                działań konkurencyjnych firm. Wskażemy ich dobre praktyki oraz
                 to czego warto unikać. Dzięki analizie konkurencji będziesz w
                 stanie określić swoją unikalną cechę oferty - coś co wyróżni Cię
                 spośród innych firm czy marek osobistych w Twoim sektorze
@@ -386,9 +386,9 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 Nie osiągasz oczekiwanych wyników? Przeprowadzimy dla Ciebie
                 pełen audyt sprzedaży, komunikacji i procesów. Spojrzymy świeżym
-                okiem na Twój biznes i dostarczymy Tobie raport, który wskaże
+                okiem na Twój biznes i dostarczymy Tobie raport, który wskaże,
                 gdzie tracisz klientów, pieniądze i czas. Opracujemy lejek
-                sprzedaży i wskarzemy miejsca, w których warto podjąć dodatkowe
+                sprzedaży i wskażemy miejsca, w których warto podjąć dodatkowe
                 działanie.
               </S.SectionParagraph>
 
@@ -430,7 +430,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={2300}
               >
-                Język, którego używasz powinien rezonować z Twoim odbiorcą.
+                Język, którego używasz, powinien rezonować z Twoim odbiorcą.
                 Zamiast reklam proponujemy wyznaczenie modelowego wyobrażenia
                 docelowego klienta (persony). To działanie pozwala na stworzenie
                 odpowiedniej komunikacji. Pomożemy Ci odnaleźć wspólny język z
@@ -447,7 +447,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={2500}
               >
-                wyznaczymy etapy sprzedaży oraz sposoby zaangażowania klientów
+                Wyznaczymy etapy sprzedaży oraz sposoby zaangażowania klientów
                 na każdym z nich. Zaproponujemy działania, na okres 3 miesięcy.
                 Wszystko to przedstawimy w formie spójnego procesu, składającego
                 się z segmentów. Działania jakie zaproponujemy będą dostosowane
@@ -469,7 +469,7 @@ export default ({ transitionStatus, exit, entry }) => {
               >
                 Stworzyłyśmy skuteczny proces sprzedaży, który opiera się na
                 działaniach wynikających z analizy danych. Żeby prowadzić
-                skuteczną sprzedaż trzeba usunąć przeszkody jakie mogą pojawić
+                skuteczną sprzedaż trzeba usunąć przeszkody, jakie mogą pojawić
                 się na drodze do zakupu. Zajmujemy się optymalizacją ścieżki
                 klienta i projektowaniem doświadczeń, które ułatwiają mu
                 podjęcie decyzji o zakupie. Nasze działania często oparte są o
@@ -480,7 +480,7 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={2800}
               >
-                <Button to="/kontakt">skontaktuj sięz nami</Button>
+                <Button to="/kontakt">skontaktuj się z nami</Button>
               </S.SectionButton>
 
               <S.SectionBackgroundCircle6 />
