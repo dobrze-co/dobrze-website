@@ -15,6 +15,7 @@ const getDelay = ({ isAnimationActive, animationDelay }) => {
 
 export const Section = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
   margin-bottom: 48px;
 
@@ -23,27 +24,28 @@ export const Section = styled.div`
   }
 
   ${mediaQueries.tablet} {
-    flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row-reverse;
     margin-bottom: 120px;
     padding: 0 50px;
 
     ${({ reversed }) =>
       reversed &&
       css`
-        flex-direction: row-reverse;
+        flex-direction: row;
       `}
   }
 `
 
 export const SectionLeftColumn = styled.div`
-  margin-bottom: 46px;
+  margin-top: 46px;
   text-align: center;
 
   ${mediaQueries.tablet} {
+    margin-top: 0;
     min-width: 42%;
     max-width: 42%;
-    margin-bottom: 0px;
   }
 
   ${({ reversed }) =>
@@ -51,16 +53,6 @@ export const SectionLeftColumn = styled.div`
     css`
       ${mediaQueries.tablet} {
         margin-right: 0;
-      }
-    `}
-
-  ${({ hideOnMobile }) =>
-    hideOnMobile &&
-    css`
-      display: none;
-
-      ${mediaQueries.tablet} {
-        display: block;
       }
     `}
 `
@@ -101,13 +93,14 @@ export const SectionTitle = styled.div`
   font-family: "Times New Roman";
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 48px;
-  letter-spacing: 9px;
+  font-size: 18px;
+  letter-spacing: 3px;
   text-align: center;
   opacity: 0;
   transform: translateY(50px);
   transition: transform ${TEXT_ANIMATION_DURATION}ms ease-out ${getDelay}ms,
     opacity ${TEXT_ANIMATION_DURATION}ms ease-out ${getDelay}ms;
+  margin-bottom: 22px;
 
   ${({ isAnimationActive }) =>
     isAnimationActive &&
@@ -118,20 +111,23 @@ export const SectionTitle = styled.div`
 
   ${mediaQueries.tablet} {
     text-align: left;
-    font-size: 64px;
+    font-size: 32px;
     margin-bottom: 40px;
-    letter-spacing: 12px;
+    letter-spacing: 6px;
   }
 
   ${mediaQueries.desktop} {
-    font-size: 96px;
-    margin-bottom: 90px;
-    letter-spacing: 18px;
+    font-size: 40px;
+    margin-bottom: 60px;
+    letter-spacing: 8px;
   }
 `
 
 export const SectionContent = styled.div`
+  max-width: 400px;
+
   ${mediaQueries.tablet} {
+    max-width: none;
     width: 42%;
 
     ${({ reversed }) =>
@@ -216,4 +212,8 @@ export const SectionFooter = styled.div`
   ${mediaQueries.tablet} {
     margin-top: 72px;
   }
+`
+
+export const NoWrap = styled.span`
+  white-space: nowrap;
 `

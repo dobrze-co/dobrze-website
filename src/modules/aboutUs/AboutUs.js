@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react"
 import * as S from "./AboutUs.styled"
 import PageAnimation from "../../components/PageAnimation/PageAnimation"
-import aboutUsData from "../../data/aboutUs"
+import PageContent from "../../components/PageContent/PageContent"
+import Button from "../../components/Button/Button"
+import Media from "../../components/Media/Media"
 import { IsInitializedContext } from "../../context"
-import TransitionLink from "gatsby-plugin-transition-link"
-import { PAGE_ANIMATION } from "../../components/PageAnimation/PageAnimation.styled"
 import aboutUsImage from "../../images/aboutUs.jpg"
+import adaImage from "../../images/ada.jpg"
+import asiaImage from "../../images/asia.jpg"
 import { preloadImages } from "../../utils"
 import { Helmet } from "react-helmet"
 
@@ -15,11 +17,7 @@ export default ({ transitionStatus, exit, entry }) => {
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
   useEffect(() => {
-    preloadImages([
-      aboutUsImage,
-      aboutUsData[0].photo,
-      aboutUsData[1].photo,
-    ]).then(() => {
+    preloadImages([aboutUsImage, adaImage, asiaImage]).then(() => {
       setImagesLoaded(true)
     })
   }, [])
@@ -30,7 +28,7 @@ export default ({ transitionStatus, exit, entry }) => {
         setIsAnimationActive(true)
       })
     }
-  }, [isInitialized, imagesLoaded, entry.state.disableIntroAnimation])
+  }, [isInitialized, imagesLoaded])
 
   return (
     <PageAnimation
@@ -40,96 +38,207 @@ export default ({ transitionStatus, exit, entry }) => {
     >
       <Helmet title="O nas" />
 
-      <S.Container>
-        <S.Content>
-          <S.ContentImageContainer>
-            <S.ContentImageWrapper>
-              <S.ContentImage
-                image={aboutUsImage}
-                isAnimationActive={isAnimationActive}
-              />
-            </S.ContentImageWrapper>
-          </S.ContentImageContainer>
+      <PageContent>
+        <S.Section>
+          <S.SectionLeftColumn hideOnMobile>
+            <S.SectionImage
+              isAnimationActive={isAnimationActive}
+              animationDelay={0}
+              src={aboutUsImage}
+            />
+          </S.SectionLeftColumn>
 
-          <S.ContentText>
-            <S.ContentParagraph
+          <S.SectionContent noTitle>
+            <S.SectionParagraph
               isAnimationActive={isAnimationActive}
               animationDelay={0}
             >
-              Stworzyłyśmy <strong>dobrze.</strong> bo wiemy jak trudno jest coś
-              zmienić. W wielu firmach są obszary, których zwyczajnie się nie
-              dotyka. Nie dlatego, że są tak dobre. Dlatego, że wymagają zmian,
-              których z natury się boimy. Branding, marketing i sprzedaż - tym
-              się zajmujemy. Zaplanujemy dla Ciebie skuteczne działania
-              marketingowe, zaprojektujemy procesy sprzedaży, które przyniosą
-              wymierne korzyści i stworzymy spójną identyfikację wizualną i
-              językową Twojej marki.
-            </S.ContentParagraph>
-            <S.ContentParagraph
+              Założyłyśmy dobrze. bo lubimy rozwiązania solidne, etyczne i
+              estetyczne. Uważamy, że w biznesie ważna jest spójność i
+              szczerość. Projektując opieramy się na analizie danych, nie na
+              przeczuciach.
+            </S.SectionParagraph>
+            <S.SectionParagraph
               isAnimationActive={isAnimationActive}
-              animationDelay={150}
+              animationDelay={100}
             >
-              Misja od początku była dla nas jasna - chcemy pomagać, tam gdzie
-              inni mówią, że bez milionowych nakładów finansowych się nie da.{" "}
-              <strong>
-                Każda marka ma szansę być dobra, niezależnie od budżetu.
-              </strong>{" "}
-              Wszystkie nasze działania są wynikiem analizy. Nie projektujemy
-              zdając się na intuicję, projektujemy kierując się wiedzą.
-            </S.ContentParagraph>
-          </S.ContentText>
-          <S.ContentBackground isAnimationActive={isAnimationActive} />
-        </S.Content>
+              dobrze. to dla nas możliwość wprowadzania zmian - promowania
+              etycznej sprzedaży, szczerości wobec klienta i rozwoju biznesu w
+              oparciu o procesy, nad którymi masz kontrolę.
+            </S.SectionParagraph>
+            <S.SectionParagraph
+              isAnimationActive={isAnimationActive}
+              animationDelay={200}
+            >
+              Mamy doświadczenie w branży IT, a po godzinach od zawsze
+              poświęcałyśmy czas sztuce.
+            </S.SectionParagraph>
 
-        <S.Navigation>
-          <TransitionLink
-            to={`/o-nas/${aboutUsData[0].path}`}
-            exit={{ length: 0.8 }}
-            entry={{
-              length: 0,
-              state: {
-                animation: PAGE_ANIMATION.FADE,
-              },
-            }}
-          >
-            <S.NavigationItem
+            <Media.TabletAndBigger>
+              <S.SectionButton
+                isAnimationActive={isAnimationActive}
+                animationDelay={400}
+              >
+                <Button to="/kontakt">skontaktuj się z nami</Button>
+              </S.SectionButton>
+            </Media.TabletAndBigger>
+          </S.SectionContent>
+        </S.Section>
+
+        <S.Section reversed>
+          <Media.MobileOnly>
+            <S.SectionTitle
               isAnimationActive={isAnimationActive}
               animationDelay={500}
-              left
             >
-              <S.NavigationPhoto image={aboutUsData[0].photo} />
-              <S.NavigationText left>ADA</S.NavigationText>
-            </S.NavigationItem>
-          </TransitionLink>
+              Ada
+            </S.SectionTitle>
+          </Media.MobileOnly>
 
-          <S.NavigationSeparator
-            isAnimationActive={isAnimationActive}
-            animationDelay={500}
-          >
-            &#8226;
-          </S.NavigationSeparator>
-
-          <TransitionLink
-            to={`/o-nas/${aboutUsData[1].path}`}
-            exit={{ length: 0.8 }}
-            entry={{
-              length: 0,
-              state: {
-                animation: PAGE_ANIMATION.FADE,
-              },
-            }}
-          >
-            <S.NavigationItem
+          <S.SectionLeftColumn reversed>
+            <S.SectionImage
+              src={adaImage}
               isAnimationActive={isAnimationActive}
               animationDelay={500}
-              right
+              reversed
+            />
+          </S.SectionLeftColumn>
+
+          <S.SectionContent reversed>
+            <Media.TabletAndBigger>
+              <S.SectionTitle
+                isAnimationActive={isAnimationActive}
+                animationDelay={500}
+              >
+                Ada
+              </S.SectionTitle>
+            </Media.TabletAndBigger>
+
+            <Media.MobileOnly>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={700}
+              >
+                W dobrze. zajmuję się analizą, projektowaniem procesów
+                marketingowych i sprzedażowych. Dbam o równowagę i spójność
+                pomiędzy obrazem i słowem. Badam kogo przyciąga Twoja strona
+                internetowa, czy docierasz tam gdzie chcesz dotrzeć. Wyznaczam
+                metryki, które pozwalają mierzyć skuteczność działań i zrozumieć
+                czego szukają klienci.
+              </S.SectionParagraph>
+            </Media.MobileOnly>
+
+            <Media.TabletAndBigger>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={700}
+              >
+                W dobrze. zajmuję się analizą, projektowaniem procesów
+                marketingowych i sprzedażowych. Dbam o równowagę i spójność
+                pomiędzy obrazem i słowem. Badam kogo przyciąga Twoja strona
+                internetowa, czy docierasz tam gdzie chcesz dotrzeć. Wyznaczam
+                metryki, które pozwalają mierzyć skuteczność działań i zrozumieć
+                czego szukają klienci.
+              </S.SectionParagraph>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={800}
+              >
+                Od prawie 7 lat pracuję w branży IT, dbam o rozwój biznesów
+                internetowych i skuteczną strategię marketingową, specjalizuję
+                się w marketingu produktowym. Jestem założycielką firmy
+                dekoratorskiej, dobrze. to dla mnie przede wszystkim realizacja
+                pasji.
+              </S.SectionParagraph>
+            </Media.TabletAndBigger>
+
+            <S.SectionFooter
+              isAnimationActive={isAnimationActive}
+              animationDelay={1000}
             >
-              <S.NavigationPhoto image={aboutUsData[1].photo} />
-              <S.NavigationText right>ASIA</S.NavigationText>
-            </S.NavigationItem>
-          </TransitionLink>
-        </S.Navigation>
-      </S.Container>
+              identyfikacja wizualna <br />
+              budowanie strategii marketingowej <br />
+              analiza strony <br />
+              wyznaczanie metryk <br />
+            </S.SectionFooter>
+          </S.SectionContent>
+        </S.Section>
+
+        <S.Section>
+          <Media.MobileOnly>
+            <S.SectionTitle
+              isAnimationActive={isAnimationActive}
+              animationDelay={1000}
+            >
+              Asia
+            </S.SectionTitle>
+          </Media.MobileOnly>
+
+          <S.SectionLeftColumn>
+            <S.SectionImage
+              src={asiaImage}
+              isAnimationActive={isAnimationActive}
+              animationDelay={1000}
+            />
+          </S.SectionLeftColumn>
+
+          <S.SectionContent>
+            <Media.TabletAndBigger>
+              <S.SectionTitle
+                isAnimationActive={isAnimationActive}
+                animationDelay={1000}
+              >
+                Asia
+              </S.SectionTitle>
+            </Media.TabletAndBigger>
+
+            <Media.MobileOnly>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={1200}
+              >
+                W dobrze. zajmuję się analizą tego, jak komunikujesz się z
+                klientem. Kognitywne językoznawstwo i emocje w komunikacji to
+                moje specjalizacje. Od 5 lat zajmuję się sprzedażą - tworzę
+                lejki sprzedażowe i pomagam zrozumieć jak dbać o klienta.
+                Projektuję grafiki i identyfikację wizualną.
+              </S.SectionParagraph>
+            </Media.MobileOnly>
+
+            <Media.TabletAndBigger>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={1200}
+              >
+                W dobrze. zajmuję się analizą tego, jak komunikujesz się z
+                klientem. Językoznawstwo kognitywne i emocje w komunikacji to
+                moje specjalizacje. Projektuję grafiki i identyfikację wizualną.
+                Od 5 lat zajmuję się sprzedażą - tworzę lejki sprzedażowe i
+                pomagam zrozumieć jak dbać o klienta.
+              </S.SectionParagraph>
+              <S.SectionParagraph
+                isAnimationActive={isAnimationActive}
+                animationDelay={1300}
+              >
+                Jestem UX-writerką, prowadzę warsztaty z analizy przekazu
+                medialnego. Uwielbiam góry, książki i rośliny. dobrze. to dla
+                mnie możliwość przekazywania wiedzy, motywacja do ciągłej nauki
+                i okazja do pracy nad ciekawymi projektami.
+              </S.SectionParagraph>
+            </Media.TabletAndBigger>
+
+            <S.SectionFooter
+              isAnimationActive={isAnimationActive}
+              animationDelay={1500}
+            >
+              identyfikacja wizualna <br />
+              analiza językowa <br />
+              lejki sprzedażowe <br />
+              komunikacja <br />
+            </S.SectionFooter>
+          </S.SectionContent>
+        </S.Section>
+      </PageContent>
     </PageAnimation>
   )
 }

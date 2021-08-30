@@ -27,13 +27,16 @@
     "gatsby-plugin-netlify": "^2.3.15",
     "gatsby-plugin-preload-fonts": "^1.2.28",
     "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-transition-link": "^1.20.2",
+    "gatsby-plugin-use-query-params": "^1.0.1",
     "lodash": "^4.17.20",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.1.1",
+    "use-query-params": "^1.2.3",
     "yarn": "^1.22.4"
   },
   "devDependencies": {

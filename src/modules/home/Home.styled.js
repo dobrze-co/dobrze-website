@@ -40,7 +40,7 @@ export const Title = styled.h1`
   ${mediaQueries.mobileLandscape} {
     position: absolute;
     z-index: 2;
-    font-size: 25vw;
+    font-size: 18vw;
     line-height: 570px;
     width: 100%;
     height: 100%;
@@ -49,7 +49,7 @@ export const Title = styled.h1`
   ${mediaQueries.tablet} {
     position: absolute;
     z-index: 2;
-    font-size: 25vw;
+    font-size: 18vw;
     line-height: 570px;
     width: 100%;
     height: 100%;
@@ -94,25 +94,25 @@ export const Slider = styled.div`
     `}
 
   ${mediaQueries.mobileLandscape} {
-    height: auto;
+    height: 60%;
     width: auto;
     position: absolute;
     z-index: 1;
-    left: 25%;
-    right: 25%;
-    top: 16%;
-    bottom: 16%;
+    left: 22%;
+    right: 22%;
+    top: 20%;
+    bottom: 20%;
   }
 
   ${mediaQueries.tablet} {
-    height: auto;
+    height: 60%;
     width: auto;
     position: absolute;
     z-index: 1;
-    left: 25%;
-    right: 25%;
-    top: 16%;
-    bottom: 16%;
+    left: 22%;
+    right: 22%;
+    top: 20%;
+    bottom: 20%;
   }
 `
 
@@ -126,6 +126,7 @@ export const Image = styled.div`
   background-size: cover;
   background-position: center;
   opacity: 0;
+  transition: opacity 600ms ease-out;
 
   ${({ active }) =>
     active &&
@@ -140,7 +141,7 @@ export const Footer = styled.div`
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  color: ${Colors.Primary};
+  color: ${Colors.Black};
   font-size: 14px;
   letter-spacing: 1.6px;
   padding-left: 1.6px;
@@ -154,33 +155,32 @@ export const Footer = styled.div`
   ${mediaQueries.mobileLandscape} {
     position: absolute;
     z-index: 3;
-    left: 25%;
-    right: 25%;
-    height: 16%;
-    bottom: 0;
-    font-size: 1.95vw;
-    letter-spacing: 0.6vw;
-    padding-left: 0.6vw;
+    left: 15%;
+    right: 15%;
+    height: 12%;
+    bottom: 8%;
+    font-size: 2.25vw;
+    letter-spacing: 0.7vw;
+    padding-left: 0.7vw;
     margin-bottom: 0;
   }
 
   ${mediaQueries.tablet} {
     position: absolute;
     z-index: 3;
-    left: 25%;
-    right: 25%;
-    height: 16%;
-    bottom: 0;
-    font-size: 1.95vw;
-    letter-spacing: 0.5vw;
-    padding-left: 0.5vw;
+    left: 15%;
+    right: 15%;
+    height: 12%;
+    bottom: 8%;
+    font-size: 2.25vw;
+    letter-spacing: 0.7vw;
+    padding-left: 0.7vw;
     margin-bottom: 0;
   }
-  
-  
+
   a {
     position: relative;
-    color: ${Colors.Primary};
+    color: ${Colors.Black};
     text-decoration: none;
   }
 
@@ -188,15 +188,15 @@ export const Footer = styled.div`
     content: "";
     position: absolute;
     bottom: 0;
-    left 0;
+    left: 0;
     right: 1.6px;
     height: 1px;
-    background: ${Colors.Primary};
-    
+    background: ${Colors.Black};
+
     ${mediaQueries.mobileM} {
       right: 2.6px;
     }
-    
+
     ${mediaQueries.mobileLandscape} {
       right: 0.6vw;
     }
@@ -205,7 +205,7 @@ export const Footer = styled.div`
       right: 0.5vw;
       height: 2px;
     }
-    
+
     ${mediaQueries.laptopM} {
       height: 3px;
     }

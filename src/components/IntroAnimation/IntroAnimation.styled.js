@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 import * as Colors from "../../theme/colors"
 import * as Transitions from "../../theme/transitions"
 import { mediaQueries } from "../../theme/responsive"
 
-export const INTRO_ANIMATION_DELAY = 2000
+export const INTRO_ANIMATION_DELAY = 2500
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -36,6 +36,7 @@ export const Content = styled.div`
   padding: 50px;
   color: ${Colors.Primary};
   transition: ${Transitions.FadeTransition};
+  overflow: hidden;
 
   ${({ active }) =>
     !active &&
@@ -90,4 +91,67 @@ export const ContentWrapper = styled.div`
 export const Children = styled.div`
   position: relative;
   z-index: 1;
+`
+
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+  `
+
+const pulse = keyframes`
+  0%, 100% {
+    transform: translate(-50%, 50%) scale(0.95);
+  }
+
+  50% {
+    transform: translate(-50%, 50%) scale(1.05);
+  }
+  `
+
+export const IntroDot = styled.div`
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: ${Colors.Accent};
+  transform: translate(-50%, 50%);
+  opacity: 0;
+  animation: ${opacity} 3s ease-in-out, ${pulse} 5s ease-in-out infinite;
+
+  ${({ isAnimationActive }) =>
+    isAnimationActive &&
+    css`
+      opacity: 1;
+    `}
+
+  ${mediaQueries.mobileM} {
+    width: 220px;
+    height: 220px;
+  }
+
+  ${mediaQueries.tablet} {
+    width: 320px;
+    height: 320px;
+  }
+
+  ${mediaQueries.laptop} {
+    width: 400px;
+    height: 400px;
+  }
+
+  ${mediaQueries.laptopM} {
+    width: 500px;
+    height: 500px;
+  }
 `

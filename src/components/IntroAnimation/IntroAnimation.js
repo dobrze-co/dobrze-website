@@ -3,7 +3,7 @@ import * as S from "./IntroAnimation.styled"
 import * as Transitions from "../../theme/transitions"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 
-export default ({ content, active, started, children }) => {
+export default ({ content, active, started, infinite, withDot, children }) => {
   const [displayChildren, setDisplayChildren] = useState(!active)
   const [isAnimationFinished, setIsAnimationFinished] = useState(!active)
   const [isContentAnimationActive, setIsContentAnimationActive] = useState(
@@ -16,6 +16,11 @@ export default ({ content, active, started, children }) => {
     }
 
     disableBodyScroll(document.documentElement)
+
+    if (infinite) {
+      return
+    }
+
     const animationTimeout = setTimeout(() => {
       setDisplayChildren(true)
     }, S.INTRO_ANIMATION_DELAY)
@@ -29,7 +34,7 @@ export default ({ content, active, started, children }) => {
       clearTimeout(animationTimeout)
       clearTimeout(clearAnimationTimeout)
     }
-  }, [started])
+  }, [started, infinite])
 
   useEffect(() => {
     if (!displayChildren) {
@@ -52,6 +57,7 @@ export default ({ content, active, started, children }) => {
         <S.ContentWrapper isAnimationActive={isContentAnimationActive}>
           {content}
         </S.ContentWrapper>
+        {withDot && <S.IntroDot isAnimationActive={isContentAnimationActive} />}
       </S.Content>
       <S.Children>{children}</S.Children>
     </S.Container>
