@@ -119,8 +119,9 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={700}
               >
-                W dobrze. zajmuję się analizą i tworzeniem wizerunku marki. Dbam
-                o spójność obrazów i słów. Badam, kogo przyciąga Twoja strona
+                W dobrze. zajmuję się analizą, projektowaniem procesów
+                marketingowych i sprzedażowych. Dbam o równowagę i spójność
+                pomiędzy obrazem i słowem. Badam kogo przyciąga Twoja strona
                 internetowa, czy docierasz tam gdzie chcesz dotrzeć. Wyznaczam
                 metryki, które pozwalają mierzyć skuteczność działań i zrozumieć
                 czego szukają klienci.
@@ -132,20 +133,22 @@ export default ({ transitionStatus, exit, entry }) => {
                 isAnimationActive={isAnimationActive}
                 animationDelay={700}
               >
-                W dobrze. zajmuję się analizą i projektowaniem wizerunku marki.
-                Dbam o równowagę i spójność pomiędzy obrazem i słowem. Badam,
-                kogo przyciąga Twoja strona internetowa, czy docierasz tam gdzie
-                chcesz dotrzeć. Wyznaczam metryki, które pozwalają mierzyć
-                skuteczność działań i zrozumieć czego szukają klienci.
+                W dobrze. zajmuję się analizą, projektowaniem procesów
+                marketingowych i sprzedażowych. Dbam o równowagę i spójność
+                pomiędzy obrazem i słowem. Badam kogo przyciąga Twoja strona
+                internetowa, czy docierasz tam gdzie chcesz dotrzeć. Wyznaczam
+                metryki, które pozwalają mierzyć skuteczność działań i zrozumieć
+                czego szukają klienci.
               </S.SectionParagraph>
               <S.SectionParagraph
                 isAnimationActive={isAnimationActive}
                 animationDelay={800}
               >
                 Od prawie 7 lat pracuję w branży IT, dbam o rozwój biznesów
-                internetowych i skuteczną strategię marketingową. Jestem
-                założycielką firmy dekoratorskiej, właścicielką 2 kotów i 6
-                rowerów. dobrze. to dla mnie przede wszystkim realizacja pasji.
+                internetowych i skuteczną strategię marketingową, specjalizuję
+                się w marketingu produktowym. Jestem założycielką firmy
+                dekoratorskiej, dobrze. to dla mnie przede wszystkim realizacja
+                pasji.
               </S.SectionParagraph>
             </Media.TabletAndBigger>
 
